@@ -1,15 +1,16 @@
 ---
 layout: page
-title: "Tutorial"
+title: "Spoofax Tutorial: Questionnaire Language"
 modified:
 excerpt:
 tags: []
 image:
-  feature: screenshot.png
+  feature: 
   credit:  
   creditlink: 
 toc: true
 share: true
+context: spoofax
 ---
 
 <section id="table-of-contents" class="toc"> 
