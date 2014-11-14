@@ -10,6 +10,16 @@ body {
 	font-weight: 700;
 	text-transform: uppercase;
 	@include clearfix;
+	a.activecontext {
+	   border-bottom : 1px solid black;
+	}
+}
+.context-nav {
+  padding: 0.5em 0 0 0;
+  margin: 0.5em 0 0 0;
+  font-style: italic;
+  font-weight: 500;
+  text-transform: none;
 }
 .site-name {
 	@include grid(12,10);
@@ -425,8 +435,8 @@ $button-size: 1.5rem;
 		@include grid(12,2);
 		@include prefix(12,0.5);
 		@include suffix(12,0.5);
-		position: absolute;
-		top: 5.5em;
+		position: fixed;
+		top: 1em;
 		right: 0;
 		background-color: $white;
 	}
@@ -471,6 +481,21 @@ $button-size: 1.5rem;
 		}
 		ul {
 			margin: 1px 0 0;
+			li {
+			  a {
+			    padding: 10px 10px 10px 30px;
+			  }
+			  a:before {
+			    content: "> "
+			  }
+			  ul {
+			    li {
+			      a {
+			       padding: 10px 10px 10px 60px;
+			      }
+			    }
+		    }
+			}
 		}
 	}
 }
@@ -480,6 +505,12 @@ $button-size: 1.5rem;
 	&.js-hidden {
 		max-height: 0;
 	}
+}
+.toc {
+  ul.js-hidden {
+    max-height: 0;
+    display: none;
+  }
 }
 .image-grid {
 	@include clearfix;
