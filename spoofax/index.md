@@ -9,7 +9,7 @@ image:
   creditlink: 
 context: spoofax
 ---
-
+ 
 Spoofax is a platform for developing textual domain-specific languages with full-featured [Eclipse](http://eclipse.org) editor plugins.
  
 With the Spoofax language workbench, you can write the grammar of your language using the high-level SDF  grammar formalism. Based on this grammar, basic editor services such as syntax highlighting and code folding are automatically provided. Using high-level descriptor languages, these services can be customized. More sophisticated services such as error marking and content completion can be specified using rewrite rules in the Stratego language.
@@ -34,6 +34,13 @@ Spoofax is constructed from the following components:
 * Examples
 * Development
 * Support
+
+# Documentation for Spoofax' Meta Languages
+
+* [Syntax Definition in SDF3](sdf3/)
+* [Name Binding and Scope Rules in NaBL](nabl/)
+* [Type Rules and Constraints in TS](ts/)
+* [API for incremental name resolution and static analysis](nabl/)
 
 ## MetaBorg
 
