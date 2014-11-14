@@ -1,0 +1,15 @@
+# Site navigation links
+
+- title: "Spoofax Tutorials"
+  url: /spoofax/tutorials/
+  context: spoofax
+
+- title: "Editor Services"
+  url: /spoofax/editor-services/
+  context: spoofax
+  
+   
+- title: "SDF3 Tutorials"
+  url: /sdf3/tutorials/
+  context: sdf3
+  
