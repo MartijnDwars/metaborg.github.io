@@ -1,4 +1,3 @@
-# TS: Type System Specification
 
 Types "categorize objects according to their usage and behaviour [Cardelli & Wegner 1985](http://researchr.org/publication/CardelliW85 "Cardelli & Wegner 1985").” A _type system_ formalizes this categorization, in order to ensure that only the intended operations are used on the representation of values of a type, avoiding run-time errors [Pierce 2002](http://researchr.org/publication/Pierce2002 "Pierce 2002"). 
 Typical formalizations of type systems tangle the name resolution with type analysis, the computation of types of expressions. 
