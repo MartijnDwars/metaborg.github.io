@@ -1,6 +1,6 @@
 # Site wide configuration
 
-title:            Site Title
+title:            MetaBorg
 locale:           en_US
 url:              http://localhost:4000
 
@@ -26,9 +26,9 @@ kramdown:
 
 # Site owner
 owner:
-  name: Your Name
+  name: Eelco Visser
   avatar: bio-photo.jpg
-  bio: "Describe your self."
+  bio: "Language engineer"
   email: 
   disqus-shortname: 
   twitter: #username
