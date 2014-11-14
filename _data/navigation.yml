@@ -1,13 +1,33 @@
 # Site navigation links
 
-- title: About
-  url: /about/
+- title: News
+  url: /news/
+  context: news
+  
+- title: Download
+  url: /download/
+  context: download
 
-- title: Sample Posts
-  url: /posts/
+- title: Spoofax
+  url: /spoofax/
+  context: spoofax
+  
+- title: SDF3
+  url: /sdf3/
+  context: sdf3
+  
+- title: NaBL
+  url: /nabl/
+  context: nabl
+  
+- title: TS
+  url: /ts/
+  context: ts
 
-- title: Theme Setup
-  url: /theme-setup/
+- title: Stratego
+  url: /stratego/
+  context: stratego
 
-- title: Made Mistakes
-  url: http://mademistakes.com
+- title: Dev
+  url: /dev/
+  context: dev
