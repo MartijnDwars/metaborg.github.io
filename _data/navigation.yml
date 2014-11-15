@@ -9,7 +9,7 @@
   context: download
 
 - title: Spoofax
-  url: /spoofax/
+  url: /spoofax/ 
   context: spoofax
   
 - title: SDF3
@@ -23,6 +23,10 @@
 - title: TS
   url: /ts/
   context: ts
+  
+- title: SPT
+  url: /spt/
+  context: spt
 
 - title: Stratego
   url: /stratego/
@@ -31,3 +35,4 @@
 - title: Dev
   url: /dev/
   context: dev
+ 
