@@ -1,13 +1,13 @@
 ---
 title: MetaBorg Contributors
 layout: page
-modified: 2014-07-31T13:23:02.362000-04:00
-excerpt: "All about Spoofax"
+date: 2014-07-31EST
+excerpt: 
 image:
   feature: 
   credit: 
   creditlink: 
-context: spoofax
+context: dev
 ---
 
 -   [Eelco Visser](http://eelcovisser.org) (project lead)
