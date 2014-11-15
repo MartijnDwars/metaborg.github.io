@@ -10,6 +10,9 @@ body {
 	font-weight: 700;
 	text-transform: uppercase;
 	@include clearfix;
+	a {
+	  color : #343434;
+  }
 }
 .context-nav {
   padding: 0.5em 0 0 0;
@@ -428,7 +431,7 @@ $button-size: 1.5rem;
 	// Dotted line underlines for links
 	p > a,
 	li > a {
-		text-decoration: underline;
+		text-decoration: none;
 	}
 }
 .toc {
