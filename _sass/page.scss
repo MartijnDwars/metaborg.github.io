@@ -362,6 +362,9 @@ $button-size: 1.5rem;
 		max-width: 110px;
 		@include rounded(150px);
 	}
+	.side-photo {
+		max-width: 150px;
+	}
 	@media #{$small} {
 		display: block;
 		@include grid(12,2);
