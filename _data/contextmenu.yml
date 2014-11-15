@@ -1,15 +1,43 @@
 # Site navigation links
 
-- title: "Spoofax Tutorials"
+# News
+
+- title: "Archive"
+  url: /news/archive/
+  context: news
+
+
+# Spoofax
+
+- title: "Tour"
+  url: /spoofax/tour/
+  context: spoofax
+  
+- title: "Tutorials"
   url: /spoofax/tutorials/
+  context: spoofax
+  
+- title: "Support"
+  url: /spoofax/support/
+  context: spoofax
+  
+- title: "FAQ"
+  url: /spoofax/faq/
+  context: spoofax
+  
+- title: "Examples"
+  url: /spoofax/examples/
   context: spoofax
 
 - title: "Editor Services"
   url: /spoofax/editor-services/
   context: spoofax
   
+ 
+
+# SDF3
    
-- title: "SDF3 Tutorials"
+- title: "Tutorials"
   url: /sdf3/tutorials/
   context: sdf3
   
