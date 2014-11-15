@@ -6,11 +6,10 @@ modified:
 excerpt:
 tags: []
 image:
-  feature: screenshot.png
-  credit: WeGraphics
-  creditlink: http://wegraphics.net/downloads/free-ultimate-blurred-background-pack/
-toc: true
-share: true
+  feature: 
+  credit: 
+  creditlink: 
+context: spoofax
 ---
 
 <section id="table-of-contents" class="toc"> 
@@ -23,8 +22,8 @@ share: true
 
 This page provides a tour of the different features of Spoofax. For
 additional supporting material and documentation, visit our
-[Documentation](/Spoofax/Documentation) page. For a quick overview of
-features, see the [Features](/Spoofax/Features) page.
+[Documentation](/Spoofax/documentation) page. For a quick overview of
+features, see the [Features](/Spoofax/features) page.
 
 ----
 
@@ -41,18 +40,18 @@ Moved to <http://metaborg.org/wiki/spoofax/download>
 To get started, create a new Spoofax/IMP project using the *File \>
 New \> Project \> Spoofax/IMP project* wizard.
 
-![wizard.png](http://strategoxt.org/pub/Spoofax/Tour/wizard.png)
+![wizard.png](/spoofax/images/tour/wizard.png)
 
 The wizard creates a new an example language and editor definition. It
 also opens editors for the crucial parts of these definitions, as
 illustrated below:
 
-![overview.png](http://strategoxt.org/pub/Spoofax/Tour/overview.png)
+![overview.png](/spoofax/images/tour/overview.png)
 
 Highlighted in blue are components that can be used to customize the
 language and editor. Key components (show in tabs, from left to right)
-are the *[SDF](/Stratego/SDF) syntax* of the language, the *main editor
-descriptor*, and the *[Stratego](/Stratego/StrategoLanguage) semantic
+are the *[SDF](/sdf3/) syntax* of the language, the *main editor
+descriptor*, and the *[Stratego](/stratego/) semantic
 description*. The wizard also opens an editor with an example file that
 can be used to try out the language editor.
 
@@ -63,24 +62,28 @@ with `.generated` in their name are derived from the language
 definition. These files should not be edited directly as they are
 generated every time the project is built.
 
-  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--- 
+
   *Tip:* To rebuild the language and editor at any point use *Project \> Build Project* (control-alt-B) or right-click on the build.main.xml file and run it using Ant.
-  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+----
 
 ## The Syntax Definition
 
 The SDF grammar in the `syntax` directory defines the syntactic
 structure of the language:
 
-![syntax.png](http://strategoxt.org/pub/Spoofax/Tour/syntax.png)
+![syntax.png](/spoofax/images/tour/syntax.png)
 
 The easiest way to work with the syntax may be to look at it
 side-by-side with an example editor, allowing you to experiment with the
 grammar and a concrete file.
 
-  ------------------------------------------------------------------------------------------------------------------
+----
+
   *Tip:* To show two editors side-by-side in Eclipse, drag their caption to a position adjacent to another editor.
-  ------------------------------------------------------------------------------------------------------------------
+
+----
 
 The syntax of the default entities language has four production rules: a
 *start* production with the `module` keyword, and productions for
@@ -109,9 +112,11 @@ in this fashion. The constructor label "CompositeProperty" is used to
 uniquely identify this new property relation. To try it out, rebuild
 your project (using control-alt-B), and use it in the example editor.
 
-  -----------------------------------------------------------------------------------------------------------------------------
-  *Tip*: For more information on using the SDF, see the reference manual on the [Documentation](/Spoofax/Documentation) page.
-  -----------------------------------------------------------------------------------------------------------------------------
+----
+
+  *Tip*: For more information on using the SDF, see the reference manual on the [Documentation](/spoofax/documentation) page.
+
+----
 
 ### The abstract syntax
 
@@ -120,15 +125,14 @@ These are efficiently stored in memory and allow you to concisely
 manipulate programs. To inspect the abstract syntax of a file, select
 *Show abstract syntax* from the *Transform* menu:
 
-![show-abstract-syntax.png](http://strategoxt.org/pub/Spoofax/Features/show-abstract-syntax.png)
+![show-abstract-syntax.png](/spoofax/images/tour/show-abstract-syntax.png)
 
 An extra editor will be opened to the side showing the abstract syntax
 of your file or selection. Note that the view is updated as the original
 file is edited.
 
 
-Presentational editor services
-------------------------------
+## Presentational editor services
 
 Presentational editor services such as code folding, the outline view,
 and syntax highlighting are defined using `esv` files in the `editor`
@@ -138,7 +142,7 @@ directory.
 
 As an example, we take a look at the definition for code folding:
 
-![folding.png](http://strategoxt.org/pub/Spoofax/Tour/folding.png)
+![folding.png](/spoofax/images/tour/folding.png)
 
 The default `EntityLang-Folding.generated.esv` file defines folding for
 the start production (symbol Start, constructor label Module) and for
@@ -150,41 +154,42 @@ definition file (`EntityLang-Folding.esv`) and a derived file
 customize the editor. The second file is automatically generated from
 your grammar, each time the project is built.
 
-  ----------------------------------------------------------------------------------------
+----
+
   *Tip:* The `.generated` files document the editor descriptor languages using comments.
-  ----------------------------------------------------------------------------------------
+
+----
 
 ### Outline view
 
 The outline view of the editor can be customized in the same way as the
 folding definition:
 
-![outline-rules.png](http://strategoxt.org/pub/Spoofax/Tour/outline-rules.png)
+![outline-rules.png](/spoofax/images/tour/outline-rules.png)
 
 An interesting feature of the outline is that it can be shown in the
 *quick outline* view by pressing control-O (command-O on Mac OSX). This
 allows users to quickly navigate in the file:
 
-![quick-outline.png](http://strategoxt.org/pub/Spoofax/Tour/quick-outline.png)
+![quick-outline.png](/spoofax/images/tour/quick-outline.png)
 
 ### Syntax highlighting
 
 We can use the `EntityLang-Colorer` file to customize the generated
 syntax highlighter:
 
-![syntax-highlighting.png](http://strategoxt.org/pub/Spoofax/Tour/syntax-highlighting.png)
+![syntax-highlighting.png](/spoofax/images/tour/syntax-highlighting.png)
 
 
-Transformations and code generation
------------------------------------
+## Transformations and code generation
 
 The `generate.str` file in the `trans` directory defines code generation
 rules:
 
-![code-generation.png](http://strategoxt.org/pub/Spoofax/Tour/code-generation.png)
+![code-generation.png](/spoofax/images/tour/code-generation.png)
 
 These generate Java code directly from the [abstract
-syntax](/Spoofax/Tour#The_abstract_syntax) of the language. Each takes
+syntax](/spoofax/tour#The_abstract_syntax) of the language. Each takes
 the following form:
 
     name:
@@ -211,13 +216,12 @@ kind of bracket: `{`, `<`, and `(` are allowed.
 You can try out the transformation using the *Transform* menu, selecting
 *Generate Java code*:
 
-![code-generation.png](http://strategoxt.org/pub/Spoofax/Features/code-generation.png)
+![code-generation.png](/spoofax/images/tour/code-generation2.png)
 
 If you edit the input text, the transformation result will be
 automatically updated. Try changing the transformation and rebuilding
 the project.
 
-\
 ### Advanced transformations
 
 When you implement more complicated transformations you will find that
@@ -227,7 +231,7 @@ transformations or desugarings). To accomplish this, you can add
 additional definitions for the `to-java` rule, or you can add a new rule
 with a different name:
 
-![simplify-rule.png](http://strategoxt.org/pub/Spoofax/Tour/simplify-rule.png)
+![simplify-rule.png](/spoofax/images/tour/simplify-rule.png)
 
 This rule rewrites the `CompositeProperty` we have shown before to a
 regular property. We can now rebuild the project and try out the
@@ -235,22 +239,22 @@ transformation. Select a composite entity property in the editor or
 abstract syntax view and choose *Apply custom rule* in the *Transform*
 menu:
 
-![apply-simplify-1.png](http://strategoxt.org/pub/Spoofax/Tour/apply-simplify-1.png)
+![apply-simplify-1.png](/spoofax/images/tour/apply-simplify-1.png)
 
 When prompted, enter the name of the `simplify` rule:
 
-![apply-simplify-2.png](http://strategoxt.org/pub/Spoofax/Tour/apply-simplify-2.png)
+![apply-simplify-2.png](/spoofax/images/tour/apply-simplify-2.png)
 
 The result of our transformation is now shown in an a view to the side:
 
-![apply-simplify-3.png](http://strategoxt.org/pub/Spoofax/Tour/apply-simplify-3.png)
+![apply-simplify-3.png](/spoofax/images/tour/apply-simplify-3.png)
 
 To use the simplify rule in our transformation to Java, we must make
 sure that it is invoked there. The original `to-java` rule was invoked
 in `entitylang.str`, which defines the main interface of our language
 for the editor:
 
-![main-str.png](http://strategoxt.org/pub/Spoofax/Tour/main-str.png)
+![main-str.png](/spoofax/images/tour/main-str.png)
 
 This rule follows a fixed interface for interoperability with the
 editor, and gets the node currently *selected* by the user, its tree
@@ -260,7 +264,7 @@ should be generated and its contents.
 
 We can adapt the `generate-java` rule to call our new `simplify` rule:
 
-![main-str-2.png](http://strategoxt.org/pub/Spoofax/Tour/main-str-2.png)
+![main-str-2.png](/spoofax/images/tour/main-str-2.png)
 
 We added a new rule `to-java-top` that first invokes the `simplify` rule
 before `to-java` is invoked. However, when you rebuild the project you
@@ -271,7 +275,7 @@ be applied to an entire module. Unlike `to-java`, it is only defined for
 We can fix our transformation by introducing new definitions for the
 `simplify` rule for modules, entities, etc:
 
-![simplify-rule-2.png](http://strategoxt.org/pub/Spoofax/Tour/simplify-rule-2.png)
+![simplify-rule-2.png](/spoofax/images/tour/simplify-rule-2.png)
 
 Unfortunately, this practice quickly becomes tedious and hard to
 maintain. Stratego also allows us to specify a *strategy* according to
@@ -279,21 +283,23 @@ which the rule should be applied in the entire tree. A common strategy
 is the *topdown/try* strategy: walk the tree in a *topdown* fashion, and
 *try* to apply it everywhere in the tree where possible:
 
-![main-str-3.png](http://strategoxt.org/pub/Spoofax/Tour/main-str-3.png)
+![main-str-3.png](/spoofax/images/tour/main-str-3.png)
 
 Other useful strategies are *map*, to apply a rule on a list (e.g.,
 `map(simplify)`), and *innermost*, to exhaustively apply a rule,
 starting at the innermost leaves of a tree.
 
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  *Tip*: For more information on using strategies and rewrite rules in Stratego, see the reference manual and tutorial on the [Documentation](/Spoofax/Documentation) page.
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----
+
+  *Tip*: For more information on using strategies and rewrite rules in Stratego, see the reference manual and tutorial on the [Documentation](/spoofax/documentation) page.
+
+----
 
 ### Customizing the Transform menu
 
 The Transform menu allows you to apply any rule to a file or selection:
 
-![code-generation.png](http://strategoxt.org/pub/Spoofax/Features/code-generation.png)
+![code-generation.png](/spoofax/images/tour/code-generation3.png)
 
 Transform can be used directly in an editor of your language, but also
 from the abstract syntax of that language.
@@ -301,7 +307,7 @@ from the abstract syntax of that language.
 The `EntityLang-Builders.esv` file in the `editor` directory defines the
 entries in the Transform menu:
 
-![builders.png](http://strategoxt.org/pub/Spoofax/Tour/builders.png)
+![builders.png](/spoofax/images/tour/builders.png)
 
 The corresponding `EntityLang-Builders.generated.esv` documents the
 definitions in this file. For this tour, we are interested in the
@@ -313,17 +319,16 @@ which will be updated in *"real time"* as the user edits the source of
 the tranformation. The second `builder` is a *meta* builder: it only
 shows up to developers of the language, not when the plugin is deployed.
 
-Error checking
---------------
+## Error checking
 
 Any errors in the entities language are reported directly in the editor:
 
-![error-marker.png](http://strategoxt.org/pub/Spoofax/Tour/error-marker.png)
+![error-marker.png](/spoofax/images/tour/error-marker.png)
 
 These errors are specified using check rules in the `check.str` file in
 the `trans` directory:
 
-![check-rules.png](http://strategoxt.org/pub/Spoofax/Tour/check-rules.png)
+![check-rules.png](/spoofax/images/tour/check-rules.png)
 
 Like code generation rules, these rules are really just regular rewrite
 rules. They match against a particular language element and produce a
@@ -335,20 +340,19 @@ particular condition holds (note the use of the `where` keyword): the
 property type is not "String" or "Int", and using `GetEntity` (defined
 below) we can tell that it does not exist in the symbol table.
 
-Refactorings
-------------
+## Refactorings
 
 Spoofax helps you to enrich your editor with refactorings. You can find
 the refactorings in the context menu of the file being edited.
 
-![refactoring-in-editor.png](http://strategoxt.org/pub/Spoofax/Tour/refactoring-in-editor.png)
+![refactoring-in-editor.png](/spoofax/images/tour/refactoring-in-editor.png)
 
 ### Refactoring Specifications
 
 The `EntityLang-Builders.esv` file in the `editor` directory defines the
 entries in the Refactor menu:
 
-![refactoring-builder.png](http://strategoxt.org/pub/Spoofax/Tour/refactoring-builder.png)
+![refactoring-builder.png](/spoofax/images/tour/refactoring-builder.png)
 
 The given `refactoring` specifies the "Rename" menu item, which is
 enabled in case an ID node is selected.The menu action is bind to the
@@ -356,7 +360,7 @@ rename shortcut (Shift+Alt+R). After the user applies the rename
 refactoring, a dialog is prompted with an input field labeled "New name"
 that has the empty string as initial value.
 
-![refactoring-rename-dialog.png](http://strategoxt.org/pub/Spoofax/Tour/refactoring-rename-dialog.png)
+![refactoring-rename-dialog.png](/spoofax/images/tour/refactoring-rename-dialog.png)
 
 The OK button of the dialog triggers the action defined with the
 `rename` rule that we discuss in the next paragraph.
@@ -367,7 +371,7 @@ Refactorings are defined in Stratego. The `refactor.str` file in the
 `trans` directory defines the renaming refactoring for the entity
 language.
 
-![refactor-rule.png](http://strategoxt.org/pub/Spoofax/Tour/refactor-rule.png)
+![refactor-rule.png](/spoofax/images/tour/refactor-rule.png)
 
 This rule follows a fixed interface for interoperability with the
 editor. The left-hand-side of the rule is a tuple of: the result of the
@@ -378,11 +382,14 @@ plus lists with errors and warnings that will be reported to the user.
 Errors and warnings are specified as a tuple of the offending language
 element (which location will be reported) and the error message itself.
 
-![refactoring-semantic-error.png](http://strategoxt.org/pub/Spoofax/Tour/refactoring-semantic-error.png)
+![refactoring-semantic-error.png](/spoofax/images/tour/refactoring-semantic-error.png)
 
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------
+----
+
   *Tip*: multiple-file refactorings can be specified in the change list using the root nodes: [(ast-1-before, ast-1-after), (ast-2-before, ast-2-after), ...]
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+----
+
 
 ### Program analysis
 
@@ -390,7 +397,7 @@ We use a symbol table as the basis for our semantic analysis. Every
 entity is stored in this table, mapping its name to its definition. This
 table is defined in the `record-entity` rule in `check.str`:
 
-![analysis.png](http://strategoxt.org/pub/Spoofax/Tour/analysis.png)
+![analysis.png](/spoofax/images/tour/analysis.png)
 
 The `analyze` rule uses the *topdown/try* strategy we have shown before.
 It will try to apply the `record-entity` rule wherever it can. The
@@ -402,20 +409,19 @@ this definition for error checking, reference resolving, and content
 completion.
 
 
-Reference resolving
--------------------
+## Reference resolving
 
 When a user holds control (or command on Mac OSX) and hovers over an
 identifier, they get a link to its definition:
 
-![reference-resolving.png](http://strategoxt.org/pub/Spoofax/Features/reference-resolving.png)
+![reference-resolving.png](/spoofax/images/tour/reference-resolving.png)
 
 Supporting reference resolving is easy once a [program
 analysis](/Spoofax/Tour#Program_analysis) is performed. By default, the
 entities language simply invokes the `GetEntity` rule to fetch the
 definition for any `Type` selected by the user:
 
-![reference-resolving.png](http://strategoxt.org/pub/Spoofax/Tour/reference-resolving.png)
+![reference-resolving.png](/spoofax/images/tour/reference-resolving2.png)
 
 This rule follows the same structure as other rules in this file. It
 first prints a debugging message "Resolve: ...", which shows up in the
@@ -429,19 +435,18 @@ case, another definition may of `editor-resolve` may be used instead, if
 one exists.
 
 
-Content completion
-------------------
+## Content completion
 
 Spoofax supports content completion that can be triggered by pressing
 control-space:
 
-![content-completion.png](http://strategoxt.org/pub/Spoofax/Features/content-completion.png)
+![content-completion.png](/spoofax/images/tour/content-completion.png)
 
 Content completion can also be triggered when the user enters a
 particular sequence of characters (like the `.` in Java). The
 `EntitityLang-Completions.esv` allows this behavior to be configured:
 
-![content-completion-1.png](http://strategoxt.org/pub/Spoofax/Tour/content-completion-1.png)
+![content-completion-1.png](/spoofax/images/tour/content-completion-1.png)
 
 This file specifies that content completion should be triggered once
 users enter ": ". It also says that the `editor-complete` rule handles
@@ -451,13 +456,13 @@ Like other editor services in Spoofax, content completion is implemented
 at the abstract syntax level. Once content completion is triggered, an
 AST like the following is created:
 
-![content-completion-3.png](http://strategoxt.org/pub/Spoofax/Tour/content-completion-3.png)
+![content-completion-3.png](/spoofax/images/tour/content-completion-3.png)
 
 In this AST we see a special `COMPLETION(_)` note where content
 completion is requested. The `editor-complete` rule in `entity-lang.str`
 provides completion proposals:
 
-![content-completion-2.png](http://strategoxt.org/pub/Spoofax/Tour/content-completion-2.png)
+![content-completion-2.png](/spoofax/images/tour/content-completion-2.png)
 
 This rule gets the current abstract syntax tree node, its position, etc.
 and returns a list of content proposals. The "String" and "Int" proposal
@@ -468,8 +473,7 @@ Spoofax will then automatically show proposals with the right prefix
 (here the letter "U").
 
 
-Testing Language Definitions
-----------------------------
+## Testing Language Definitions
 
 Spoofax allows you to write tests for your language implementation using
 a specialized testing language. An example set of tests can be found in
@@ -478,12 +482,11 @@ a specialized testing language. An example set of tests can be found in
 A basic testing module has the following form, specifying the name of a
 language:
 
-![test-basic.png](http://strategoxt.org/pub/Spoofax/Tour/test-basic.png)
+![test-basic.png](/spoofax/images/tour/test-basic.png)
 
 It specifies the name of the language under test (`EntityLang`) and one
 or more test cases. The test case in this module is based on a small
-EntityLang program enclosed in ``
-=[^?^](/edit/Spoofax/Code?topicparent=Spoofax.Tour)= brackets, and
+EntityLang program enclosed in brackets, and
 specifies that this program should parse to a pattern
 `Module("example", [Entity("User", _)])`.
 
@@ -491,12 +494,11 @@ More advanced test cases may use `setup` blocks to factor out
 commonalities in test cases, and can specify a wide range of testing
 conditions:
 
-![test-advanced.png](http://strategoxt.org/pub/Spoofax/Tour/test-advanced.png)
+![test-advanced.png](/spoofax/images/tour/test-advanced.png)
 
 These test cases test for semantic errors (`0 errors` or `1 error`) and
 test that refactoring works as expected. Notice how the last test case
-uses the `` =[^?^](/edit/Spoofax/Code?topicparent=Spoofax.Tour)=
-brackets to indicate that a rename refactoring is performed on the
+uses the brackets to indicate that a rename refactoring is performed on the
 "User" entity. This test case simulates the renaming of the "User"
 entity to a "Customer" entity.
 
@@ -504,15 +506,16 @@ Any failing test cases are marked with an error in the editor. The
 "Transform" menu can also be used to launch a project-wide, graphical
 test runner:
 
-![test-batch.png](http://strategoxt.org/pub/Spoofax/Tour/test-batch.png)
+![test-batch.png](/spoofax/images/tour/test-batch.png)
 
-  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----
+
   *Tip*: content completion shows more conditions that can be specified for test cases. A full overview is also given in the paper [Integrated Language Definition Testing](http://researchr.org/publication/KatsVermaasVisser2011).
-  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+----
 
 
-Plugin deployment
------------------
+## Plugin deployment
 
 You can deploy your plugin using the Eclipse update site mechanism.
 Users do not need to have Spoofax/IMP installed for using your plugin.
@@ -522,7 +525,7 @@ and an *update site project*.
 You can create a new plugin feature project by using the *File \> New \>
 Project \> Plug-in development \> Feature Project* wizard:
 
-![deployment-1.png](http://strategoxt.org/pub/Spoofax/Tour/deployment-1.png)
+![deployment-1.png](/spoofax/images/tour/deployment-1.png)
 
 In the tab plugins, add your plugin to the list of included features
 using the "Add" button.
@@ -531,25 +534,24 @@ In the tab *Included Features* you should add Spoofax/IMP. Be sure you
 select that it can be updated from "both" update sites for maximal
 compatibility with existing installations and updates:
 
-![deployment-4.png](http://strategoxt.org/pub/Spoofax/Tour/deployment-4.png)
+![deployment-4.png](/spoofax/images/tour/deployment-4.png)
 
 You can then create an update site project. From *Overview page* of
 feature.xml, open the *New Update Site* wizard:
 
-![exporting.png](http://strategoxt.org/pub/Spoofax/Features/exporting.png)
+![exporting.png](/spoofax/images/tour/exporting.png)
 
 As the name of the update site you may use
 `company.entities.updatesite`. In the update site project, create a new
 category and add the feature project:
 
-![deployment-3.png](http://strategoxt.org/pub/Spoofax/Tour/deployment-3.png)
+![deployment-3.png](/spoofax/images/tour/deployment-3.png)
 
 From here, you can select *Build All* to build the update site. You can
 then upload it to a web server and use it to install or update your
 plugin using the Eclipse update manager.
 
-Adding Java components
-----------------------
+## Adding Java components
 
 Some advanced users may want to add their own Java components to their
 plugins. Spoofax provides two mechanisms for interoperation with Java
@@ -566,32 +568,32 @@ be dynamically loaded just like other Spoofax components.
 In this tour we focus on the Eclipse extension mechanism. These
 components can be added using the Extensions tab of `plugin.xml`:
 
-![java-components-1.png](http://strategoxt.org/pub/Spoofax/Tour/java-components-1.png)
+![java-components-1.png](/spoofax/images/tour/java-components-1.png)
 
 You can then select Add to add a new extension:
 
-![java-components-2.png](http://strategoxt.org/pub/Spoofax/Tour/java-components-2.png)
+![java-components-2.png](/spoofax/images/tour/java-components-2.png)
 
 Note that only editor components defined using Spoofax/IMP can be used
 directly in the same Eclipse instance in which they are developed.
 Normal Eclipse plugins and extensions do not have this
-[feature](/Spoofax/Features). You can try your Java-based extensions
+[feature](/spoofax/features). You can try your Java-based extensions
 using the debug or run buttons in the tool bar, launching a new Eclipse
 instance:
 
-![java-components-run.png](http://strategoxt.org/pub/Spoofax/Tour/java-components-run.png)
+![java-components-run.png](/spoofax/images/tour/java-components-run.png)
 
 A key class for integrating with Spoofax editors from Java
 `org.strategoxt.imp.runtime.EditorState` class, which provides things
 like the current or selection AST of an open editor. It also allows
 model listeners to be attached using
 `EditorState.getEditor().addModelListener()`. Please [contact
-us](/Spoofax/Support) if you have any questions about Java integration
+us](/spoofax/support) if you have any questions about Java integration
 or other topics; we'd be happy to help.
 
 All built-in Spoofax/IMP editor components are based on the [Eclipse
 IMP](http://eclipse.org/imp) framework. In addition to standard Eclipse
-plugin extensions, [IMP](/Spoofax/IMP) can also be used to define parts
+plugin extensions, IMP can also be used to define parts
 of your editor. These can be created using the *File \> New* wizard,
 selecting any of the IDE Language Support options. At this time,
 however, not all these wizards are stable, and they may not always work
