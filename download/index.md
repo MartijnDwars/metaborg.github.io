@@ -1,13 +1,14 @@
 ---
 title: Download
 layout: page
-modified: 2014-07-31T13:23:02.362000-04:00
+modified: 
 excerpt: "Downloading Spoofax"
 image:
   feature: 
   credit: 
   creditlink: 
 context: download
+sideimage: 
 ---
 
 To install Spoofax, all you need is [JRE 7 or higher](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 
