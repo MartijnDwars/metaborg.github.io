@@ -23,3 +23,4 @@ context: nabl
 
 {% include_relative NaBL.md %}
 {% include_relative API.md %}
+{% include_relative examples.md %}

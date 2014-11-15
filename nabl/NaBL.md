@@ -217,7 +217,7 @@ This rule has two effects.
 First, `Import(m)` declares use sites for module names. 
 Second, entities declared in these modules become visible in the current scope.
 
-# Interaction with Type System
+## Interaction with Type System
 
 We can associate names with type information. 
 This type information is specified at definition sites, and accessed at use sites.

@@ -1,14 +1,14 @@
-# Stratego API
+## Stratego API
 
-## Name Binding Information in Terms
+### Name Binding Information in Terms
 
-### The Index
+#### The Index
 
 Terms lack a native concept to represent cross-references. 
 Spoofax maintains name binding information and associated data such as type information in a global environment called *the index*, which is shared by various transformations.
 By collecting all this information about files in a project together, it ensures fast access to global information (in particular, to-be-referenced names). The index is updated automatically when files change (or are deleted) and is persisted as Eclipse exits. 
 
-### URIs
+#### URIs
 
 All entries in the index have a *URI* which uniquely identifies the element across a project. 
 These URIs are the basis for name resolution, and, by default, are constructed automatically, based on the name binding rules. 
@@ -33,7 +33,7 @@ For the `name` property of the `Store` entity in the storage module, this would 
 
     [Property(), "name", "Store", "storage"]
 
-### Annotated URIs
+#### Annotated URIs
 
 Spoofax annotates each definition and reference with a URI to connect names with information stored in the index. 
 References are annotated with the same URI as their definition. 
@@ -46,22 +46,21 @@ For example, an unresolved variable could be represented as
 We can inspect URIs in Spoofax’ analyzed syntax view. 
 This view shows the abstract syntax with all URIs as annotations. 
 
-## Query Name Information
+### Query Name Information
 
-###### index-uri
+<pre>
+index-uri
+index-namespace
+</pre>
 
-###### index-namespace
+### Lookup Names
 
-## Lookup Names
+<pre>
+index-lookup
+index-lookup-all
+index-get-files-of
+index-get-all-in-file
+index-get-current-file
+</pre>
 
-###### index-lookup
-
-###### index-lookup-all
-
-###### index-get-files-of
-
-###### index-get-all-in-file
-
-###### index-get-current-file
-
-## Associated Data
+### Associated Data
