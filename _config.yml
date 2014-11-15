@@ -3,7 +3,9 @@
 title:            MetaBorg
 locale:           en_US
 #url:              http://localhost:4000
-url: 							http://metaborg.github.io/
+url: 							http://metaborg.github.io
+
+sideimage: 				/images/StrategoLogoTextless.png
 
 # Jekyll configuration
 
@@ -26,7 +28,7 @@ kramdown:
 
 # Site owner
 owner:
-  name: Eelco Visser
+  name: MetaBorg Software Foundation
   avatar: bio-photo.jpg
   bio: "Language engineer"
   email: 
