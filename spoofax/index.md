@@ -4,7 +4,7 @@ layout: page
 modified: 2014-07-31T13:23:02.362000-04:00
 excerpt: "All about Spoofax"
 image:
-  feature: screenshot.png
+  feature: 
   credit: 
   creditlink: 
 context: spoofax
@@ -25,15 +25,15 @@ Spoofax is constructed from the following components:
 
 ## Spoofax Resources
 
-* [Features](/spoofax/features)
-* [Tour](/spoofax/tour)
+* [Features](features/)
+* [Tour](tour/)
 * [Download & Installation](/download)
-* [Documentation](/spoofax/documentation)
-* Frequently Asked Questions
-* Research
+* [Documentation](documentation/)
+* [Frequently Asked Questions](faq/)
+* [Research](research/)
 * Examples
-* Development
-* Support
+* [Development](/dev/)
+* [Support](support/)
 
 # Documentation for Spoofax' Meta Languages
 
