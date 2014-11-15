@@ -22,6 +22,5 @@ context: dev
 {% include_relative building-spoofax.md %}    
 {% include_relative artifacts.md %}            
 {% include_relative mirror-maven-central.md %}
-{% include_relative building-languages.md %}    
-{% include_relative dependencies.md %}            
+{% include_relative building-languages.md %}     
 {% include_relative setting-up-maven.md %}

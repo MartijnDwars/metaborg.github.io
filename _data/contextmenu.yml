@@ -55,6 +55,10 @@
   
 # Dev
    
+- title: "Dependencies"
+  url: /dev/dependencies/
+  context: dev
+  
 - title: "Meta"
   url: /dev/meta/
   context: dev

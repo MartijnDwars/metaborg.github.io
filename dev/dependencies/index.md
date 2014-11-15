@@ -1,8 +1,27 @@
-# Spoofax dependencies and licences
+---
+title: Spoofax Dependencies and Licenses
+layout: page
+modified: 
+excerpt: ""
+image:
+  feature: 
+  credit: 
+  creditlink: 
+context: dev
+---
+
+<section id="table-of-contents" class="toc"> 
+  <header> <h3>Overview</h3> </header>
+  <div id="drawer" markdown="1">
+  *  Auto generated table of contents
+  {:toc}
+  </div>
+</section><!-- /#table-of-contents -->
+
 
 ## Runtime dependencies
 
-Name                           | Website                                                                                                             | License   
+Name                           | Website                                                                                                            | License   
 ------------------------------ | ------------------------------------------------------------------------------------------------------------------- | ----------
 Spoofax                        | <http://spoofax.org/>                                                                                               | [LPGL 2.1](https://www.tldrlegal.com/l/lgpl2)
 Eclipse                        | <https://www.eclipse.org/>                                                                                          | [EPL 1.0](https://www.tldrlegal.com/l/epl)
