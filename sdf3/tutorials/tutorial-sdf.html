@@ -1,0 +1,1589 @@
+<html><head>
+<title>Chapter 6. Syntax Definition in SDF</title><link rel="stylesheet" href="style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><link rel="start" href="index.html" title="Stratego/XT Manual"><link rel="up" href="tutorial-xt.html" title="Part II. The XT Transformation Tools"><link rel="prev" href="tutorial-parsing.html" title="Chapter 5. Syntax Definition and Parsing"><link rel="next" href="bk01pt02ch07.html" title="Chapter 7. Advanced Topics in Syntax Definition (*)"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 6. Syntax Definition in SDF</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tutorial-parsing.html">Prev</a> </td><th width="60%" align="center">Part II. The XT Transformation Tools</th><td width="20%" align="right"> <a accesskey="n" href="bk01pt02ch07.html">Next</a></td></tr></table><hr></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="tutorial-sdf"></a>Chapter 6. Syntax Definition in SDF</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="tutorial-sdf.html#id1322217">6.1. SDF: The Basics</a></span></dt><dd><dl><dt><span class="section"><a href="tutorial-sdf.html#id1322259">6.1.1. Modules</a></span></dt><dt><span class="section"><a href="tutorial-sdf.html#id1322462">6.1.2. Start Symbols</a></span></dt><dt><span class="section"><a href="tutorial-sdf.html#id1322481">6.1.3. Sorts</a></span></dt><dt><span class="section"><a href="tutorial-sdf.html#id1322535">6.1.4. Syntax</a></span></dt><dt><span class="section"><a href="tutorial-sdf.html#id1322603">6.1.5. Disambiguation</a></span></dt></dl></dd><dt><span class="section"><a href="tutorial-sdf.html#id1322635">6.2. Syntax</a></span></dt><dd><dl><dt><span class="section"><a href="tutorial-sdf.html#id1322642">6.2.1. Lexical and Context-free Syntax</a></span></dt><dt><span class="section"><a href="tutorial-sdf.html#id1322713">6.2.2. Productions, Sorts, and Symbols</a></span></dt><dt><span class="section"><a href="tutorial-sdf.html#id1322769">6.2.3. Symbols and Regular Expressions</a></span></dt><dt><span class="section"><a href="tutorial-sdf.html#section-sdf-character-classes">6.2.4. Character Classes</a></span></dt></dl></dd><dt><span class="section"><a href="tutorial-sdf.html#section-lexical-syntax">6.3. Examples: Defining Lexical Syntax</a></span></dt><dd><dl><dt><span class="section"><a href="tutorial-sdf.html#id1323391">6.3.1. Simple Whitespace</a></span></dt><dt><span class="section"><a href="tutorial-sdf.html#section-sdf-lexical-identifiers">6.3.2. Identifiers</a></span></dt><dt><span class="section"><a href="tutorial-sdf.html#id1323585">6.3.3. Keywords</a></span></dt><dt><span class="section"><a href="tutorial-sdf.html#id1323752">6.3.4. Integer Literals</a></span></dt><dt><span class="section"><a href="tutorial-sdf.html#id1323798">6.3.5. Floating-Point Literals</a></span></dt><dt><span class="section"><a href="tutorial-sdf.html#id1323907">6.3.6. Comments</a></span></dt></dl></dd><dt><span class="section"><a href="tutorial-sdf.html#id1324104">6.4. Examples: Defining Context-Free Syntax</a></span></dt><dd><dl><dt><span class="section"><a href="tutorial-sdf.html#id1324115">6.4.1. Expressions</a></span></dt><dt><span class="section"><a href="tutorial-sdf.html#id1324211">6.4.2. Constructor Attributes and Abstract Syntax Trees</a></span></dt><dt><span class="section"><a href="tutorial-sdf.html#id1324213">6.4.3. Ambiguities in Expressions</a></span></dt><dt><span class="section"><a href="tutorial-sdf.html#id1324507">6.4.4. Associativity and Priorities</a></span></dt><dt><span class="section"><a href="tutorial-sdf.html#id1324633">6.4.5. Array Creation and Access Ambiguity</a></span></dt><dt><span class="section"><a href="tutorial-sdf.html#id1324650">6.4.6. Statements</a></span></dt><dt><span class="section"><a href="tutorial-sdf.html#id1324717">6.4.7. Whitespace and Comments</a></span></dt></dl></dd><dt><span class="section"><a href="tutorial-sdf.html#sdf-unit-testing">6.5. Unit Testing of Syntax Definitions</a></span></dt><dd><dl><dt><span class="section"><a href="tutorial-sdf.html#id1324772">6.5.1. Usage example</a></span></dt><dt><span class="section"><a href="tutorial-sdf.html#id1324856">6.5.2. Parse Testsuite Syntax</a></span></dt><dt><span class="section"><a href="tutorial-sdf.html#id1324903">6.5.3. Debugging Support</a></span></dt><dt><span class="section"><a href="tutorial-sdf.html#id1324933">6.5.4. Invocation in Automake</a></span></dt></dl></dd></dl></div>
+
+  
+
+  <p>
+    First, basic structure of SDF. Second, how syntax is defined
+    SDF. Third, examples of lexical and context-free syntax. Fourth,
+    more detailed coverage of disambigation.
+  </p>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id1322217"></a>6.1. SDF: The Basics</h2></div></div></div>
+
+  
+
+  <p>
+    In this section, we give an overview of the basic constructs of
+    SDF. After this section, you will now the basic idea of SDF. The
+    next sections will discuss these constructs more detail.
+  </p>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="id1322259"></a>6.1.1. Modules</h3></div></div></div>
+    
+
+    <p>
+      Before defining some actual syntax, we have to explain the basic
+      structure of a module. For this, let's take a closer look at the
+      language constructs that are used in the modules we showed
+      earlier in <a href="tutorial-parsing.html#Fig-Modules" title="Figure 5.4.  SDF modules for a small language of arithmetic expressions.">Figure 5.4</a>.
+    </p>
+
+    <div class="example"><a name="ex-basic-module"></a><p class="title"><b>Example 6.1. Basic constructs of SDF</b></p><div class="example-contents">
+      
+
+<pre class="programlisting">
+module Expression <a name="ex-basic-module-name"></a><img src="images/callouts/1.png" alt="1" border="0">
+imports
+  Lexical Operators <a name="ex-basic-module-imports"></a><img src="images/callouts/2.png" alt="2" border="0">
+
+exports  <a name="ex-basic-module-exports"></a><img src="images/callouts/3.png" alt="3" border="0">
+  context-free start-symbol Exp <a name="ex-basic-module-start-symbols"></a><img src="images/callouts/4.png" alt="4" border="0">
+  context-free syntax <a name="ex-basic-module-syntax1"></a><img src="images/callouts/5.png" alt="5" border="0">
+    Id          -&gt; Exp {cons("Var")} <a name="ex-basic-module-attr1"></a><img src="images/callouts/6.png" alt="6" border="0">
+    IntConst    -&gt; Exp {cons("Int")} 
+    "(" Exp ")" -&gt; Exp {bracket}
+
+module Operators
+exports
+  sorts Exp  <a name="ex-basic-module-sorts1"></a><img src="images/callouts/7.png" alt="7" border="0">
+  context-free syntax
+    Exp "*" Exp -&gt; Exp {left, cons("Times")} <a name="ex-basic-module-attr2"></a><img src="images/callouts/8.png" alt="8" border="0">
+    Exp "/" Exp -&gt; Exp {left, cons("Div")}
+    Exp "%" Exp -&gt; Exp {left, cons("Mod")}
+  
+    Exp "+" Exp -&gt; Exp {left, cons("Plus")} 
+    Exp "-" Exp -&gt; Exp {left, cons("Minus")}
+
+  context-free priorities <a name="ex-basic-module-priorities"></a><img src="images/callouts/9.png" alt="9" border="0">
+    {left:
+      Exp "*" Exp -&gt; Exp
+      Exp "/" Exp -&gt; Exp
+      Exp "%" Exp -&gt; Exp
+    } 
+  &gt; {left:
+      Exp "+" Exp -&gt; Exp
+      Exp "-" Exp -&gt; Exp
+    }
+
+module Lexical
+exports
+  sorts Id IntConst <a name="ex-basic-module-sorts2"></a><img src="images/callouts/10.png" alt="10" border="0">
+  lexical syntax <a name="ex-basic-module-syntax2"></a><img src="images/callouts/11.png" alt="11" border="0">
+    [a-zA-Z]+ -&gt; Id       
+    [0-9]+    -&gt; IntConst 
+    [\ \t\n]  -&gt; LAYOUT
+
+  lexical restrictions <a name="ex-basic-module-restriction"></a><img src="images/callouts/12.png" alt="12" border="0">
+    Id -/- [a-zA-Z]</pre>
+    </div></div><br class="example-break">
+
+    <p>
+      <a href="tutorial-sdf.html#ex-basic-module" title="Example 6.1. Basic constructs of SDF">Example 6.1</a> shows these modules,
+      highlighting some of the constructs that are important to know
+      before we dive into the details of defining syntax.
+    </p>
+
+    <div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><a href="#ex-basic-module-name"><img src="images/callouts/1.png" alt="1" border="0"></a> </td><td valign="top" align="left">
+	<p>
+	  Modules have a <span class="emphasis"><em>name</em></span>, which can be a
+	  plain identifier, such as <code class="filename">Expression</code> in
+	  this example. The module must be in a file with same name
+	  and the <code class="filename">.sdf</code> extension. The module name
+	  can also be a path, for example
+	  <code class="filename">java/expressions/Assignment</code>. In this
+	  case, the module has to be in a file with name
+	  <code class="filename">Assignment.sdf</code>, which must be in a
+	  directory <code class="filename">java/expressions</code>.
+	</p>
+      </td></tr><tr><td width="5%" valign="top" align="left"><a href="#ex-basic-module-imports"><img src="images/callouts/2.png" alt="2" border="0"></a> </td><td valign="top" align="left">
+	<p>
+	  A module can optionally <span class="emphasis"><em>import</em></span> a number
+	  of other modules. Multiple modules can be imported with a
+	  single import, as we have done in this example, or multiple
+	  imports can be used. This is not very common: usually,
+	  modules have just a single imports declaration.
+	</p>
+
+	<p>
+	  Modules are always imported by their full name. So, if the
+	  name of a module is a path, such as
+	  <code class="filename">java/expressions/Assignment</code>, then the
+	  module must be imported with that full name, even if it is
+	  in the directory <code class="filename">java/expressions</code>. If
+	  the name of the modules are long, which is typically the
+	  case if you use full paths to organize a large syntax
+	  definition in different directories, then the names are
+	  usually mentioned on separate lines, but still in a single
+	  import.
+	</p>
+      </td></tr><tr><td width="5%" valign="top" align="left"><a href="#ex-basic-module-exports"><img src="images/callouts/3.png" alt="3" border="0"></a> </td><td valign="top" align="left">
+	<p>
+	  Modules contain a number of <span class="emphasis"><em>sections</em></span>,
+	  of which we now only consider the <code class="code">exports</code>
+	  section. An <code class="code">exports</code> section defines a number of
+	  syntactic aspects, called a <span class="emphasis"><em>grammar</em></span>,
+	  that will be available to modules that import this
+	  module. This includes syntax, but also declarations of
+	  sorts, start symbols, priorities, restrictions, etc.
+	</p>
+
+	<p>
+	  A module can also just import other modules and not actually
+	  define any syntactical aspects itself. This is typically the
+	  case in main modules of large syntax definitions, which only
+	  import modules for names, expressions, statements, etc.
+	</p>
+      </td></tr></table></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="id1322462"></a>6.1.2. Start Symbols</h3></div></div></div>
+    
+    
+    <div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><a href="#ex-basic-module-start-symbols"><img src="images/callouts/4.png" alt="4" border="0"></a> </td><td valign="top" align="left">
+	<p>
+	  Every syntax definition needs to define one or more start
+	  symbols, otherwise not a single input will accepted. Start
+	  symbols are the language constructs that are allowed at the
+	  top-level of a source file. For our simple expression
+	  language, the start symbol is <code class="code">Exp</code>. For a java
+	  syntax definition, the start symbol could be
+	  <code class="code">CompilationUnit</code>, which consists of a package,
+	  import, and type declarations.
+	</p>
+      </td></tr></table></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="id1322481"></a>6.1.3. Sorts</h3></div></div></div>
+    
+    
+    <div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><a href="#ex-basic-module-sorts1"><img src="images/callouts/7.png" alt="7" border="0"></a> <a href="#ex-basic-module-sorts2"><img src="images/callouts/10.png" alt="10" border="0"></a> </td><td valign="top" align="left">
+	<p>
+	  Every syntax definition introduces names for the syntactical
+	  sorts of a language, such as <code class="code">Exp</code> and
+	  <code class="code">Id</code>. These names can be declared in a
+	  <code class="code">sorts</code> declaration. Declaring sorts is optional,
+	  but the SDF parser generator will give a warning if a sort
+	  that is used somewhere in the syntax definition is not
+	  declared. It is a good habit to declare all the sorts, since
+	  this makes it easier to find possible miss-spellings of
+	  these names.
+	</p>
+
+	<p>
+	  Note that in SDF syntax definitions we do not directly use
+	  the terminology of terminal and non-terminal, since actually
+	  only single characters are terminals in SDF, and almost
+	  everything else is a non-terminal. Lexical and context-free
+	  sorts are both declared as sorts.
+	</p>
+      </td></tr></table></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="id1322535"></a>6.1.4. Syntax</h3></div></div></div>
+    
+
+    <div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><a href="#ex-basic-module-syntax1"><img src="images/callouts/5.png" alt="5" border="0"></a> <a href="#ex-basic-module-syntax2"><img src="images/callouts/11.png" alt="11" border="0"></a> </td><td valign="top" align="left">
+	<p>
+	  The actual syntax is defined in <code class="code">lexical</code> and
+	  <code class="code">context-free</code> syntax. The lexical syntax defines
+	  the syntax of language constructs like literals, comments,
+	  whitespace, and identifiers, or what is usally referred to
+	  as terminals. The context-free syntax defines the syntax of
+	  constructs like operators, statements, or what is usually
+	  referred to as non-terminals.
+	</p>
+
+	<p>
+	  In other parser generators the lexical syntax is often
+	  specified in a separate scanner specification, but in SDF
+	  these lexical aspects are integrated in the definition of
+	  the context-free syntax. We will come back to that later
+	  when we discuss the definition of lexical syntax.
+	</p>
+      </td></tr></table></div>
+
+    <div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><a href="#ex-basic-module-attr1"><img src="images/callouts/6.png" alt="6" border="0"></a> <a href="#ex-basic-module-attr2"><img src="images/callouts/8.png" alt="8" border="0"></a> </td><td valign="top" align="left">
+	<p>
+	  Productions can have <span class="emphasis"><em>attributes</em></span> can
+	  have attributes, specified between curly braces after the
+	  production. Some of these attributes, such as
+	  <code class="code">left</code> have a special meaning for SDF
+	  itself. Other attributes can specify information about a
+	  production that target a different tool, such as
+	  <code class="code">bracket</code> and <code class="code">cons</code>, which target the
+	  tool that implodes parse trees to abstract syntax trees.
+	</p>
+      </td></tr></table></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="id1322603"></a>6.1.5. Disambiguation</h3></div></div></div>
+    
+
+    <div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><a href="#ex-basic-module-priorities"><img src="images/callouts/9.png" alt="9" border="0"></a> <a href="#ex-basic-module-restriction"><img src="images/callouts/12.png" alt="12" border="0"></a> </td><td valign="top" align="left">
+	<p>
+	  SDF support constructs to define in a declarative way that
+	  certain kinds of derivations are not allowed, also known as
+	  disambiguation filters. In our example, there two examples
+	  of this: we define <span class="emphasis"><em>priorities</em></span> of the
+	  arithmetic expressions, and there is a <span class="emphasis"><em>lexical
+	  restriction</em></span> that specifies that an identifier can
+	  never be followed by a character that is allowed in an
+	  identifier. We will explain these mechanisms later.
+	</p>
+      </td></tr></table></div>
+  </div>
+</div>
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id1322635"></a>6.2. Syntax</h2></div></div></div>
+
+  
+  
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="id1322642"></a>6.2.1. Lexical and Context-free Syntax</h3></div></div></div>
+    
+    
+    <p>
+      Usually, parsing is performed in two phases. First, a lexical
+      analysis phase splits the input in tokens, based on a grammar
+      for the lexical syntax of the language. This lexical grammar is
+      usually specified by a set of regular expressions that specifiy
+      the tokens of the language. Second, a parser based on a grammar
+      for the context-free syntax of the language performs the
+      syntactic analysis. This approach has several disadvantages for
+      certain applications, which won't discuss in detail for now. One
+      of the most important disadvantages is that the combination of
+      the two grammars is not a complete, declarative definition of
+      the syntax of the language.
+    </p>
+
+    <p>
+      SDF integrates the definition of lexical and context-free syntax
+      in a single formalism, thus supporting the
+      <span class="emphasis"><em>complete</em></span> description of the syntax of a
+      language in a single specification. All syntax, both lexical and
+      context-free, is defined by <span class="emphasis"><em>productions</em></span>,
+      respectively in <code class="code">lexical syntax</code> and
+      <code class="code">context-free syntax</code> sections. Parsing of languages
+      defined in SDF is implemented by scannerless generalized-LR
+      parsing, which operates on individual characters instead of
+      tokens.
+    </p>
+
+    <p>
+      <b>Expressive Power. </b>
+      
+	Since lexical and context-free syntax are both defined by
+	productions, there is actually no difference in the expressive
+	power of the lexical and context-free grammar. Hence, lexical
+	syntax can be a context-free language, instead of being
+	restricted to a regular grammar, which is the case when using
+	conventional lexical analysis tools based on regular
+	expression. For example, this means that you can define the
+	syntax of nested comments in SDF, which we will illustrate
+	later. In practice, more important is that it is easier to
+	define lexical syntax using productions than using regular
+	expressions.
+      
+    </p>
+
+    <p>
+      <b>Layout. </b>
+      
+	Then, why are there two different sections for defining
+	syntax? The difference between these two kinds of syntax
+	sections is that in lexical syntax no layout (typically
+	whitespace and comments) is allowed between symbols. In
+	contrast, in context-free syntax sections layout is allowed
+	between the symbols of a production. We will explain later how
+	layout is defined. The allowance of layout is the only
+	difference between the two kinds of syntax sections.
+      
+    </p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="id1322713"></a>6.2.2. Productions, Sorts, and Symbols</h3></div></div></div>
+    
+
+    <p>
+      In the <a href="tutorial-parsing.html#section-parsing-concepts" title="5.1. Concepts: Grammars, Parse Trees, and Abstract Syntax Trees">Section 5.1</a> we recapped
+      context-free grammars and productions, which have the form
+      A<sub>0</sub> -&gt; A<sub>1</sub>
+      ... A<sub>n</sub>, where A<sub>0</sub>
+      is non-terminal and A<sub>1</sub>
+      ... A<sub>n</sub> is a string of terminals and
+      non-terminals. Also, we mentioned earlier that the distinction
+      between terminals and non-terminals is less useful in SDF, since
+      only single characters are terminals if the lexical and
+      context-free syntax are defined in a single formalism. For this
+      reason, every element of a production,
+      i.e. A<sub>0</sub> ... A<sub>n</sub> is
+      called a <span class="emphasis"><em>symbol</em></span>. So, productions take a
+      list of symbols and produce another symbol.
+    </p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="id1322769"></a>6.2.3. Symbols and Regular Expressions</h3></div></div></div>
+    
+    
+    <p>
+      There are two primary symbols:
+    </p>
+
+    <div class="variablelist"><dl><dt><span class="term">Sorts</span></dt><dd> 
+	  <p> 
+	    Sorts are names for language specific constructs, such as
+	    <code class="code">Exp</code>, <code class="code">Id</code>, and
+	    <code class="code">IntConst</code>. These names are declared using the
+	    previously introduced <code class="code">sorts</code> declaration and
+	    defined by productions.
+	  </p>
+	</dd><dt><span class="term">Character Classes</span></dt><dd> 
+	  <p> 
+	    A character class is set of characters. Character classes
+	    are specified by single characters, character ranges, and
+	    can be combined using set operators, such as complement,
+	    difference, union, intersection. Examples:
+	    <code class="code">[abc]</code>, <code class="code">[a-z]</code>,
+	    <code class="code">[a-zA-Z0-9]</code>, <code class="code">~[\n]</code>. We will
+	    discuss character classes in more detail in <a href="tutorial-sdf.html#section-sdf-character-classes" title="6.2.4. Character Classes">Section 6.2.4</a>.
+	  </p>
+	</dd></dl></div>
+
+    <p>
+      Of course, defining an entire language using productions that
+      can contain only sorts and character classes would be a lot of
+      work. For example, programming languages usually contain all
+      kinds of list constructs. Specification of lists with plain
+      context-free grammars requires several productions for each list
+      construct.  SDF provides a bunch of regular expression operators
+      abbreviating these common patterns. In the following list,
+      <code class="code">A</code> represents a symbol and <code class="code">c</code> a
+      character.
+    </p>
+
+    <div class="variablelist"><dl><dt><span class="term">
+	  <code class="code">"c<sub>0</sub> ... c<sub>n</sub>"</code>
+	</span></dt><dd> 
+	  <p> 
+	    Literals are strings that must literally occur in the
+	    input, such as keywords (<code class="code">if</code>,
+	    <code class="code">while</code>, <code class="code">class</code>), literals
+	    (<code class="code">null</code>, <code class="code">true</code>) and operators
+	    (<code class="code">+</code>, <code class="code">*</code>). Literals can be written
+	    naturally as, for example, <code class="code">"while"</code>. Escaping
+	    of special characters will be discussed in <a href="">???</a>.
+	  </p>
+	</dd><dt><span class="term"><code class="code">A*</code></span></dt><dd> 
+	  <p> 
+	    Zero or more symbols <code class="code">A</code>. Examples:
+	    <code class="code">Stm*</code>, <code class="code">[a-zA-Z]*</code>
+	  </p>
+	</dd><dt><span class="term"><code class="code">A+</code></span></dt><dd> 
+	  <p>
+	    One or more symbols <code class="code">A</code>. Examples:
+	    <code class="code">TypeDec+</code>, <code class="code">[a-zA-Z]+</code>
+	  </p>
+	</dd><dt><span class="term"><code class="code">{A<sub>0</sub> A<sub>1</sub>}*</code></span></dt><dd> 
+	  <p> 
+	    Zero or more symbols
+	    <code class="code">A<sub>0</sub></code> separated by
+	    <code class="code">A<sub>1</sub></code>.  Examples:
+	    <code class="code">{Exp ","}*</code>, <code class="code">{FormalParam ","}*</code>
+	  </p>
+	</dd><dt><span class="term"><code class="code">{A<sub>0</sub> A<sub>1</sub>}+</code></span></dt><dd> 
+	  <p>
+	    One or more symbols <code class="code">A<sub>0</sub></code>
+	    separated by
+	    <code class="code">A<sub>1</sub></code>. Examples:
+	    <code class="code">{Id "."}+</code>, <code class="code">{InterfaceType ","}+</code>
+	  </p>
+	</dd><dt><span class="term"><code class="code">A?</code></span></dt><dd> 
+	  <p> 
+	    Optional symbol <code class="code">A</code>. Examples:
+	    <code class="code">Expr?</code>, <code class="code">[fFdD]?</code>
+	  </p>
+	</dd><dt><span class="term"><code class="code">A<sub>0</sub> | A<sub>1</sub></code></span></dt><dd> 
+	  <p> 
+	    Alternative of symbol
+	    <code class="code">A<sub>0</sub></code> or
+	    <code class="code">A<sub>1</sub></code>. Example:
+	    <code class="code">{Expr ","}* | LocalVarDec</code>
+	  </p>
+	</dd><dt><span class="term"><code class="code">(A<sub>0</sub> ... A<sub>n</sub>)</code></span></dt><dd> 
+	  <p>
+	    Sequence of symbols <code class="code">A<sub>0</sub>
+	    ... A<sub>n</sub></code>.
+	  </p>
+	</dd></dl></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="section-sdf-character-classes"></a>6.2.4. Character Classes</h3></div></div></div>
+    
+    
+    <p>
+      In order to define the syntax at the level of characters, SDF
+      provides character classes, which represent a set of characters
+      from which one character can be recognized during parsing.  The
+      content of a character classes is a specification of single
+      characters or character ranges
+      (<code class="code">c<sub>0</sub>-</code><code class="code">c<sub>1</sub></code>). Letters
+      and digits can be written as themselves, all other characters
+      should be escaped using a slash,
+      e.g. <code class="code">\_</code>. Characters can also be indicated by their
+      decimal ASCII code, e.g. <code class="code">\13</code> for linefeed. Some
+      often used non-printable characters have more mnemonic names,
+      e.g., <code class="code">\n</code> for newline, <code class="code">\ </code> for space and
+      <code class="code">\t</code> for tab.
+    </p>
+
+    <p>
+      Character classes can be combined using set operations. The most
+      common one is the unary complement operator <code class="code">~</code>, e.g
+      <code class="code">~[\n]</code>. Binary operators are the set difference
+      <code class="code">/</code>, union <code class="code">\/</code> and intersection
+      <code class="code">/\</code>.
+    </p>
+
+    <div class="example"><a name="id1323251"></a><p class="title"><b>Example 6.2. Examples of Character Classes</b></p><div class="example-contents">
+      
+
+      <div class="variablelist"><dl><dt><span class="term">
+	    <code class="code">[0-9]</code>
+	  </span></dt><dd> 
+	    <p>Character class for digits: 0, 1, 2, 3, 4, 5, 6, 8,
+	    9.</p>
+	  </dd><dt><span class="term">
+	    <code class="code">[0-9a-fA-F]</code>
+	  </span></dt><dd> 
+	    <p>
+	      Characters typically used in hexi-decimal literals.
+	    </p>
+	  </dd><dt><span class="term">
+	    <code class="code">[fFdD]</code>
+	  </span></dt><dd>
+	    <p>
+	      Characters used as a floating point type suffix,
+	      typically in C-like languages.
+	    </p>
+	  </dd><dt><span class="term">
+	    <code class="code">[\ \t\12\r\n]</code>
+	  </span></dt><dd>
+	    <p>
+	      Typical character class for defining whitespace. Note
+	      that SDF does not yet support \f as an escape for form
+	      feed (ASCII code 12).
+	    </p>
+	  </dd><dt><span class="term">
+	    <code class="code">[btnfr\"\'\\]</code>
+	  </span></dt><dd>
+	    <p>
+	      Character class for the set of characters that are
+	      usually allowed as escape sequences in C-like
+	      programming languages.
+	    </p>
+	  </dd><dt><span class="term">
+	    <code class="code">~[\"\\\n\r]</code>
+	  </span></dt><dd>
+	    <p>
+	      The set of characters that is typically allowed in
+	      string literals.
+	    </p>
+	  </dd></dl></div>
+    </div></div><br class="example-break">
+  </div>
+</div>
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="section-lexical-syntax"></a>6.3. Examples: Defining Lexical Syntax</h2></div></div></div>
+
+  
+
+  <p>
+    Until now, we have mostly discussed the design of SDF. Now, it's
+    about time to see how all these fancy ideas for syntax definition
+    work out in practice. In this and the next section, we will
+    present a series of examples that explain how typical language
+    constructs are defined in SDF. This first section covers examples
+    of lexical syntax constructs. The next section will be about
+    context-free syntax.
+  </p>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="id1323391"></a>6.3.1. Simple Whitespace</h3></div></div></div>
+    
+
+    <p>
+      Before we can start with the examples of lexical constructs like
+      identifiers and literals, you need to know the basics of
+      defining whitespace. In SDF, layout is a special sort, called
+      <code class="code">LAYOUT</code>. To define layout, you have to define
+      productions that produce this <code class="code">LAYOUT</code> sort. Thus, to
+      allow whitespace we can define a production that takes all
+      whitespace characters and produces layout. Layout is lexical
+      syntax, so we define this in a lexical syntax section.
+    </p>
+
+    <pre class="programlisting">
+lexical syntax
+  [\ \t\r\n] -&gt; LAYOUT</pre>
+
+    <p>
+      We can now also reveal how <code class="code">context-free syntax</code>
+      exactly works. In <code class="code">context-free syntax</code>, layout is
+      allowed between symbols in the left-hand side of the
+      productions, by automatically inserting optional layout
+      (e.g. <code class="code">LAYOUT?</code>) between them.
+    </p>
+
+    <p>
+      In the following examples, we will assume that whitespace is
+      always defined in this way. So, we will not repeat this
+      production in the examples. We will come back to the details of
+      whitespace and comments later.
+    </p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="section-sdf-lexical-identifiers"></a>6.3.2. Identifiers</h3></div></div></div>
+    
+
+    <p>
+      Almost every language has identifiers, so we will start with
+      that. Defining identifiers themselves is easy, but there is some
+      more definition of syntax required, as we will see next. First,
+      the actual definition of identifiers. As in most languages, we
+      want to disallow digits as the first character of an identifier,
+      so we take a little bit more restrictive character class for
+      that first character.
+    </p>
+
+    <pre class="programlisting">
+lexical syntax
+  [A-Za-z][A-Za-z0-9]* -&gt; Id</pre>
+
+    <div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id1323464"></a>6.3.2.1. Reserving Keywords</h4></div></div></div>
+      
+
+      <p>
+	If a language would only consists of identifiers, then this
+	production does the job. Unfortunately, life is not that easy.
+	In practice, identifiers interact with other language
+	constructs. The best known interaction is that most languages
+	do not allow keywords (such as <code class="code">if</code>,
+	<code class="code">while</code>, <code class="code">class</code>) and special literals
+	(such as <code class="code">null</code>, <code class="code">true</code>). In SDF,
+	keywords and special literals are not automatically preferred
+	over identifiers. For example, consider the following, very
+	simple expression language (for the context-free syntax we
+	appeal to your intuition for now).
+      </p>
+
+      <pre class="programlisting">
+lexical syntax
+  [A-Za-z][A-Za-z0-9]* -&gt; Id
+  "true"  -&gt; Bool
+  "false" -&gt; Bool
+
+context-free start-symbols Exp
+context-free syntax
+  Id   -&gt; Exp {cons("Id")}
+  Bool -&gt; Exp {cons("Bool")}</pre>
+
+      <p>
+        The input <code class="code">true</code> can now be parsed as an identifier
+        as well as a boolean literal. Since the generalized-LR parser
+        actually supports ambiguities, we can even try this out:
+      </p>
+
+      <pre class="screen"><code class="prompt">$</code> echo "true" | sglri -p Test.tbl
+amb([Bool("true"), Id("true")])</pre>
+      
+      <p>
+        The <code class="code">amb</code> term is a representation of the
+        ambiguity. The argument of the ambiguity is a list of
+        alternatives. In this case, the first is the boolean literal
+        and the second is the identifier true. So, we have to define
+        explicitly that we do not want to allow these boolean literals
+        as identifiers. For this purpose, we can use SDF
+        <span class="emphasis"><em>reject productions</em></span>. The intuition of
+        reject productions is that <span class="emphasis"><em>all</em></span>
+        derivations of a symbol for which there is a reject production
+        are forbidden. In this example, we need to create productions
+        for the boolean literals to identifiers.
+      </p>
+
+      <pre class="programlisting">
+lexical syntax
+  "true"  -&gt; Id {reject}
+  "false" -&gt; Id {reject}</pre>
+
+      <p>
+	For <code class="code">true</code>, there will now be two derivations for
+	an <code class="code">Id</code>: one using the reject production and one
+	using the real production for identifiers. Because of that
+	reject production, all derivations will be rejected, so
+	<code class="code">true</code> is not an identifier anymore.  Indeed, if we
+	add these productions to our syntax definition, then the true
+	literal is no longer ambiguous:
+      </p>
+
+      <pre class="screen"><code class="prompt">$</code> echo "true" | sglri -p Test.tbl
+Bool("true")</pre>
+
+      <p>
+        We can make the definition of these reject productions a bit
+        more concise by just reusing the <code class="code">Bool</code> sort. In
+        the same way, we can define keywords using separate production
+        rules and have a single reject production from keywords to
+        identifiers.
+      </p>
+
+      <pre class="programlisting">
+lexical syntax
+  Bool    -&gt; Id {reject}
+  Keyword -&gt; Id {reject}
+
+  "class" -&gt; Keyword
+  "if"    -&gt; Keyword
+  "while" -&gt; Keyword</pre>
+    </div>
+
+    <div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id1323466"></a>6.3.2.2. Longest Match</h4></div></div></div>
+      
+      
+      <p>
+	Scanners usually apply a longest match policy for scanning
+	tokens. Thus, if the next character can be included in the
+	current token, then this will always be done, regardless of
+	the consequences after this token. In most languages, this is
+	indeed the required behaviour, but in some languages longest
+	match scanning actually doesn't work. Similar to not
+	automatically reserving keywords, SDF doesn't choose the
+	longest match by default. Instead, you need to specify
+	explicitly that you want to recognize the longest match.
+      </p>
+
+      <p>
+        For example, suppose that we introduce two language constructs
+        based on the previously defined <code class="code">Id</code>. The following
+        productions define two statements: a simple goto and a
+        construct for variable declarations, where the first
+        <code class="code">Id</code> is the type and the second the variable name.
+      </p>
+
+      <pre class="programlisting">
+context-free syntax
+  Id    -&gt; Stm {cons("Goto")}
+  Id Id -&gt; Stm {cons("VarDec")}</pre>
+
+      <p>
+        For the input <code class="code">foo</code>, which is of course intended to
+        be a goto, the parser will now happily split up the identifier
+        <code class="code">foo</code>, which results in variable
+        declarations. Hence, this input is ambiguous.
+      </p>
+
+    <pre class="screen"><code class="prompt">$</code> echo "foo" | sglri -p Test.tbl
+amb([Goto("foo"), VarDec("f","oo"), VarDec("fo","o")])</pre>
+
+      <p>
+        To specify that we want the longest match of an identifier, we
+        define a <span class="emphasis"><em>follow restriction</em></span>. Such a
+        follow restriction indicates that a string of a certain symbol
+        cannot be followed by a character from the given character
+        class. In this way, follow restrictions can be used to encode
+        longest match disambiguation. In this case, we need to specify
+        that an <code class="code">Id</code> cannot be followed by one of the
+        identifier characters:
+      </p>
+
+      <pre class="programlisting">
+lexical restrictions
+  Id -/- [A-Za-z0-9]</pre>
+
+      <p>
+        Indeed, the input <code class="code">foo</code> is no longer ambiguous and
+        is parsed as a goto:
+      </p>
+
+      <pre class="screen"><code class="prompt">$</code> echo "foo" | sglri -p Test.tbl
+Goto("foo")</pre>
+    </div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="id1323585"></a>6.3.3. Keywords</h3></div></div></div>
+    
+    
+    <p>
+      In <a href="tutorial-sdf.html#section-sdf-lexical-identifiers" title="6.3.2. Identifiers">Section 6.3.2</a> we
+      explained how to reject keywords as identifiers, so we will not
+      repeat that here. Also, we discussed how to avoid that
+      identifiers get split. A similar split issue arises with
+      keywords. Usually, we want to forbid a letter immediately after
+      a keyword, but the scannerless parser will happily start a new
+      identifier token immediately after the keyword. To illustrate
+      this, we need to introduce a keyword, so let's make our previous
+      <code class="code">goto</code> statement a bit more clear:
+    </p>
+
+    <pre class="programlisting">
+context-free syntax
+  "goto" Id -&gt; Stm {cons("Goto")}</pre>
+
+    <p>
+      To illustrate the problem, let's take the input
+      <code class="code">gotox</code>.  Of course, we don't want to allow this
+      string to be a goto, but without a follow restriction, it will
+      actually be parsed by starting an identifier after the
+      <code class="code">goto</code>:
+    </p>
+
+    <pre class="screen"><code class="prompt">$</code> echo "gotox" | sglri -p Test.tbl
+Goto("x")</pre>
+
+    <p>
+      The solution is to specify a follow restriction on the
+      <code class="code">"goto"</code> literal symbol.
+    </p>
+
+    <pre class="programlisting">
+lexical restrictions
+  "goto" -/- [A-Za-z0-9]</pre>
+
+    <p>
+      It is not possible to define the follow restrictions on the
+      <code class="code">Keyword</code> sort that we introduced earlier in the
+      <code class="code">reject</code> example. The follow restriction must be
+      defined on the symbol that <span class="emphasis"><em>literally</em></span> occurs
+      in the production, which is not the case with the
+      <code class="code">Keyword</code> symbol. However, you can specify all the
+      symbols in a single follow restriction, seperated by spaces:
+    </p>
+
+    <pre class="programlisting">
+lexical restrictions
+  "goto" "if" -/- [A-Za-z0-9]</pre>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="id1323752"></a>6.3.4. Integer Literals</h3></div></div></div>
+    
+    
+    <p>
+      Compared to identifiers, integer literals are usually very easy
+      to define, since they do not really interact with other language
+      constructs. Just to be sure, we still define a lexical
+      restriction. The need for this restriction depends on the
+      language in which the integer literal is used.
+    </p>
+
+    <pre class="programlisting">
+lexical syntax
+  [0-9]+ -&gt; IntConst
+
+lexical restrictions
+  IntConst -/- [0-9]</pre>
+
+    <p>
+      In mainstream languages, there are often several notations for
+      integer literal, for example decimal, hexadecimal, or octal. The
+      alternatives are then usually prefixed with one or more
+      character that indicates the kind of integer literal. In Java,
+      hexadecimal numerals start with <code class="code">0x</code> and octal with a
+      <code class="code">0</code> (zero). For this, we have to make the definition
+      of decimal numerals a bit more precise, since <code class="code">01234</code>
+      is now an <span class="emphasis"><em>octal</em></span> numeral.
+    </p>
+
+    <pre class="programlisting">
+lexical syntax
+  "0"         -&gt; DecimalNumeral
+  [1-9][0-9]* -&gt; DecimalNumeral
+
+  [0][xX] [0-9a-fA-F]+ -&gt; HexaDecimalNumeral
+  [0]     [0-7]+       -&gt; OctalNumeral</pre>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="id1323798"></a>6.3.5. Floating-Point Literals</h3></div></div></div>
+    
+
+    <p>
+      Until now, the productions for lexical syntax have not been very
+      complex. In some cases, the definition of lexical syntax might
+      even seem to be more complex in SDF, since you explicitly have
+      to define behaviour that is implicit in existing lexical
+      anlalysis tools. Fortunately, the expressiveness of lexical
+      syntax in SDF also has important advantages, even if it is
+      applied to language that are designed to be processed with a
+      separate scanner. As a first example, let's take a look at the
+      definition of floating-point literals.
+    </p>
+
+    <p>
+      Floating-point literals consists of three elements: digits,
+      which may include a dot, an exponent, and a float suffix
+      (e.g. <code class="code">f</code>, <code class="code">d</code> etc). There are three
+      optional elements in float literals: the dot, the exponent, and
+      the float suffix. But, if you leave them all out, then the
+      floating-point literal no longer distinguishes itself from an
+      integer literal. So, one of the floating-point specific elements
+      is required. For example, valid floating-point literals are:
+      <code class="code">1.0</code>, <code class="code">1.</code>, <code class="code">.1</code>,
+      <code class="code">1f</code>, and <code class="code">1e5</code>, but invalid are:
+      <code class="code">1</code>, and <code class="code">.e5</code>. These rules are encoded in
+      the usual definition of floating-point literals by duplicating
+      the production rule and making different elements optional and
+      required in each production. For example:
+    </p>
+
+    <pre class="programlisting">
+lexical syntax
+  [0-9]+ "." [0-9]* ExponentPart? [fFdD]? -&gt; FloatLiteral
+  [0-9]* "." [0-9]+ ExponentPart? [fFdD]? -&gt; FloatLiteral
+  [0-9]+            ExponentPart  [fFdD]? -&gt; FloatLiteral
+  [0-9]+            ExponentPart? [fFdD]  -&gt; FloatLiteral
+
+  [eE] SignedInteger -&gt; ExponentPart
+  [\+\-]? [0-9]+ -&gt; SignedInteger</pre>
+
+    <p>
+      However, in SDF we can use <span class="emphasis"><em>reject
+      production</em></span> to reject these special cases. So, the
+      definition of floating-point literals itself can be more
+      naturally defined in a single production <a href="tutorial-sdf.html#prod-float-literal"><img src="images/callouts/1.png" alt="1" border="0"></a>. The reject production <a href="tutorial-sdf.html#prod-reject-integer-literal"><img src="images/callouts/2.png" alt="2" border="0"></a> defines that there
+      should at least be one element of a floating-point literal: it
+      rejects plain integer literals. The reject production <a href="tutorial-sdf.html#prod-reject-dot"><img src="images/callouts/3.png" alt="3" border="0"></a> defines that the digits part of the
+      floating-point literals is not allowed to be a single dot.
+    </p>
+
+<pre class="programlisting">
+lexical syntax
+  FloatDigits ExponentPart? [fFdD]? -&gt; FloatLiteral <a name="prod-float-literal"></a><img src="images/callouts/1.png" alt="1" border="0">
+  [0-9]* "." [0-9]* -&gt; FloatDigits
+  [0-9]+            -&gt; FloatDigits
+
+  [0-9]+ -&gt; FloatLiteral {reject} <a name="prod-reject-integer-literal"></a><img src="images/callouts/2.png" alt="2" border="0">
+  "."    -&gt; FloatDigits  {reject} <a name="prod-reject-dot"></a><img src="images/callouts/3.png" alt="3" border="0"></pre>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="id1323907"></a>6.3.6. Comments</h3></div></div></div>
+    
+
+    <p>
+      Similar to defining whitespace, comments can be allowed
+      everywhere by defining additional <code class="code">LAYOUT</code>
+      productions. In this section, we give examples of how to define
+      several kinds of common comments.
+    </p>
+
+    <div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id1323924"></a>6.3.6.1. End-of-line Comment</h4></div></div></div>
+      
+
+      <p>
+	Most languages support end-of-line comments, which start with
+	special characters, such as <code class="code">//</code>, <code class="code">#</code>,
+	or <code class="code">%</code>. After that, all characters on that line are
+	part of the comment. Defining end-of-line comments is quite
+	easy: after the initial characters, every character except for
+	the line-terminating characters is allowed until a line
+	terminator.
+      </p>
+
+<pre class="programlisting">
+lexical syntax
+  "//" ~[\n]* [\n] -&gt; LAYOUT</pre>
+    </div>
+
+    <div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id1323954"></a>6.3.6.2. Traditional Block Comment</h4></div></div></div>
+      
+
+      <p>
+	Block comments (i.e. <code class="code">/* ... */</code>) are a bit more
+	tricky to define, since the content of a block comment may
+	include an asterisk (<code class="code">*</code>). Let's first take a look
+	at a definition of block comments that does not allow an
+	asterisk in its content:
+      </p>
+	
+<pre class="programlisting">
+  "/*" ~[\*]* "*/" -&gt; LAYOUT</pre>
+
+      <p>
+	If we allow an asterisk and a slash, the sequence
+	<code class="code">*/</code> will be allowed as well. So, the parser will
+	accept the string <code class="code">/* */ */</code> as a comment, which is
+	not valid in C-like languages. In general, allowing this in a
+	language would be very inefficient, since the parser can never
+	decide where to stop a block comment. So, we need to disallow
+	just the specific sequence of characters <code class="code">*/</code>
+	inside a comment. We can specify this using a <span class="emphasis"><em>follow
+	restriction</em></span>: an asterisk in a block comments is
+	allowed, but it cannot be followed by a slash
+	(<code class="code">/</code>).
+      </p>
+
+      <p>
+	But, on what symbol do we specify this follow restriction? As
+	explained earlier, we need to specify this follow restriction
+	on a symbol that <span class="emphasis"><em>literally</em></span> occurs in the
+	production. So, we could try to allow a <code class="code">"*"</code>, and
+	introduce a follow restriction on that:
+      </p>
+
+      <pre class="programlisting">
+lexical syntax
+  "/*" (~[\*] | "*")* "*/" -&gt; LAYOUT
+
+lexical restrictions
+  "*" -/- [\/]</pre>
+
+      <p>
+	But, the symbol <code class="code">"*"</code> also occurs in other
+	productions, for example in multiplication expressions and we
+	do not explicitly say here that we intend to refer to the
+	<code class="code">"*"</code> in the block comment production. To
+	distinguish the block comment asterisk from the multiplication
+	operator, we introduce a new sort, creatively named
+	<code class="code">Asterisk</code>, for which we can specify a follow
+	restriction that only applies to the asterisk in a block
+	comment.
+      </p>
+
+      <pre class="programlisting">
+lexical syntax
+  "/*" (~[\*] | Asterisk)* "*/" -&gt; LAYOUT
+  [\*] -&gt; Asterisk
+
+lexical restrictions
+  Asterisk -/- [\/]</pre>
+    </div>
+
+    <div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id1323955"></a>6.3.6.3. Balanced Block Comments</h4></div></div></div>
+      
+
+      <p>
+	To illustrate that lexical syntax in SDF can actually be
+	context-free, we now show an example of how to implement
+	balanced, nested block comments, i.e. a block comment that
+	supports block comments in its content: <code class="code">/* /* */
+	*/</code>. Defining the syntax for nested block comments is
+	quite easy, since we can just define a production that allows
+	a block comment inside itself <a href="tutorial-sdf.html#sdf-nested-comment"><img src="images/callouts/1.png" alt="1" border="0"></a>. For performance and
+	predictability, it is important to require that the comments
+	are balanced correctly. So, in addition to disallowing
+	<code class="code">*/</code> inside in block comments, we now also have to
+	disallow <code class="code">/*</code>. For this, we introduce a
+	<code class="code">Slash</code> sort, for which we define a follow
+	restriction <a href="tutorial-sdf.html#sdf-slash-follow-restriction"><img src="images/callouts/2.png" alt="2" border="0"></a>,
+	similar to the <code class="code">Asterisk</code> sort that we discussed in
+	the previous section.
+      </p>
+
+      <pre class="programlisting">
+lexical syntax
+  BlockComment -&gt; LAYOUT
+
+  "/*" CommentPart* "*/" -&gt; BlockComment
+  ~[\/\*]      -&gt; CommentPart
+  Asterisk     -&gt; CommentPart
+  Slash        -&gt; CommentPart
+  BlockComment -&gt; CommentPart <a name="sdf-nested-comment"></a><img src="images/callouts/1.png" alt="1" border="0">
+  [\/] -&gt; Slash
+  [\*] -&gt; Asterisk
+
+lexical restrictions
+  Asterisk -/- [\/]
+  Slash    -/- [\*]  <a name="sdf-slash-follow-restriction"></a><img src="images/callouts/2.png" alt="2" border="0"></pre>
+    </div>
+  </div>
+</div>
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id1324104"></a>6.4. Examples: Defining Context-Free Syntax</h2></div></div></div>
+
+  
+
+  <p>
+    Context-free syntax in SDF is syntax where layout is allowed
+    between the symbols of the productions. Context-free syntax can be
+    defined in a natural way, thanks to the use of generalized-LR
+    parsing, declarative disambiguation mechanism, and an extensive
+    set of regular expression operators. To illustrate the definition
+    of context-free syntax, we give examples of defining expressions
+    and statements. Most of the time will be spend on explaining the
+    disambiguation mechanisms.
+  </p>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="id1324115"></a>6.4.1. Expressions</h3></div></div></div>
+    
+
+    <p>
+      In the following sections, we will explain the details of a
+      slightly extended version of the SDF modules in <a href="tutorial-sdf.html#ex-basic-module" title="Example 6.1. Basic constructs of SDF">Example 6.1</a>, shown in <a href="tutorial-sdf.html#xmpl-sdf-expression-module" title="Example 6.3. Syntax of Small Expression Language in SDF">Example 6.3</a>.
+    </p>
+
+    <div class="example"><a name="xmpl-sdf-expression-module"></a><p class="title"><b>Example 6.3. Syntax of Small Expression Language in SDF</b></p><div class="example-contents">
+      
+
+      <pre class="programlisting">
+module Expression
+imports
+  Lexical
+
+exports
+  context-free start-symbols Exp
+  context-free syntax
+    Id          -&gt; Var <a name="xmpl-cf-injection"></a><img src="images/callouts/1.png" alt="1" border="0">
+    Var         -&gt; Exp {cons("Var") <a name="xmpl-cf-cons1"></a><img src="images/callouts/2.png" alt="2" border="0">}
+    IntConst    -&gt; Exp {cons("Int") <a name="xmpl-cf-cons2"></a><img src="images/callouts/3.png" alt="3" border="0">}}
+    "(" Exp ")" -&gt; Exp {bracket <a name="xmpl-cf-bracket"></a><img src="images/callouts/4.png" alt="4" border="0">}
+
+    "-" Exp     -&gt; Exp {cons("UnaryMinus")}
+    Exp "*" Exp -&gt; Exp {cons("Times"), left <a name="xmpl-cf-assoc-left"></a><img src="images/callouts/5.png" alt="5" border="0">}
+    Exp "/" Exp -&gt; Exp {cons("Div"), left}
+    Exp "%" Exp -&gt; Exp {cons("Mod"), left}
+    Exp "+" Exp -&gt; Exp {cons("Plus") <a name="xmpl-cf-cons3"></a><img src="images/callouts/6.png" alt="6" border="0">, left}
+    Exp "-" Exp -&gt; Exp {cons("Minus"), left}
+    Exp "=" Exp -&gt; Exp {cons("Eq"), non-assoc <a name="xmpl-cf-non-assoc"></a><img src="images/callouts/7.png" alt="7" border="0">}
+    Exp "&gt;" Exp -&gt; Exp {cons("Gt"), non-assoc}
+
+  context-free priorities <a name="xmpl-cf-priorities"></a><img src="images/callouts/8.png" alt="8" border="0">
+       "-" Exp -&gt; Exp <a name="xmpl-cf-priority-prod"></a><img src="images/callouts/9.png" alt="9" border="0">
+    &gt; {left: <a name="xmpl-cf-group-left"></a><img src="images/callouts/10.png" alt="10" border="0">
+        Exp "*" Exp -&gt; Exp
+        Exp "/" Exp -&gt; Exp
+        Exp "%" Exp -&gt; Exp
+      } 
+    &gt; {left: 
+        Exp "+" Exp -&gt; Exp
+        Exp "-" Exp -&gt; Exp
+      }
+    &gt; {non-assoc: <a name="xmpl-cf-group-non-assoc"></a><img src="images/callouts/11.png" alt="11" border="0">
+        Exp "=" Exp -&gt; Exp
+        Exp "&gt;" Exp -&gt; Exp
+      }</pre>
+    </div></div><br class="example-break">
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="id1324211"></a>6.4.2. Constructor Attributes and Abstract Syntax Trees</h3></div></div></div>
+    
+
+    <p>
+      First, it is about time to explain the constructor attribute,
+      <code class="code">cons</code>, which was already briefly mentioned in <a href="tutorial-parsing.html#section-concepts-parse-trees" title="5.1.2. Parse Trees">Section 5.1.2</a>. In the example
+      expression language, most productions have a constructor
+      attribute, for example <a href="tutorial-sdf.html#xmpl-cf-cons1"><img src="images/callouts/2.png" alt="2" border="0"></a>, <a href="tutorial-sdf.html#xmpl-cf-cons2"><img src="images/callouts/3.png" alt="3" border="0"></a> and <a href="tutorial-sdf.html#xmpl-cf-cons3"><img src="images/callouts/6.png" alt="6" border="0"></a>,
+      but some have not, for example <a href="tutorial-sdf.html#xmpl-cf-injection"><img src="images/callouts/1.png" alt="1" border="0"></a> and <a href="tutorial-sdf.html#xmpl-cf-bracket"><img src="images/callouts/4.png" alt="4" border="0"></a>.
+    </p>
+
+    <p>
+      The <code class="code">cons</code> attribute does not have any actual meaning
+      in the definition of the syntax, i.e the presence or absence of
+      a constructor does not affect the syntax that is defined in any
+      way. The constructor only serves to specify the name of the
+      abstract syntax tree node that is to be constructed if that
+      production is applied. In this way, the <code class="code">cons</code>
+      attribute <a href="tutorial-sdf.html#xmpl-cf-cons2"><img src="images/callouts/3.png" alt="3" border="0"></a> of the production for
+      integer literals, defines that an <code class="code">Int</code> node should
+      be produced for that production:
+    </p>
+
+    <pre class="screen"><code class="prompt">$</code> echo "1" | sglri -p Test.tbl
+Int("1")</pre>
+
+    <p>
+      Note that this <code class="code">Int</code> constructor takes a single
+      argument, a string, which is the name of the variable. This
+      argument of <code class="code">Int</code> is a string because the production
+      for <code class="code">IntConst</code> is defined in <span class="emphasis"><em>lexical
+      syntax</em></span> and all derivations from lexical syntax
+      productions are represented as strings, i.e. without
+      structure. As another example, the production for addition has a
+      <code class="code">Plus</code> constructor attribute <a href="tutorial-sdf.html#xmpl-cf-cons2"><img src="images/callouts/3.png" alt="3" border="0"></a>. This production has three symbols on
+      the left-hand side, but the constructor takes only two
+      arguments, since literals are not included in the abstract
+      syntax tree.
+    </p>
+
+    <pre class="screen"><code class="prompt">$</code> echo "1+2" | sglri -p Test.tbl
+Plus(Int("1"),Int("2"))</pre>
+
+    <p>
+      However, there are also productions that have no
+      <code class="code">cons</code> attribute, i.e. <a href="tutorial-sdf.html#xmpl-cf-injection"><img src="images/callouts/1.png" alt="1" border="0"></a> and <a href="tutorial-sdf.html#xmpl-cf-bracket"><img src="images/callouts/4.png" alt="4" border="0"></a>. The production <a href="tutorial-sdf.html#xmpl-cf-injection"><img src="images/callouts/1.png" alt="1" border="0"></a> from <code class="code">Id</code> to
+      <code class="code">Var</code> is called an <span class="emphasis"><em>injection</em></span>,
+      since it does not involve any additional syntax. Injections
+      don't need to have a constructor attribute. If it is left out,
+      then the application of the production will not produce a node
+      in the abstract syntax tree. Example:
+    </p>
+
+    <pre class="screen"><code class="prompt">$</code> echo "x" | sglri -p Test.tbl
+Var("x")</pre>
+
+    <p>
+      Nevertheless, the production <a href="tutorial-sdf.html#xmpl-cf-bracket"><img src="images/callouts/4.png" alt="4" border="0"></a>
+      does involve additional syntax, but does not have a
+      constructor. In this case, the <code class="code">bracket</code> attribute
+      should be used to indicate that this is a symbol between
+      brackets, which should be literals. The <code class="code">bracket</code>
+      attribute does not affect the syntax of the language, similar to
+      the constructor attribute. Hence, the parenthesis in the
+      following example do not introduce a node, and the
+      <code class="code">Plus</code> is a direct subterm of <code class="code">Times</code>.
+    </p>
+
+    <pre class="screen"><code class="prompt">$</code> echo "(1 + 2) * 3" | sglri -p Test.tbl
+Times(Plus(Int("1"),Int("2")),Int("3"))</pre>
+
+    <p>
+      <b>Conventions. </b>
+      
+	In Stratego/XT, constructors are by covention
+	<span class="emphasis"><em>CamelCase</em></span>. Constructors may be
+	overloaded, i.e. the same name can be used for several
+	productions, but be careful with this feature: it might be
+	more difficult to distinguish the several cases for some
+	tools. Usually, constructors are not overloaded for
+	productions with same number of arguments (arity).
+      
+    </p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="id1324213"></a>6.4.3. Ambiguities in Expressions</h3></div></div></div>
+    
+
+    <div class="example"><a name="xmpl-sdf-amb-expression"></a><p class="title"><b>Example 6.4. Ambiguous Syntax Definition for Expressions</b></p><div class="example-contents">
+      
+
+      <pre class="programlisting">
+  Exp "+" Exp -&gt; Exp {cons("Plus")}
+  Exp "-" Exp -&gt; Exp {cons("Minus")}
+  Exp "*" Exp -&gt; Exp {cons("Mul")} 
+  Exp "/" Exp -&gt; Exp {cons("Div")}</pre>
+    </div></div><br class="example-break">
+
+    <p>
+      Syntax definitions that use only a single non-terminal for
+      expressions are highly ambiguous. <a href="tutorial-sdf.html#xmpl-sdf-amb-expression" title="Example 6.4. Ambiguous Syntax Definition for Expressions">Example 6.4</a> shows the basic arithmetic
+      operators defined in this way. For every combination of
+      operators, there are now multiple possible derivations. For
+      example, the string <code class="code">a+b*c</code> has two possible
+      derivations, which we can actually see because of the use of a
+      generalized-LR parser:
+    </p>
+
+    <pre class="programlisting">
+$ echo "a + b * c" | sglri -p Test3.tbl  | pp-aterm
+amb(
+  [ Times(Plus(Var("a"), Var("b")), Var("c"))
+  , Plus(Var("a"), Times(Var("b"), Var("c")))
+  ]
+)</pre>
+
+    <p>
+      These ambiguities can be solved by using the associativities and
+      priorities of the various operators to disallow undesirable
+      derivations. For example, from the derivations of <code class="code">a + b *
+      c</code> we usually want to disallow the second one, where the
+      multiplications binds weaker than the addition operator. In
+      plain context-free grammars the associativity and priority rules
+      of a language can be encoded in the syntax definition by
+      introducing separate non-terminals for all the priority levels
+      and let every argument of productions refer to such a specific
+      priority level. <a href="tutorial-sdf.html#xmpl-sdf-disamb-expression" title="Example 6.5. Non-Ambiguous Syntax Definition for Expressions">Example 6.5</a>
+      shows how the usual priorities and associativity of the
+      operators of the example can be encoded in this way. For
+      example, this definition will never allow an <code class="code">AddExp</code>
+      as an argument of a <code class="code">MulExp</code>, which implies that
+      <code class="code">*</code> binds stronger than <code class="code">+</code>. Also,
+      <code class="code">AddExp</code> can only occur at the left-hand side of an
+      <code class="code">AddExp</code>, which makes the operator left associative.
+    </p>
+
+    <p>
+      This way of dealing with associativity and priorities has
+      several disadvantages. First, the disambiguation is not natural,
+      since it is difficult to derive the more high-level rules of
+      priorities and associativity from this definition. Second, it is
+      difficult to define expressions in a modular way, since the
+      levels need to be known and new operators might affect the
+      carefully crafted productions for the existing ones. Third, due
+      to all the priority levels and the productions that connect
+      these levels, the parse trees are more complex and parsing is
+      less efficient. For these reasons SDF features a more
+      declarative way of defining associativity and priorities, which
+      we discuss in the next section.
+    </p>
+
+    <div class="example"><a name="xmpl-sdf-disamb-expression"></a><p class="title"><b>Example 6.5. Non-Ambiguous Syntax Definition for Expressions</b></p><div class="example-contents">
+      
+    <pre class="programlisting">
+  AddExp -&gt; Exp
+
+  MulExp -&gt; AddExp
+  AddExp "+" MulExp -&gt; AddExp {cons("Plus")}
+  AddExp "-" MulExp -&gt; AddExp {cons("Minus")}
+
+  PrimExp -&gt; MulExp
+  MulExp "*" PrimExp -&gt; MulExp {cons("Mul")} 
+  MulExp "/" PrimExp -&gt; MulExp {cons("Div")}
+
+  IntConst -&gt; PrimExp {cons("Int")}
+  Id       -&gt; PrimExp {cons("Var")}</pre>
+    </div></div><br class="example-break">
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="id1324507"></a>6.4.4. Associativity and Priorities</h3></div></div></div>
+    
+
+    <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Work in Progress</h3>
+
+    
+    
+    <p>
+      This chapter is work in progress. Not all parts have been
+      finished yet. The latest revision of this manual may
+      contain more material. Refer to the 
+      <a href="http://releases.strategoxt.org/strategoxt-manual/strategoxt-manual-unstable/" target="_top">online version</a>.
+    </p>
+  </div>
+
+    <p>
+      In order to support natural syntax definitions, SDF provides
+      several declarative disambiguation mechanisms. Associativity
+      declarations (<code class="code">left</code>, <code class="code">right</code>,
+      <code class="code">non-assoc</code>), disambiguate combinations of a binary
+      operator with itself and with other operators. Thus, the left
+      associativity of <code class="code">+</code> entails that <code class="code">a+b+c</code>
+      is parsed as <code class="code">(a+b)+c</code>. Priority declarations
+      (<code class="code">&gt;</code>) declare the relative priority of productions. A
+      production with lower priority cannot be a direct subtree of a
+      production with higher priority. Thus <code class="code">a+b*c</code> is
+      parsed as <code class="code">a+(b*c)</code> since the other parse
+      <code class="code">(a+b)*c</code> has a conflict between the <code class="code">*</code>
+      and <code class="code">+</code> productions.
+    </p>
+    
+    <pre class="programlisting">
+  ...
+&gt; Exp "&amp;"  Exp -&gt; Exp
+&gt; Exp "^"  Exp -&gt; Exp
+&gt; Exp "|"  Exp -&gt; Exp
+&gt; Exp "&amp;&amp;" Exp -&gt; Exp
+&gt; Exp "||" Exp -&gt; Exp
+&gt; ... </pre>
+
+    <div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id1324609"></a>6.4.4.1. Group Associativity</h4></div></div></div>
+      
+      <p></p>
+    </div>
+    
+    <div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id1324620"></a>6.4.4.2. Priorities and Hedged Symbols</h4></div></div></div>
+      
+      <p></p>
+      <p>
+	Solution: introduce an auxiliary non-terminal
+      </p>
+    </div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="id1324633"></a>6.4.5. Array Creation and Access Ambiguity</h3></div></div></div>
+    
+    
+    <p>
+      This is usually handled with introducing a new non-terminal.
+    </p>
+    
+    <pre class="programlisting">
+context-free syntax
+  "new" ArrayBaseType DimExp+ Dim*  -&gt; ArrayCreationExp {cons("NewArray")}
+
+  Exp "[" Exp "]" -&gt; Exp {cons("ArrayAccess")}
+  ArrayCreationExp "[" Exp "]" -&gt; Exp {reject}</pre>
+  </div>
+  
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="id1324650"></a>6.4.6. Statements</h3></div></div></div>
+    
+    
+    <p>
+      <a href="tutorial-sdf.html#Fig-RegularExpressions" title="Figure 6.1.  Syntax definition with regular expressions.">Figure 6.1</a> illustrates the use of
+      these operators in the extension of the expression language with
+      statements and function declarations. Lists are used in numerous
+      places, such as for the sequential composition of statements
+      (<code class="code">Seq</code>), the declarations in a let binding, and the
+      formal and actual arguments of a function (<code class="code">FunDec</code>
+      and <code class="code">Call</code>). An example function definition in this
+      language is:
+    </p>
+
+    <div class="figure"><a name="Fig-RegularExpressions"></a><p class="title"><b>Figure 6.1. 
+	Syntax definition with regular expressions.
+      </b></p><div class="figure-contents">
+      
+      <pre class="screen">module Statements
+imports Expressions 
+exports
+  sorts Dec FunDec
+  context-free syntax
+    Var ":=" Exp            	     -&gt; Exp {cons("Assign")}
+    "(" {Exp ";"}* ")" 		     -&gt; Exp {cons("Seq")}
+    "if" Exp "then" Exp "else" Exp   -&gt; Exp {cons("If")}
+    "while" Exp "do" Exp      	     -&gt; Exp {cons("While")}
+    "let" Dec* "in" {Exp ";"}* "end" -&gt; Exp {cons("Let")}
+    "var" Id ":=" Exp                -&gt; Dec {cons("VarDec")}
+    FunDec+ 			     -&gt; Dec {cons("FunDecs")}
+    "function" Id "(" {Id ","}* ")"  
+      "=" Exp 	    	             -&gt; FunDec {cons("FunDec")}
+    Var "(" {Exp ","}* ")" 	     -&gt; Exp {cons("Call")}
+  context-free priorities
+    {non-assoc:
+     Exp "=" Exp 		     -&gt; Exp
+     Exp "&gt;" Exp 		     -&gt; Exp}
+  &gt;  Var ":=" Exp                    -&gt; Exp
+  &gt; {right:
+     "if" Exp "then" Exp "else" Exp  -&gt; Exp
+     "while" Exp "do" Exp      	     -&gt; Exp}
+  &gt;  {Exp ";"}+ ";" {Exp ";"}+       -&gt; {Exp ";"}+
+
+context-free start-symbols Exp
+</pre>
+    </div></div><br class="figure-break">
+
+    <pre class="screen">
+function fact(n, x) =
+  if n &gt; 0 then fact(n - 1, n * x) else x</pre>
+
+    <div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id1324706"></a>6.4.6.1. Dangling Else</h4></div></div></div>
+      
+      <p></p>
+    </div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="id1324717"></a>6.4.7. Whitespace and Comments</h3></div></div></div>
+    
+
+<pre class="programlisting">
+context-free restrictions
+  LAYOUT? -/- [\ \t\12\n\r]</pre>
+
+    <p>
+      Why follow restrictions on whitespace is necessary
+    </p>
+
+<pre class="programlisting">
+context-free restrictions
+  LAYOUT?  -/- [\/].[\*]
+  LAYOUT?  -/- [\/].[\/]</pre>
+  </div>
+</div>
+  
+  
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="sdf-unit-testing"></a>6.5. Unit Testing of Syntax Definitions</h2></div></div></div>
+  
+  
+  
+  <p>
+    <span><strong class="command">Parse-unit</strong></span> is a tool, part of Stratego/XT, for
+    testing SDF syntax definitions. The spirit of unit testing is
+    implemented in parse-unit by allowing you to check that small code
+    fragments are parsed correctly with your syntax definition.
+  </p>
+  
+  <p>
+    In a parse testsuite you can define tests with an input and an
+    expected result. You can specify that a test should succeed
+    (<code class="code">succeeds</code>, for lazy people), fail
+    (<code class="code">fails</code>) or that the abstract syntax tree should have
+    a specific format. The input can be an inline string or the
+    contents of a file for larger tests.
+  </p>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="id1324772"></a>6.5.1. Usage example</h3></div></div></div>
+    
+    
+    <div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id1324777"></a>6.5.1.1. Syntax Definition</h4></div></div></div>
+      
+      
+      <p>
+	Assuming the following grammar for a simple arithmetic
+	expressions:
+      </p>
+      <pre class="programlisting">module Exp
+exports
+  context-free start-symbols Exp
+  sorts Id IntConst Exp
+  
+  lexical syntax
+    [\ \t\n]  -&gt; LAYOUT
+    [a-zA-Z]+ -&gt; Id
+    [0-9]+    -&gt; IntConst
+  
+  context-free syntax
+    Id        -&gt; Exp {cons("Var")}
+    IntConst  -&gt; Exp {cons("Int")}
+  
+    Exp "*"  Exp -&gt; Exp  {left, cons("Mul")}
+    Exp "/"  Exp -&gt; Exp  {left, cons("Div")}
+    Exp "%"  Exp -&gt; Exp  {left, cons("Mod")}
+  
+    Exp "+"  Exp -&gt; Exp  {left, cons("Plus")}
+    Exp "-"  Exp -&gt; Exp  {left, cons("Minus")}
+  
+  context-free priorities
+    {left:
+      Exp "*"  Exp -&gt; Exp
+      Exp "/"  Exp -&gt; Exp
+      Exp "%"  Exp -&gt; Exp
+    } 
+  &gt; {left:
+      Exp "+"  Exp -&gt; Exp
+      Exp "-"  Exp -&gt; Exp
+    }
+</pre>
+      
+    </div>
+    
+    <div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id1324799"></a>6.5.1.2. Parse Testsuite</h4></div></div></div>
+      
+      
+      <p>
+	You could define the following parse testsuite in a file
+	<code class="filename">expression.testsuite</code> :
+      </p>
+      
+      <pre class="programlisting">testsuite Expressions
+topsort Exp
+
+test simple int literal
+  "5" -&gt; Int("5")
+
+test simple addition
+  "2 + 3" -&gt; Plus(Int("2"), Int("3"))
+
+test addition is left associative
+  "1 + 2 + 3" -&gt; Plus(Plus(Int("1"), Int("2")), Int("3"))
+
+test
+  "1 + 2 + 3" succeeds
+
+test multiplication has higher priority than addition
+  "1 + 2 * 3" -&gt; Plus(Int("1"), Mul(Int("2"), Int("3")))
+
+test
+  "x" -&gt; Var("x")
+
+test
+  "x1" -&gt; Var("x1")
+
+test
+  "x1" fails
+
+test
+  "1 * 2 * 3" -&gt; Mul(Int("1"), Mul(Int("2"), Int("3")))
+
+</pre>
+    </div>
+
+    <div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id1324824"></a>6.5.1.3. Running the Parse Testsuite</h4></div></div></div>
+      
+      
+      <p>
+	Running this parse testsuite with:
+      </p>
+
+      <pre class="screen">  $ parse-unit -i expression.testsuite -p Exp.tbl
+</pre>
+      
+      <p>
+	will output:
+      </p>
+      
+      <pre class="screen">-----------------------------------------------------------------------
+executing testsuite Expressions with 9 tests
+-----------------------------------------------------------------------
+* OK   : test 1 (simple int literal)
+* OK   : test 2 (simple addition)
+* OK   : test 3 (addition is left associative)
+* OK   : test 4 (1 + 2 + 3)
+* OK   : test 5 (multiplication has higher priority than addition)
+* OK   : test 6 (x)
+sglr: error in g_0.tmp, line 1, col 2: character `1' (\x31) unexpected
+* ERROR: test 7 (x1)
+  - parsing failed
+  - expected:  Var("x1")
+sglr: error in h_0.tmp, line 1, col 2: character `1' (\x31) unexpected
+* OK   : test 8 (x1)
+* ERROR: test 9 (1 * 2 * 3)
+  - succeeded: Mul(Mul(Int("1"),Int("2")),Int("3"))
+  - expected:  Mul(Int("1"),Mul(Int("2"),Int("3")))
+-----------------------------------------------------------------------
+results testsuite Expressions
+successes : 7
+failures  : 2
+-----------------------------------------------------------------------
+
+</pre>
+    </div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="id1324856"></a>6.5.2. Parse Testsuite Syntax</h3></div></div></div>
+    
+    
+    <p>
+      You cannot escape special characters because there is no need to
+      escape them. The idea of the testsuite syntax is that test input
+      typically contains a lot of special characters, which therefore
+      they should no be special and should not need escaping.
+    </p>
+    
+    <p>
+      Anyhow, you still need some mechanism make it clear where the
+      test input stops. Therefore the testsuite syntax supports
+      several quotation symbols. Currently you can choose from:
+      <code class="code">"</code>, <code class="code">""</code>, <code class="code">"""</code>, and
+      <code class="code">[</code>, <code class="code">[[</code>, <code class="code">[[[</code>. Typically, if
+      you need a double quote in your test input, then you use the
+      <code class="code">[</code>.
+    </p>
+  </div>
+  
+  
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="id1324903"></a>6.5.3. Debugging Support</h3></div></div></div>
+    
+    
+    <p>
+      Parse-unit has an option to parse a single test and write the
+      result to the output. In this mode ambiguities are accepted,
+      which is useful for debugging. The option for the 'single test
+      mode' is <code class="option">--single <em class="replaceable"><code>nr</code></em></code>
+      where <em class="replaceable"><code>nr</code></em> is the number in the
+      testsuite (printed when the testsuite is executed). The
+      <code class="option">--asfix2</code> flag can be used to produce an asfix2
+      parse tree instead of an abstract syntax tree.
+    </p>
+  </div>
+  
+  <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="id1324933"></a>6.5.4. Invocation in Automake</h3></div></div></div>
+    
+    
+    <p>
+      The following make rule can be used to invoke parse-unit from your build system.
+    </p>
+    
+    <pre class="programlisting">
+%.runtestsuite : %.testsuite
+      $(SDF_TOOLS)/bin/parse-unit -i $&lt; -p $(PARSE_UNIT_PTABLE) --verbose 1 -o /dev/null
+    </pre>
+
+    <p>
+      A typical <code class="filename">Makefile.am</code> fo testing your
+      syntax definitions looks like:
+    </p>
+
+    <pre class="programlisting">
+EXTRA_DIST = $(wildcard *.testsuite)
+
+TESTSUITES = \
+  expressions.testsuite \
+  identifiers.testsuite
+
+PARSE_UNIT_PTABLE = $(top_srcdir)/syn/Foo.tbl
+
+installcheck-local: $(TESTSUITES:.testsuite=.runtestsuite)
+    </pre>
+  </div>
+</div>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="tutorial-parsing.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="tutorial-xt.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="bk01pt02ch07.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 5. Syntax Definition and Parsing </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 7. Advanced Topics in Syntax Definition (*)</td></tr></table></div></body></html>
