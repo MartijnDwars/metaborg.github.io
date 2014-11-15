@@ -12,7 +12,11 @@
 
 <p>
 {% if page.date %}
-  Last modified on {{ page.date }}
+  {{ page.date | date: '%B %d, %Y' }}
 {% endif %}
 </p>
 {% endif %}
+
+<p>
+<a href="https://github.com/metaborg/metaborg.github.io/blob/master/{{ page.path }}">Edit on GitHub</a>
+</p>
