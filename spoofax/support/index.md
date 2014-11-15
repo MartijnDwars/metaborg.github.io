@@ -31,12 +31,16 @@ channels:
     questions that are not appropriate for the Q&A, and for discussions
     about developments
 
--   Join the IRC channel at [\#spoofax on
-    freenode.net](irc://irc.freenode.net/stratego) ([web
-    version](http://webchat.freenode.net/?channels=stratego)). (Note
+-   Join the IRC channels on FreeNode at [\#spoofax](irc://irc.freenode.net/spoofax) ([web
+    version](http://webchat.freenode.net/?channels=spoofax)) 
+    and [\#stratego](irc://irc.freenode.net/stratego) 
+    ([web version](http://java.freenode.net/index.php?channel=spoofax)). (Note
     that most Spoofax developers are in the
     [CET](http://www.timeanddate.com/worldclock/custom.html?cities=16)
     timezone.)
-
+    
 Feel free to drop by!
+
+
+
 
