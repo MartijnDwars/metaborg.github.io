@@ -1,20 +1,11 @@
 # Authors
 
-billy_rick:
-  name: Billy Rick
-  web: http://thewhip.com
-  email: billy@rick.com
-  bio: "What do you want, jewels? I am a very extravagant man."
-  avatar: bio-photo-2.jpg
-  twitter: extravagantman
+eelco_visser:
+  name: Eelco Visser
+  web: http://eelcovisser.org
+  email: visser@acm.org
+  bio: "Computer Science Professor and Language Engineer"
+  avatar: http://farm4.staticflickr.com/3778/9645617829_d87c5873f4.jpg
+  twitter: eelcovisser
   google:
-    plus: BillyRick
-
-cornelius_fiddlebone:
-  name: Cornelius Fiddlebone
-  email: cornelius@thewhip.com
-  bio: "I ordered what?"
-  avatar: bio-photo.jpg
-  twitter: rhymeswithsackit
-  google:
-    plus: CorneliusFiddlebone
+    plus: EelcoVisser
