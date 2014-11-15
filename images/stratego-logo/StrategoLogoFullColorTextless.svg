@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Created with Sodipodi ("http://www.sodipodi.com/") -->
+<svg
+   version="1"
+   x="0.00000000"
+   y="0.00000000"
+   width="744.094482"
+   height="1052.36218"
+   id="svg573"
+   sodipodi:version="0.33pre"
+   sodipodi:docname="/home/njanssen/pictures/svg/StrategoLogoFullColorTextless.svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   sodipodi:docbase="/home/njanssen/pictures/svg">
+  <sodipodi:namedview
+     id="base" />
+  <defs
+     id="defs575">
+    <linearGradient
+       id="linearGradient565">
+      <stop
+         style="stop-color:#ffff62;stop-opacity:0.290196;"
+         offset="0.000000"
+         id="stop566" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0.772549;"
+         offset="1.000000"
+         id="stop567" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient560">
+      <stop
+         style="stop-color:#000;stop-opacity:1;"
+         offset="0"
+         id="stop561" />
+      <stop
+         style="stop-color:#fff;stop-opacity:1;"
+         offset="1"
+         id="stop562" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient565"
+       id="linearGradient563"
+       x1="0.069767"
+       y1="0.078125"
+       x2="0.976744"
+       y2="0.875000"
+       spreadMethod="reflect" />
+    <radialGradient
+       xlink:href="#linearGradient565"
+       id="radialGradient564"
+       cx="0.500000"
+       cy="0.500000"
+       r="0.500000"
+       fx="0.500000"
+       fy="0.500000" />
+    <linearGradient
+       xlink:href="#linearGradient565"
+       id="linearGradient573" />
+    <linearGradient
+       xlink:href="#linearGradient565"
+       id="linearGradient574"
+       x1="0.961783"
+       y1="0.961290"
+       x2="0.006369"
+       y2="0.045161" />
+  </defs>
+  <rect
+     style="font-size:12;fill:url(#linearGradient563);fill-rule:evenodd;stroke:none;stroke-width:8.75;stroke-dasharray:none;fill-opacity:1;stroke-opacity:1;"
+     id="rect558"
+     width="570"
+     x="99.592642"
+     y="182.586465"
+     height="570"
+     ry="30" />
+  <g
+     id="g591"
+     style="stroke:#b0b0b0;stroke-opacity:1;fill:none;"
+     transform="translate(3.558044,0.889481)">
+    <g
+       id="g581"
+       style="fill:none;fill-opacity:1;stroke:#b0b0b0;stroke-opacity:1;">
+      <path
+         d="M 388.666 23.0564 L 388.666 596.174 "
+         transform="matrix(0.560000,0.000000,0.000000,0.560000,170.9149,197.9422)"
+         style="font-size:12;fill:none;fill-rule:evenodd;stroke:#b0b0b0;stroke-width:15.625;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;fill-opacity:1;stroke-opacity:1;"
+         id="path583" />
+      <path
+         d="M 255.045 601.52 L 564.276 601.521 L 409.659 314.686 L 255.045 601.52 z "
+         transform="matrix(0.560000,0.000000,0.000000,0.560000,332.3100,353.8037)"
+         style="font-size:12;fill:none;fill-rule:evenodd;stroke:#b0b0b0;stroke-width:15.625;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;fill-opacity:1;stroke-opacity:1;"
+         id="path584" />
+      <path
+         d="M 255.045 601.52 L 564.276 601.521 L 409.659 314.686 L 255.045 601.52 z "
+         transform="matrix(0.560000,0.000000,0.000000,0.560000,-13.53672,352.8815)"
+         style="font-size:12;fill:none;fill-rule:evenodd;stroke:#b0b0b0;stroke-width:15.625;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;fill-opacity:1;stroke-opacity:1;"
+         id="path586" />
+      <path
+         d="M 255.045 601.52 L 564.276 601.521 L 409.659 314.686 L 255.045 601.52 z "
+         transform="matrix(0.560000,0.000000,0.000000,0.560000,158.9255,353.8037)"
+         style="font-size:12;fill:none;fill-rule:evenodd;stroke:#b0b0b0;stroke-width:15.625;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;fill-opacity:1;stroke-opacity:1;"
+         id="path587" />
+    </g>
+    <path
+       style="font-size:12;fill:none;fill-rule:evenodd;stroke:#b0b0b0;stroke-width:5.20833;stroke-linecap:round;stroke-linejoin:round;fill-opacity:1;stroke-opacity:1;"
+       d="M 255.045 601.52 L 564.276 601.521 L 409.659 314.686 L 255.045 601.52 z "
+       id="path588"
+       transform="matrix(1.680000,0.000000,0.000000,1.680000,-299.8942,-319.7453)" />
+  </g>
+  <path
+     style="font-size:12;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:5.20833;stroke-linecap:round;stroke-linejoin:round;fill-opacity:1;stroke-opacity:1;"
+     d="M 255.045 601.52 L 564.276 601.521 L 409.659 314.686 L 255.045 601.52 z "
+     id="path575"
+     transform="matrix(1.680000,0.000000,0.000000,1.680000,-299.8942,-319.7453)" />
+  <g
+     id="g568"
+     style="fill:none;fill-opacity:1;stroke:#000000;stroke-opacity:1;">
+    <path
+       d="M 388.666 23.0564 L 388.666 596.174 "
+       transform="matrix(0.560000,0.000000,0.000000,0.560000,170.9149,197.9422)"
+       style="font-size:12;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:15.625;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;fill-opacity:1;stroke-opacity:1;"
+       id="path585" />
+    <path
+       d="M 255.045 601.52 L 564.276 601.521 L 409.659 314.686 L 255.045 601.52 z "
+       transform="matrix(0.560000,0.000000,0.000000,0.560000,332.3100,353.8037)"
+       style="font-size:12;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:15.625;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;fill-opacity:1;stroke-opacity:1;"
+       id="path581" />
+    <path
+       d="M 255.045 601.52 L 564.276 601.521 L 409.659 314.686 L 255.045 601.52 z "
+       transform="matrix(0.560000,0.000000,0.000000,0.560000,-13.53672,352.8815)"
+       style="font-size:12;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:15.625;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;fill-opacity:1;stroke-opacity:1;"
+       id="path579" />
+    <path
+       d="M 255.045 601.52 L 564.276 601.521 L 409.659 314.686 L 255.045 601.52 z "
+       transform="matrix(0.560000,0.000000,0.000000,0.560000,158.9255,353.8037)"
+       style="font-size:12;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:15.625;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;fill-opacity:1;stroke-opacity:1;"
+       id="path582" />
+  </g>
+  <rect
+     style="font-size:12;fill:url(#linearGradient573);fill-rule:evenodd;stroke:#393939;stroke-width:8.75;stroke-dasharray:none;fill-opacity:1;stroke-opacity:1;"
+     id="rect580"
+     width="570.000000"
+     x="102.289139"
+     y="179.889893"
+     height="570.000000"
+     ry="30" />
+</svg>
