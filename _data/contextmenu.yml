@@ -41,3 +41,25 @@
   url: /sdf3/tutorials/
   context: sdf3
   
+  
+# SPT
+   
+- title: "Calculang"
+  url: /spt/calculang/
+  context: spt
+  
+  
+# Dev
+   
+- title: "Meta"
+  url: /dev/meta/
+  context: dev
+  
+- title: "Foundation"
+  url: /dev/foundation/
+  context: dev
+  
+- title: "Contributors"
+  url: /dev/contributors/
+  context: dev
+  
