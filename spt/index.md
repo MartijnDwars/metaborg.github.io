@@ -10,14 +10,21 @@ image:
 context: spt
 ---
 
-# Spoofax Testing Language: Integrated Language Definition Testing
+<section id="table-of-contents" class="toc"> 
+  <header> <h3>Overview</h3> </header>
+  <div id="drawer" markdown="1">
+  *  Auto generated table of contents
+  {:toc}
+  </div>
+</section><!-- /#table-of-contents -->
+
 The _Spoofax Testing Language_ (SPT) can be used to write language-agnostic tests for a language
 implemented in Spoofax. Parsing rules, operator precedence and associativity, the abstract syntax
 tree, errors and warnings, and transformations can be tested using SPT.
 
 ## Test module
-An SPT module is a single file that specifies the tests, the language of the tests, the start symbol
-of the test, and any setup that the tests require. This is an example of an SPT module:
+
+An SPT module is a single file that specifies the tests, the language of the tests, the start symbol of the test, and any setup that the tests require. This is an example of an SPT module:
 
 	module Expression-tests
 	
