@@ -10,18 +10,27 @@ image:
 context: spoofax
 ---
  
+ <section id="table-of-contents" class="toc"> 
+  <header> <h3>Overview</h3> </header>
+  <div id="drawer" markdown="1">
+  *  Auto generated table of contents
+  {:toc}
+  </div>
+</section><!-- /#table-of-contents -->
+ 
+ 
 Spoofax is a platform for developing textual domain-specific languages with full-featured [Eclipse](http://eclipse.org) editor plugins.
  
 With the Spoofax language workbench, you can write the grammar of your language using the high-level SDF  grammar formalism. Based on this grammar, basic editor services such as syntax highlighting and code folding are automatically provided. Using high-level descriptor languages, these services can be customized. More sophisticated services such as error marking and content completion can be specified using rewrite rules in the Stratego language.
 
-## Components
+## Meta Languages
 
-Spoofax is constructed from the following components:
+Language definitions in Spoofax are constructed using the following meta-languages:
 
-* The SDF syntax definition formalism
-* The Stratego transformation language
-* The NaBL name binding language
-* [IMP](https://github.com/impulse-org)
+* The [SDF3](/sdf/) syntax definition formalism
+* The [NaBL](/nabl/) name binding language
+* The [TS](/ts/) type specification language
+* The [Stratego](/stratego/) transformation language
 
 ## Spoofax Resources
 
@@ -31,19 +40,11 @@ Spoofax is constructed from the following components:
 * [Documentation](documentation/)
 * [Frequently Asked Questions](faq/)
 * [Research](research/)
-* Examples
+* [Examples](/spoofax/examples/)
 * [Development](/dev/)
 * [Support](support/)
 
-# Documentation for Spoofax' Meta Languages
-
-* [Syntax Definition in SDF3](sdf3/)
-* [Name Binding and Scope Rules in NaBL](nabl/)
-* [Type Rules and Constraints in TS](ts/)
-* [API for incremental name resolution and static analysis](nabl/)
-
 ## MetaBorg
 
-* MetaBorg Meta
-* Tutorials
+* [MetaBorg Meta](/meta/)
 
