@@ -1,4 +1,23 @@
-# Spoofax Sunshine
+---
+title: Spoofax Sunshine
+layout: page
+modified: 
+excerpt: 
+image:
+  feature: 
+  credit: 
+  creditlink: 
+context: spoofax
+---
+
+<section id="table-of-contents" class="toc"> 
+  <header> <h3>Overview</h3> </header>
+  <div id="drawer" markdown="1">
+  *  Auto generated table of contents
+  {:toc}
+  </div>
+</section><!-- /#table-of-contents -->
+
 
 Spoofax Sunshine is the runtime library that allows Spoofax-based languages to be used outside of Eclipse (e.g. command line interface).
 

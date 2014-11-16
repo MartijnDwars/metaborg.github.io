@@ -33,7 +33,9 @@
   url: /spoofax/editor-services/
   context: spoofax
   
- 
+- title: "Sunshine"
+  url: /spoofax/sunshine/
+  context: spoofax
 
 # SDF3
    
