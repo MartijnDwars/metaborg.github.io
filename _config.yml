@@ -3,7 +3,8 @@
 title:            MetaBorg
 locale:           en_US
 #url:              http://localhost:4000
-url: 							http://metaborg.github.io
+#url: 							http://metaborg.github.io
+url: http://metaborg.org
 
 sideimage: 				/images/StrategoLogoTextless.png
 
