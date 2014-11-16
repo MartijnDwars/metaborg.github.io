@@ -1,11 +1,14 @@
 # documentation: https://help.github.com/articles/using-jekyll-with-pages/
 
-run-jekyll:
+run:
 	bundle exec jekyll serve
 
-	# then open http://localhost:4000
+# then open http://localhost:4000
 
-update-jekyll:
+install:
+	gem install bundler
+
+update:
 	bundle install
 
 
