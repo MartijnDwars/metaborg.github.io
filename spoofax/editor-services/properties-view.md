@@ -2,6 +2,8 @@
 
 A property view has been added that shows properties for the selected AST node.
 
+![Alt text](properties-view.png)
+
 - By default, the new properties view integrates with NaBL and presents (NaBL) properties associated with the selected text in the editor.
 - The properties view can be customized to show different kinds of properties, either to aid language development or to provide language users with additional information about their programs.
 
