@@ -27,7 +27,7 @@ With the Spoofax language workbench, you can write the grammar of your language 
 
 Language definitions in Spoofax are constructed using the following meta-languages:
 
-* The [SDF3](/sdf/) syntax definition formalism
+* The [SDF3](/sdf3/) syntax definition formalism
 * The [NaBL](/nabl/) name binding language
 * The [TS](/ts/) type specification language
 * The [Stratego](/stratego/) transformation language
