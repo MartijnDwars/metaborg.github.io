@@ -1,3 +1,5 @@
+# Properties View
+
 ## 1. How to migrate old projects
 
 enable the view in `editor/[Language]-Views.esv`
