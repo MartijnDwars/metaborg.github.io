@@ -46,5 +46,5 @@ Language definitions in Spoofax are constructed using the following meta-languag
 
 ## MetaBorg
 
-* [MetaBorg Meta](/meta/)
+* [MetaBorg Meta](/dev/meta/)
 
