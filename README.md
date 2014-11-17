@@ -1,3 +1,11 @@
+# Metaborg Documentation
+
+The documentation can be found on: http://metaborg.org/
+
+You can contribute to the documentation by making pull requests on this GitHub repository.
+For more information on contributing refer to: http://metaborg.org/dev/meta/
+
+<!--
 # Minimal Mistakes
 
 **[Minimal Mistakes](http://mmistakes.github.io/minimal-mistakes)** is a two column responsive Jekyll theme perfect for powering your GitHub hosted blog. 
@@ -21,3 +29,4 @@ See a [live version of Minimal Mistakes](http://mmistakes.github.io/minimal-mist
 Minimal Mistakes takes advantage of Sass and data files to make customizing easier. These features require Jekyll 2.x and will not work with older versions of Jekyll.
 
 To learn how to install and use this theme check out the [Setup Guide](http://mmistakes.github.io/minimal-mistakes/theme-setup/) for more information.
+-->
