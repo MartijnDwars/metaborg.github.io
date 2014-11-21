@@ -4,7 +4,7 @@ layout: page
 modified: 2014-07-31T13:23:02.362000-04:00
 excerpt: "All about Spoofax"
 image:
-  feature: 
+  feature: state-machine/sdf3-nab-ts-str-sm-2.png
   credit: 
   creditlink: 
 context: spoofax

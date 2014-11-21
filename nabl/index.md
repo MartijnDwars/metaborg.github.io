@@ -5,7 +5,7 @@ modified:
 excerpt:
 tags: []
 image:
-  feature: 
+  feature: state-machine/nab-sm-aterm.png
   credit:  
   creditlink: 
 toc: true

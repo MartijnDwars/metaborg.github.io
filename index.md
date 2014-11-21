@@ -4,7 +4,7 @@ title: MetaBorg
 excerpt: "MetaBorg"
 tags: [metaborg, spoofax, sdf3, stratego]
 image:
-  feature: sample-image-1.jpg
+  feature: state-machine/sdf3-nab-ts-str-sm-2.png
   credit: 
   creditlink: 
 ---
