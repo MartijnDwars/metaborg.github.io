@@ -20,6 +20,7 @@ context: dev
 -   Nathan Bruning
 -   Ricky Lindeman
 -   [Rob Vermaas](/Main/RobVermaas)
+-   [Sebastian Erdweg](http://erdweg.org)
 -   Tobi Vollebregt
 -   Vlad Vergu
 
