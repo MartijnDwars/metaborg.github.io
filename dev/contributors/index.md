@@ -12,11 +12,9 @@ context: dev
 
 -   [Eelco Visser](http://eelcovisser.org) (project lead)
 -   [Lennart Kats](http://www.lennart.cl/) (lead developer)
--   [Karl Trygve Kalleberg](/Main/KarlTrygveKalleberg) (lead developer
-    of the Stratego/J runtime and JSGLR)
+-   [Karl Trygve Kalleberg](/Main/KarlTrygveKalleberg) (lead developer of the Stratego/J runtime and JSGLR)
 -   Gabriel Konat
--   [Maartje de
-    Jonge](http://swerl.tudelft.nl/bin/view/Main/MaartjeDeJonge)
+-   [Maartje de Jonge](http://swerl.tudelft.nl/bin/view/Main/MaartjeDeJonge)
 -   Nathan Bruning
 -   Ricky Lindeman
 -   [Rob Vermaas](/Main/RobVermaas)
@@ -32,15 +30,15 @@ The sources of the Spoofax/IMP are available from Subversion.
 
 ## Continuous build
 
-Eclipse update site with the latest result from SVN trunk. You don't
-want this. Just for testing.
+Eclipse update site with the latest result from SVN trunk. You don't want this. Just for testing.
 
 -  <http://download.spoofax.org/update/nightly>
 
 ## License
 
-Spoofax/IMP is licensed under the GNU Lesser General Public License
-(LGPL).
+Spoofax/IMP is licensed under the [GNU Lesser General Public License
+(LGPL)](https://www.gnu.org/licenses/lgpl-2.1.html).
+
 
 
 

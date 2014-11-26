@@ -16,7 +16,7 @@ This web site is generated with <a href="http://jekyllrb.com">Jekyll</a> using t
 
 ### Contributing
 
-The sources of this site are in the repository <github.org/metaborg/metaborg.github.io>.
+The sources of this site are in the repository <https://github.com/metaborg/metaborg.github.io>.
 
 We accept pull requests.
 
