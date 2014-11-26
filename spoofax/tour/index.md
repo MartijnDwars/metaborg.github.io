@@ -1,6 +1,6 @@
 ---
-layout: page
-title: "A Tour of Spoofax"
+layout: pag
+tite: "A Tour of Spoofax"
 date: 
 modified:
 excerpt:
@@ -20,24 +20,19 @@ context: spoofax
   </div>
 </section><!-- /#table-of-contents -->
 
-This page provides a tour of the different features of Spoofax. For
-additional supporting material and documentation, visit our
-[Documentation](/Spoofax/documentation) page. For a quick overview of
-features, see the [Features](/Spoofax/features) page.
+This page provides a tour of the different features of Spoofax. For additional supporting material and documentation, visit our [Documentation](/spoofax/documentation/) page. For a quick overview of features, see the [Features](/spoofax/features/) page.
 
-----
 
 > **Tip**: We provide general Spoofax usage tips using boxes like this one throughout this tour.
 
-----
 
 ## Installation
 
-Moved to <http://metaborg.org/wiki/spoofax/download>
+See the [download](/download/) page.
 
 ## Getting Started
 
-To get started, create a new Spoofax/IMP project using the *File \> New \> Project \> Spoofax/IMP project* wizard.
+To get started, create a new Spoofax/IMP project using the _File_ &rarr; _New_ &rarr; _Project_ &rarr; _Spoofax/IMP project_ wizard.
 
 ![wizard.png](/spoofax/images/tour/wizard.png)
 
@@ -49,7 +44,7 @@ Highlighted in blue are components that can be used to customize the language an
 
 We recommend you glance the files in the project to get an idea of what function they have. The wizard filled in some default content that can be edited. Other files are *derived files*: in particular, all files with `.generated` in their name are derived from the language definition. These files should not be edited directly as they are generated every time the project is built.
 
-> **Tip**: To rebuild the language and editor at any point use *Project \> Build Project* (control-alt-B) or right-click on the build.main.xml file and run it using Ant.
+> **Tip**: To rebuild the language and editor at any point use _Project_ &rarr; _Build Project_ (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>B</kbd>) or right-click on the `build.main.xml` file and run it using Ant.
 
 
 ## The Syntax Definition
@@ -75,7 +70,7 @@ To best get a feel of the SDF grammar formalism, try adding a new production to 
 
     ID "<>" Type -> Property {cons("CompositeProperty")}
 
-Note how SDF just allows you to add an additional case to the *Property* symbol. SDF can be used to modularly reuse and extend existing grammars in this fashion. The constructor label "CompositeProperty" is used to uniquely identify this new property relation. To try it out, rebuild your project (using control-alt-B), and use it in the example editor.
+Note how SDF just allows you to add an additional case to the *Property* symbol. SDF can be used to modularly reuse and extend existing grammars in this fashion. The constructor label `CompositeProperty` is used to uniquely identify this new property relation. To try it out, rebuild your project (using control-alt-B), and use it in the example editor.
 
 
 
@@ -118,7 +113,7 @@ The outline view of the editor can be customized in the same way as the folding 
 
 ![outline-rules.png](/spoofax/images/tour/outline-rules.png)
 
-An interesting feature of the outline is that it can be shown in the *quick outline* view by pressing control-O (command-O on Mac OSX). This allows users to quickly navigate in the file:
+An interesting feature of the outline is that it can be shown in the *quick outline* view by pressing <kbd>Ctrl</kbd>+<kbd>O</kbd> (<kbd>Command</kbd>+<kbd>O</kbd> on Mac OS X). This allows users to quickly navigate in the file:
 
 ![quick-outline.png](/spoofax/images/tour/quick-outline.png)
 
@@ -187,11 +182,11 @@ We can fix our transformation by introducing new definitions for the `simplify` 
 
 ![simplify-rule-2.png](/spoofax/images/tour/simplify-rule-2.png)
 
-Unfortunately, this practice quickly becomes tedious and hard to maintain. Stratego also allows us to specify a *strategy* according to which the rule should be applied in the entire tree. A common strategy is the *topdown/try* strategy: walk the tree in a *topdown* fashion, and *try* to apply it everywhere in the tree where possible:
+Unfortunately, this practice quickly becomes tedious and hard to maintain. Stratego also allows us to specify a *strategy* according to which the rule should be applied in the entire tree. A common strategy is the *topdown/try* strategy: walk the tree in a `topdown` fashion, and `try` to apply it everywhere in the tree where possible:
 
 ![main-str-3.png](/spoofax/images/tour/main-str-3.png)
 
-Other useful strategies are *map*, to apply a rule on a list (e.g., `map(simplify)`), and *innermost*, to exhaustively apply a rule, starting at the innermost leaves of a tree.
+Other useful strategies are `map`, to apply a rule on a list (e.g., `map(simplify)`), and `innermost`, to exhaustively apply a rule, starting at the innermost leaves of a tree.
 
 
 
@@ -211,7 +206,7 @@ The `EntityLang-Builders.esv` file in the `editor` directory defines the entries
 
 ![builders.png](/spoofax/images/tour/builders.png)
 
-The corresponding `EntityLang-Builders.generated.esv` documents the definitions in this file. For this tour, we are interested in the `builder` definitions, which control the Transform menu items. The first `builder` specifies the "Generate Java code" item. It indicates that the `generate-java` rule that we saw before is responsible for this action. Using annotations, it also specifies that this action *opens an editor* which will be updated in *"real time"* as the user edits the source of the tranformation. The second `builder` is a *meta* builder: it only shows up to developers of the language, not when the plugin is deployed.
+The corresponding `EntityLang-Builders.generated.esv` documents the definitions in this file. For this tour, we are interested in the `builder` definitions, which control the Transform menu items. The first `builder` specifies the "Generate Java code" item. It indicates that the `generate-java` rule that we saw before is responsible for this action. Using annotations, it also specifies that this action *opens an editor* which will be updated in *"real time"* as the user edits the source of the transformation. The second `builder` is a *meta* builder: it only shows up to developers of the language, not when the plugin is deployed.
 
 ## Error checking
 
@@ -235,15 +230,15 @@ Spoofax helps you to enrich your editor with refactorings. You can find the refa
 
 ### Refactoring Specifications
 
-The `EntityLang-Builders.esv` file in the `editor` directory defines the entries in the Refactor menu:
+The `EntityLang-Builders.esv` file in the `editor` directory defines the entries in the _Refactor_ menu:
 
 ![refactoring-builder.png](/spoofax/images/tour/refactoring-builder.png)
 
-The given `refactoring` specifies the "Rename" menu item, which is enabled in case an ID node is selected.The menu action is bind to the rename shortcut (Shift+Alt+R). After the user applies the rename refactoring, a dialog is prompted with an input field labeled "New name" that has the empty string as initial value.
+The given `refactoring` specifies the "Rename" menu item, which is enabled in case an ID node is selected.The menu action is bind to the rename shortcut (<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>R</kbd>). After the user applies the rename refactoring, a dialog is prompted with an input field labeled "New name" that has the empty string as initial value.
 
 ![refactoring-rename-dialog.png](/spoofax/images/tour/refactoring-rename-dialog.png)
 
-The OK button of the dialog triggers the action defined with the `rename` rule that we discuss in the next paragraph.
+The _OK_ button of the dialog triggers the action defined with the `rename` rule that we discuss in the next paragraph.
 
 ### Refactoring Transformations
 
@@ -251,13 +246,15 @@ Refactorings are defined in Stratego. The `refactor.str` file in the `trans` dir
 
 ![refactor-rule.png](/spoofax/images/tour/refactor-rule.png)
 
-This rule follows a fixed interface for interoperability with the editor. The left-hand-side of the rule is a tuple of: the result of the user input dialog, the selected node, its tree position, the complete ast of the file, the file path and the project path. The right-hand-side is a tuple containing the refactoring output: a list of node changes, plus lists with errors and warnings that will be reported to the user. Errors and warnings are specified as a tuple of the offending language element (which location will be reported) and the error message itself.
+This rule follows a fixed interface for interoperability with the editor. The left-hand-side of the rule is a tuple of: the result of the user input dialog, the selected node, its tree position, the complete AST of the file, the file path and the project path. The right-hand-side is a tuple containing the refactoring output: a list of node changes, plus lists with errors and warnings that will be reported to the user. Errors and warnings are specified as a tuple of the offending language element (which location will be reported) and the error message itself.
 
 ![refactoring-semantic-error.png](/spoofax/images/tour/refactoring-semantic-error.png)
 
 
 
-> **Tip**: multiple-file refactorings can be specified in the change list using the root nodes: [(ast-1-before, ast-1-after), (ast-2-before, ast-2-after), ...]
+> **Tip**: multiple-file refactorings can be specified in the change list using the root nodes:
+> 
+>     [(ast-1-before, ast-1-after), (ast-2-before, ast-2-after), ...]
 
 
 
@@ -272,7 +269,7 @@ The `analyze` rule uses the *topdown/try* strategy we have shown before. It will
 
 ## Reference resolving
 
-When a user holds control (or command on Mac OSX) and hovers over an identifier, they get a link to its definition:
+When a user holds control (or command on Mac OS X) and hovers over an identifier, they get a link to its definition:
 
 ![reference-resolving.png](/spoofax/images/tour/reference-resolving.png)
 
@@ -303,7 +300,7 @@ In this AST we see a special `COMPLETION(_)` note where content completion is re
 
 ![content-completion-2.png](/spoofax/images/tour/content-completion-2.png)
 
-This rule gets the current abstract syntax tree node, its position, etc. and returns a list of content proposals. The "String" and "Int" proposal are hardcoded; other proposals are computed by taking all the keys of our `GetEntity` table. For this we use the `all-keys-GetEntity` rule which is automatically made available from our `GetEntity` definition. Spoofax will then automatically show proposals with the right prefix (here the letter "U").
+This rule gets the current abstract syntax tree node, its position, etc. and returns a list of content proposals. The "String" and "Int" proposal are hard coded; other proposals are computed by taking all the keys of our `GetEntity` table. For this we use the `all-keys-GetEntity` rule which is automatically made available from our `GetEntity` definition. Spoofax will then automatically show proposals with the right prefix (here the letter "U").
 
 
 ## Testing Language Definitions
@@ -363,7 +360,7 @@ In this tour we focus on the Eclipse extension mechanism. These components can b
 
 ![java-components-1.png](/spoofax/images/tour/java-components-1.png)
 
-You can then select Add to add a new extension:
+You can then select _Add_ to add a new extension:
 
 ![java-components-2.png](/spoofax/images/tour/java-components-2.png)
 
@@ -374,6 +371,7 @@ Note that only editor components defined using Spoofax/IMP can be used directly 
 A key class for integrating with Spoofax editors from Java `org.strategoxt.imp.runtime.EditorState` class, which provides things like the current or selection AST of an open editor. It also allows model listeners to be attached using `EditorState.getEditor().addModelListener()`. Please [contact us](/spoofax/support) if you have any questions about Java integration or other topics; we'd be happy to help.
 
 All built-in Spoofax/IMP editor components are based on the [Eclipse IMP](http://eclipse.org/imp) framework. In addition to standard Eclipse plugin extensions, IMP can also be used to define parts of your editor. These can be created using the _File_ &rarr; _New_ wizard, selecting any of the IDE Language Support options. At this time, however, not all these wizards are stable, and they may not always work right within the Spoofax/IMP environment. Instead, we recommend that users build editor services using the Spoofax-native `esv` definitions or, if necessary, using regular Eclipse extension points.
+
 
 
 
