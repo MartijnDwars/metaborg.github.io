@@ -288,7 +288,7 @@ Like with priorities, the essence of the associativity attribute is that certain
 
 * The `left` associativity attribute on a production P filters all occurrences of P as a direct child of P in the right-most argument. This implies that `left` is only effective on productions that are recursive on the right (as in `A B C -> C`).
 * The `right` associativity attribute on a production P filters all occurrences of P as a direct child of P in the left-most argument. This implies that `right` is only effective on productions that are recursive on the left ( as in `C A B -> C`).
-* The `non-assoc` associativity attribute on a production P filters all occurrences of P as a direct child of P in any argument. This implement that `non-assoc` is only effective if a production is indeed recursive (as in A C B -> C).
+* The `non-assoc` associativity attribute on a production P filters all occurrences of P as a direct child of P in any argument. This implement that `non-assoc` is only effective if a production is indeed recursive (as in `A C B -> C`).
 * The `assoc` attribute means the same as `left`
 
 Associativity declarations occur in two places in SDF3. The first is as production attributes. The second is as associativity declarations in priority groups. 

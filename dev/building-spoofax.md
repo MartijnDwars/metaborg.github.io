@@ -15,39 +15,31 @@ Execute the following commands:
 
 This will build Spoofax and its components, creating the following build products.
 
-**Eclipse update site**
+* **Eclipse update site**
+    ```
+    spoofax-deploy/org.strategoxt.imp.updatesite/target/site
+    ```
 
-```
-spoofax-deploy/org.strategoxt.imp.updatesite/target/site
-```
+* **Sunshine JAR **
+    ```
+    spoofax-sunshine/org.spoofax.sunshine/target/org.metaborg.sunshine-<VERSION>.jar
+    ```
 
-
-**Sunshine JAR **
-
-```
-spoofax-sunshine/org.spoofax.sunshine/target/org.metaborg.sunshine-<VERSION>.jar
-```
-
-
-**Benchmarker JAR**
-
-```
-spoofax-benchmark/org.metaborg.spoofax.benchmark.cmd/target/org.metaborg.spoofax.benchmark.cmd-<VERSION>.jar
-```
+* **Benchmarker JAR**
+    ```
+    spoofax-benchmark/org.metaborg.spoofax.benchmark.cmd/target/org.metaborg.spoofax.benchmark.cmd-<VERSION>.jar
+    ```
 
 
-**Test runner JAR**
+* **Test runner JAR**
+    ```
+    spt/org.metaborg.spoofax.testrunner.cmd/target/org.metaborg.spoofax.testrunner.cmd-<VERSION>.jar
+    ```
 
-```
-spt/org.metaborg.spoofax.testrunner.cmd/target/org.metaborg.spoofax.testrunner.cmd-<VERSION>.jar
-```
-
-
-**Libraries JAR**
-
-```
-spoofax-deploy/org.metaborg.maven.build.spoofax.libs/target/org.metaborg.maven.build.spoofax.libs-<VERSION>.jar
-```
+* **Libraries JAR**
+    ```
+    spoofax-deploy/org.metaborg.maven.build.spoofax.libs/target/org.metaborg.maven.build.spoofax.libs-<VERSION>.jar
+    ```
     
 ## Detailed description
 
@@ -108,9 +100,7 @@ The main artefact of a Spoofax build is the Eclipse update site which can be use
 
     spoofax-deploy/org.strategoxt.imp.updatesite/target/site
 
-You can add this local update site to Eclipse by navigating to:
-
-    Help -> Install New Software... -> Add -> Local
+You can add this local update site to Eclipse by navigating to _Help_ &rarr; _Install New Software..._ &rarr; _Add_ &rarr; _Local_.
     
 Then it can be used to install Spoofax, like a regular update site. After a restart of Eclipse, Spoofax can be tested.
 
