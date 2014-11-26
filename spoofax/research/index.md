@@ -10,8 +10,7 @@ image:
 context: spoofax
 ---
 
-See also the [publication list on
-researchr](http://researchr.org/bibliography/spoofax/publications)
+See also the [publication list on researchr](http://researchr.org/bibliography/spoofax/publications)
 
 ## The Spoofax Language Workbench
 
@@ -155,9 +154,10 @@ editor, not the Spoofax/IMP language workbench)
 
 ## Presentations
 
-[The Spoofax Language Workbench (SPLASH
+- [The Spoofax Language Workbench (SPLASH
 2010)](http://www.slideshare.net/lennartkats/the-spoofax-language-workbench-splash-2010 "The Spoofax Language Workbench (SPLASH 2010)")
 
-[Domain-Specific Languages for Composable Editor Plugins (LDTA
+- [Domain-Specific Languages for Composable Editor Plugins (LDTA
 2009)](http://www.slideshare.net/lennartkats/domainspecific-languages-for-composable-editor-plugins "Domain-Specific Languages for Composable Editor Plugins (LDTA 2009)")
+
 

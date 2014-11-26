@@ -35,7 +35,7 @@ The rules are as follows:
 
 The available options on actions are as follows:
 
- - `(meta)` makes the actions only available to meta-programmars (i.e. they are not available when the plugin is deployed to end-users).
+ - `(meta)` makes the actions only available to meta-programmers (i.e. they are not available when the plugin is deployed to end-users).
  - `(openeditor)` indicates an editor should be opened with the result.
  - `(realtime)` indicates that the resulting editor should be updated in real-time as the source file is edited.
  - `(source)` applies the action to the source AST and not the analyzed one.
@@ -53,3 +53,4 @@ For each action, a builder should be defined in Stratego as shown below. The bui
         path'  := <guarantee-extension(|"java")> path;
         result := <to-java> selected
         
+

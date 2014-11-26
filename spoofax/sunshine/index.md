@@ -25,7 +25,7 @@ Spoofax Sunshine is the runtime library that allows Spoofax-based languages to b
 
 ## Binaries
 
-You can download the latest prebuilt binary of Spoofax Sunshine from the [releases page](https://github.com/metaborg/spoofax-sunshine/releases). The Jar file contains all dependencies.
+You can download the latest pre-built binary of Spoofax Sunshine from the [releases page](https://github.com/metaborg/spoofax-sunshine/releases). The Jar file contains all dependencies.
 
 ## Source
 
@@ -66,7 +66,7 @@ Where:
 - `--project` defines the root directory containing the source code to be processed using the language
 - `--builder` gives the name of the transformation to be applied to the input file. The argument to `--builder` is the title of the menu action as specified in the `LANG-Menus.esv` file in the language definition, e.g.:
 
-    action: "Generate Java" = generate-java ... 
+        action: "Generate Java" = generate-java ... 
 
 - `--build-on` specifies the file that the transformation should be applied on. 
 
@@ -91,12 +91,13 @@ Where:
 
 ## Applying the on-save handler as a transformation
 
-Sunshine can automatically invoke the on-save handler defines in the `LANG-main.esv` file. For this use the name passed to the `--builder` argument should be *"OnSave"*.
+Sunshine can automatically invoke the on-save handler defines in the `LANG-main.esv` file. For this use the name passed to the `--builder` argument should be `OnSave`.
 
 ## Getting help
 
 Sunshine supports additional parameters and flags. A list and brief explanation can be obtained by running:
 
     java -jar spoofax-sunshine.jar --help
+
 
 

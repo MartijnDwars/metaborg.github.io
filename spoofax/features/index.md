@@ -48,21 +48,22 @@ context: spoofax
 
 ## Other features, including:
 
--   Runs on Windows, Linux, and Mac OS X
+-   Runs on Windows, Linux, and Mac OS X.
 
--   Bracket highlighting, comment insertion
+-   Bracket highlighting, comment insertion.
 
--   Automatic bracket insertion and automatic indentation
+-   Automatic bracket insertion and automatic indentation.
 
--   Fully automatic [syntax error
-    recovery](/Stratego/PermissiveGrammars)
+-   Fully automatic syntax error
+    recovery.
 
--   Creates a basic, customizable editor using just the grammar
+-   Creates a basic, customizable editor using just the grammar.
 
--   Using [SDF](/Stratego/SDF) and [SGLR](/Stratego/JSGLR), *all*
+-   Using [SDF](/sdf3/) and [SGLR](/sdf3/jsglr/), *all*
     context-free languages are supported. This means that language
     definitions can be composed and reused.
 
 -   Based on the Eclipse [IMP](http://eclipse.org/imp/) framework,
-    allowing interoperability with pure-Java editor components
+    allowing interoperability with pure-Java editor components.
+
 

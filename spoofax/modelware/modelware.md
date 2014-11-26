@@ -5,14 +5,14 @@ Spoofax Modelware provides integration with the [Eclipse Modeling Framework (EMF
 
 ## Features
 - Real-time synchronization between Spoofax-based textual editors and GMF-based graphical editors.
-- Error recovery during synchronization to allow for synchronization in the occurence of parse errors, unresolved names and incomplete models.
+- Error recovery during synchronization to allow for synchronization in the occurrence of parse errors, unresolved names and incomplete models.
 - Textual and graphical layout preservation during synchronization.
 - Selection sharing between editors.
 - Possibility to persist EMF models using a user-defined textual syntax.
 
 ## Limitations
 - It is not possible to generate an example project in Spoofax.
-- There is no working conversion from an SDF + NABL defintion to Ecore.
+- There is no working conversion from an SDF + NABL definition to Ecore.
 
 ## Usage
 
@@ -97,3 +97,4 @@ Add the folowing extension point to an arbitrary Eclipse plugin:
 - GMF-Tooling home: http://eclipse.org/gmf-tooling/
 - EuGENia home: http://www.eclipse.org/epsilon/doc/eugenia/
 - ComBE home (example use case): http://oskarvanrest.github.com/ComBE/
+

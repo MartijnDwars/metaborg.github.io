@@ -13,16 +13,13 @@ context: spoofax
 
 ## EntityLang (tour with screenshots)
 
-The EntityLang language shows some of the Spoofax basics, and comes with
-a short tutorial and screenshots. A basic version of language is
-included in the "new project" wizard.
+The EntityLang language shows some of the Spoofax basics, and comes with a short tutorial and screenshots. A basic version of language is included in the _New project_ wizard.
 
 [Tour](/spoofax/tour/)
 
 ## Calculang
 
-A simple calculator language, illustrating basic syntax and
-transformations.
+A simple calculator language, illustrating basic syntax and transformations.
 
 [https://svn.strategoxt.org/repos/StrategoXT/spoofax-contrib/calculang/](https://svn.strategoxt.org/repos/StrategoXT/spoofax-contrib/calculang/)
 
@@ -42,12 +39,10 @@ Mobl is a language for client-side web applications specialized for mobile phone
 
 ## Lua
 
-[Lua](http://www.lua.org/) is a dynamically typed, lightweight,
-embeddable scripting language. Spoofax-Lua is an Eclipse plugin for Lua
-built using Spoofax, featuring reference resolving, type analysis and
-content assist.
+[Lua](http://www.lua.org/) is a dynamically typed, lightweight, embeddable scripting language. Spoofax-Lua is an Eclipse plugin for Lua built using Spoofax, featuring reference resolving, type analysis and content assist.
 
 [https://github.com/tvo/spoofax-lua\#readme](https://github.com/tvo/spoofax-lua#readme)
+
 
 
 
