@@ -19,17 +19,12 @@ As an example, consider the following entity:
     entity Store {
         name : String 
         address : Address
-    }￼￼￼￼￼￼￼￼￼￼￼
+    }
 
 Following the name binding rules discussed so far, there are two scope levels in this fragment: 
-one at the module level and one at the entity level. 
-We can assign names to these scopes (`storage` and `Store`) by using the naming rules for modules and entities. 
-By creating a hierarchy of these names, Spoofax creates URIs: 
-the URI for `Store` is `Entity://storage.Store`, and the one for `name` is `Property:// storage.Store.name`. 
-URIs are represented internally as lists of terms, that start with the namespace, followed by a reverse hierarchy of the path names. 
-The reverse order used in the representation makes it easier to efficiently store and manipulate URIs in memory: 
-every tail of such a list can share the same memory space.
-For the `name` property of the `Store` entity in the storage module, this would be:
+one at the module level and one at the entity level. We can assign names to these scopes (`storage` and `Store`) by using the naming rules for modules and entities.
+
+By creating a hierarchy of these names, Spoofax creates URIs: the URI for `Store` is `Entity://storage.Store`, and the one for `name` is `Property:// storage.Store.name`.  URIs are represented internally as lists of terms, that start with the namespace, followed by a reverse hierarchy of the path names. The reverse order used in the representation makes it easier to efficiently store and manipulate URIs in memory: every tail of such a list can share the same memory space. For the `name` property of the `Store` entity in the storage module, this would be:
 
     [Property(), "name", "Store", "storage"]
 
@@ -48,19 +43,20 @@ This view shows the abstract syntax with all URIs as annotations.
 
 ### Query Name Information
 
-<pre>
+```
 index-uri
 index-namespace
-</pre>
+```
 
 ### Lookup Names
 
-<pre>
+```
 index-lookup
 index-lookup-all
 index-get-files-of
 index-get-all-in-file
 index-get-current-file
-</pre>
+```
 
 ### Associated Data
+
