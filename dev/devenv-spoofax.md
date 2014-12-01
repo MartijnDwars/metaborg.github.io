@@ -8,14 +8,14 @@ First, [download and install Eclipse](http://www.eclipse.org/downloads/packages/
 
 * General
 	* Keep next/previous editor, view and perspectives dialog open
-* General -> Startup and Shutdown
+* General &rarr; Startup and Shutdown
 	* Refresh workspace on startup 
-* General -> Workspace
+* General &rarr; Workspace
 	* Refresh using native hooks or polling
 
 And disable:
 
-* Run/Debug -> Launching
+* Run/Debug &rarr; Launching
 	* Build (if required) before launching
 
 ## Install m2eclipse plugin

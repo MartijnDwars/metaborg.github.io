@@ -10,17 +10,17 @@ A property view has been added that shows properties for the selected AST node.
 
 ## 1. How to migrate old projects
 
-enable the view in `editor/[Language]-Views.esv`
+Enable the view in `editor/[Language]-Views.esv`.
 
 	properties view: editor-properties
 
-make sure the `[Language]-Views.esv` is imported in `editor/[Language].main.esv`
+Make sure the `[Language]-Views.esv` is imported in `editor/[Language].main.esv`.
 
     imports
         // ...
         Relations-Views
 
-Specify the builder `editor-properties`
+Specify the builder `editor-properties`:
 
 	// Gathers the properties for the properties view.
 	editor-properties:
@@ -70,3 +70,4 @@ You can specify rules for custom pretty printing:
 	pp-property : One() 	   -> "[1, 1], exactly one, required"
 	pp-property : ZeroOrMore() -> "[0, n), zero or more, maybe/nullable"
 	pp-property : OneOrMore()  -> "[1, n), one or more, required"
+

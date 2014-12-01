@@ -258,7 +258,7 @@ The preference attribute can be used to handle the 'dangling else' problem. Here
 
 ## Priorities
 
-Priorities are one of SDF3's most often used disambiguation constructs. A priority 'grammar' defines the relative priorities between productions. Priorities are a powerful disambiguation construct. The idea behind the semantics of priorities is that productions with a higher priority "bind stronger" than productions with a lower priority. The essence of the priority disambiguation construct is that certain parse trees are removed from the ‘forest’ (the set of all possible parse trees that can be derived from a segment of code).The basic priority syntax looks like this:
+Priorities are one of SDF3's most often used disambiguation constructs. A priority 'grammar' defines the relative priorities between productions. Priorities are a powerful disambiguation construct. The idea behind the semantics of priorities is that productions with a higher priority "bind stronger" than productions with a lower priority. The essence of the priority disambiguation construct is that certain parse trees are removed from the ‘forest’ (the set of all possible parse trees that can be derived from a segment of code). The basic priority syntax looks like this:
 
     context-free priorities
       <Production> >  <Production>
@@ -275,7 +275,7 @@ By default, the priority relation is automatically transitively closed (i.e. if 
 
 The priority relation applies to all arguments of the first production (i.e. in the parse tree, the second production can not be a child of any member of the first production). If A > B, then all trees are removed that have a B node as a direct child of an A node.
 
-An example defining priorities for the addition, substraction and multiplication operators is listed below. Because addition and substaction have the same priority, the are grouped together between brackets.
+An example defining priorities for the addition, subtraction and multiplication operators is listed below. Because addition and subtraction have the same priority, the are grouped together between brackets.
 
     context-free priorities
       {Exp.Times} >
@@ -288,7 +288,7 @@ Like with priorities, the essence of the associativity attribute is that certain
 
 * The `left` associativity attribute on a production P filters all occurrences of P as a direct child of P in the right-most argument. This implies that `left` is only effective on productions that are recursive on the right (as in `A B C -> C`).
 * The `right` associativity attribute on a production P filters all occurrences of P as a direct child of P in the left-most argument. This implies that `right` is only effective on productions that are recursive on the left ( as in `C A B -> C`).
-* The `non-assoc` associativity attribute on a production P filters all occurrences of P as a direct child of P in any argument. This implement that `non-assoc` is only effective if a production is indeed recursive (as in A C B -> C).
+* The `non-assoc` associativity attribute on a production P filters all occurrences of P as a direct child of P in any argument. This implement that `non-assoc` is only effective if a production is indeed recursive (as in `A C B -> C`).
 * The `assoc` attribute means the same as `left`
 
 Associativity declarations occur in two places in SDF3. The first is as production attributes. The second is as associativity declarations in priority groups. 
@@ -332,3 +332,4 @@ Another way of doing that is to apply the same builder to a definition file (in 
 For old SDF3 files, with deprecated constructors, you can also apply the ``Lift to SDF3`` builder to lift your grammar into the new SDF3 style, getting a new file in the ``src-gen/formatted`` folder, with no deprecated constructs.
 
 ``Lift to SDF3`` has two different versions: it can lift productions into templates or it can lift it into productive productions. In the case of wanting to have productive productions out of templates, the ``Extract productions`` builder can be used.
+
