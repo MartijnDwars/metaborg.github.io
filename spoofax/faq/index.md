@@ -13,7 +13,7 @@ context: spoofax
 ### Where can I find answers to some of my other questions?
 
 * [Spoofax Q&A](http://yellowgrass.org/questions/Spoofax)
-* Maybe our [documentation](/Spoofax/Documentation) can answer your question. 
+* Maybe our [documentation](/spoofax/documentation/) can answer your question. 
 * Otherwise, the [YellowGrass](http://yellowgrass.org/project/Spoofax) issue tracker lists issue reports and questions from other users. You can add your own question there,
 * [Contact us](/spoofax/support/) directly.
 
