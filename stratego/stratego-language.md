@@ -32,6 +32,6 @@ We welcome contributions and discussions for improvements, please see above for 
 
 ## License
 
-Stratego is licensed under the GNU Lesser General Public License version 2.1.
+Stratego is licensed under the [GNU Lesser General Public License version 2.1](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html).
 
 
