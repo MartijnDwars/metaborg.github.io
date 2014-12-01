@@ -71,8 +71,7 @@ An archive of Eclipse update sites for the nightly builds is available at [http:
 
 ## License
 
-Spoofax is open source software and is licensed under the GNU Lesser
-General Public License (LGPL).
+Spoofax is open source software and is licensed under the [GNU Lesser General Public License (LGPL)](http://www.tldrlegal.com/l/lgpl2).
 
 ## Supporters
 

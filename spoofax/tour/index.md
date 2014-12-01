@@ -1,6 +1,6 @@
 ---
-layout: pag
-tite: "A Tour of Spoofax"
+layout: page
+title: "A Tour of Spoofax"
 date: 
 modified:
 excerpt:

@@ -19,7 +19,7 @@ context: spoofax
 
 ### External tutorials
 
-* [Spoofax in 12 Days](https://github.com/guwac/compiler-construction/tree/master/assignments)
+* [Spoofax in 12 Days](https://github.com/TUDelft-IN4303/assignments/tree/master/)
 * [SDF Tutorial](http://hydra.nixos.org/build/2583471/download/1/manual/chunk-chapter/tutorial-sdf.html)
 * [Stratego/XT Manual](http://hydra.nixos.org/build/2583471/download/1/manual/chunk-part/index.html)
 

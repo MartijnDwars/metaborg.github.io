@@ -37,7 +37,7 @@ Eclipse update site with the latest result from SVN trunk. You don't want this. 
 ## License
 
 Spoofax/IMP is licensed under the [GNU Lesser General Public License
-(LGPL)](https://www.gnu.org/licenses/lgpl-2.1.html).
+(LGPL)](http://www.tldrlegal.com/l/lgpl2).
 
 
 

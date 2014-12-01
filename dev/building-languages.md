@@ -1,6 +1,6 @@
 # Building Spoofax languages on the command-line
 
-In Eclipse, with the Spoofax plugin installed, languages can simply be built by building the project. On the command-line, Maven is used to build the language, refer to [Setting up Maven](setting-up-maven.md) for instructions on how to install Maven.
+In Eclipse, with the Spoofax plugin installed, languages can simply be built by building the project. On the command-line, Maven is used to build the language, refer to [Setting up Maven](/dev/#setting-up-maven) for instructions on how to install Maven.
 
 ## Building the language
 
