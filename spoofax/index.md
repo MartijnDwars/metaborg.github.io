@@ -34,15 +34,15 @@ Language definitions in Spoofax are constructed using the following meta-languag
 
 ## Spoofax Resources
 
-* [Features](/features/)
-* [Tour](/tour/)
+* [Features](/spoofax/features/)
+* [Tour](/spoofax/tour/)
 * [Download & Installation](/download)
-* [Documentation](/documentation/)
-* [Frequently Asked Questions](/faq/)
-* [Research](/research/)
+* [Documentation](/spoofax/documentation/)
+* [Frequently Asked Questions](/spoofax/faq/)
+* [Research](/spoofax/research/)
 * [Examples](/spoofax/examples/)
 * [Development](/dev/)
-* [Support](/support/)
+* [Support](/spoofax/support/)
 
 ## MetaBorg
 
