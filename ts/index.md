@@ -19,3 +19,9 @@ context: ts
 </section><!-- /#table-of-contents -->
 
 {% include_relative TS.md %}
+
+## Feedback
+
+Please post issues about TS on YellowGrass:
+
+* <http://yellowgrass.org/project/TS>
