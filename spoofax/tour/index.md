@@ -336,7 +336,9 @@ You can create a new plugin feature project by using the _File_ &rarr; _New_ &ra
 
 ![deployment-1.png](/spoofax/images/tour/deployment-1.png)
 
-In the tab plugins, add your plugin to the list of included features using the "Add" button.
+In the *Plug-ins* tab, add your plugin to the list of included features using the "Add" button. Note that checking the *Unpack the plug-in archive after the installation* option is required.
+
+![deployment-2.png](/spoofax/images/tour/deployment-2.png)
 
 In the tab *Included Features* you should add Spoofax/IMP. Be sure you select that it can be updated from "both" update sites for maximal compatibility with existing installations and updates:
 
