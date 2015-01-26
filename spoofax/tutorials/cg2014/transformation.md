@@ -1,11 +1,11 @@
 # Transformations
 
-In case you did not finish your syntax definition, we provide you a working solution in project `org.spoofax.lang.lwc.ql.syntax`. You can build this project and continue the hands-on session from there.
+In case you did not finish your syntax definition, we provide you a working solution in project `org.spoofax.lang.lwc.ql.syntax`. You can open and build this project and continue the hands-on session from there. If you do, close your previous project.
 
 ## Objectives
 
 Improve the outline view of the QL editor and add a normalizer.
-This will be your first encounter with *Stratego*, Spoofax’ language for specifying transformations and code generators.
+This will be your first encounter with [Stratego](http://metaborg.org/stratego/), Spoofax’ language for specifying transformations and code generators.
 
 ## Outline View
 
@@ -42,28 +42,30 @@ For example, consider the following questionnaire and its normal form.
         valueResidue: “Value residue:” money (sellingPrice - privateDebt)
       }
     }  
-=====
+
+*****
+
     form Box1HouseOwning {
       if (true) {
         hasSoldHouse : "Did you sell a house in 2010?" boolean
       }
-    
+
       if (true) {
         hasBoughtHouse : "Did you by a house in 2010?" boolean
       }
-        
+
       if (true) {
         hasMaintLoan : "Did you enter a loan for maintenance/reconstruction?" boolean
       }
-    
+
       if (hasSoldHouse) {
         sellingPrice : "Price the house was sold for:" money
       }
-        
+
       if (hasSoldHouse) {
         privateDebt : "Private debts for the sold house:" money
       }
-        
+
       if (hasSoldHouse) {
         valueResidue : "Value residue:" money ( sellingPrice - privateDebt )
       }
@@ -87,6 +89,4 @@ where `pattern` matches a conditional with at least two questions, while `patter
 
 When you build your project, you can test your normalization by selecting **Show normalized** from the **Syntax** menu of the QL editor.
 
-Next, you specify [semantic analyses for QL](analysis.md).
-
-
+Next, you specify semantic analyses for QL.
