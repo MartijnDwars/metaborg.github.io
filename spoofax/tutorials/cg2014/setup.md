@@ -12,7 +12,7 @@ We highly recommend to work with a fresh Eclipse and Spoofax installation. You c
 
 ## Initial Spoofax Project
 
-You should start with a fresh Eclipse workspace and import the prepared Spoofax projects into the workspace. You can either [download the archive](http://download.metaborg.org/update/tutorial/spoofax-hands-on-ipa2015.zip) or get it from the USB sticks (file name `spoofax-hands-on.zip`) we distributed in the room.
+You should start with a fresh Eclipse workspace and import the prepared Spoofax projects into the workspace. You can either [download the archive](http://download.spoofax.org/update/tutorial/spoofax-hands-on-ipa2015.zip) or get it from the USB sticks (file name `spoofax-hands-on.zip`) we distributed in the room.
 
 1. Start Eclipse.
 2. Select a fresh workspace.
