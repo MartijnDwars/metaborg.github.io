@@ -4,14 +4,11 @@
 
 We highly recommend to work with a fresh Eclipse and Spoofax installation. You can get a copy of Eclipse with Spoofax pre-installed from the USB sticks we distributed in the room. Alternatively, you can download a copy for your OS and architecture:
 
-| OS      | Arch   | Link                                                                        |
-| ------- | ------ | --------------------------------------------------------------------------- |
-| MacOSX  | 64 bit | http://download.metaborg.org/update/installations/spoofax-macosx-x86_64.zip |
-| Linux   | 64 bit | http://download.metaborg.org/update/installations/spoofax-linux-x86_64.zip  |
-| Linux   | 32 bit | http://download.metaborg.org/update/installations/spoofax-linux-x86.zip     |
-| Windows | 64 bit | http://download.metaborg.org/update/installations/spoofax-win32-x86_64.zip  |
-| Windows | 32 bit | http://download.metaborg.org/update/installations/spoofax-win32-x86.zip     |
-
+* [MacOSX 64 bit](http://download.metaborg.org/update/installations/spoofax-macosx-x86_64.zip)
+* [Linux 64 bit](http://download.metaborg.org/update/installations/spoofax-linux-x86_64.zip)
+* [Linux 32 bit](http://download.metaborg.org/update/installations/spoofax-linux-x86.zip )
+* [Windows 64 bit](http://download.metaborg.org/update/installations/spoofax-win32-x86_64.zip)
+* [Windows 32 bit](http://download.metaborg.org/update/installations/spoofax-win32-x86.zip)
 
 ## Initial Spoofax Project
 
