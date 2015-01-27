@@ -71,8 +71,8 @@ Typing rules specify the types of expressions. In the simplest case, the type of
 
     type rules
 
-      True() : BoolTy
-      False(): BoolTy
+      True() : BoolTy()
+      False(): BoolTy()
 
 ### Names and Types
 
