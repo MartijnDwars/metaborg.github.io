@@ -112,7 +112,7 @@ For arithmetic expressions, the checks become slightly more complicated. For exa
 Some language constructs do not have a type on their own, but might expect a certain type of a subexpression. For example, a conditional group requires a boolean condition. You can specify such additional constraints in TS as follows:
 
     Conditional(c, _):-
-    where c: BoolTy
+    where c: BoolTy()
      else error "Expected boolean condition” on c
 
 ## Dependency Analysis
