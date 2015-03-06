@@ -16,30 +16,30 @@ Execute the following commands:
 This will build Spoofax and its components, creating the following build products.
 
 * **Eclipse update site**
-    ```
-    spoofax-deploy/org.strategoxt.imp.updatesite/target/site
-    ```
+```
+spoofax-deploy/org.strategoxt.imp.updatesite/target/site
+```
 
 * **Sunshine JAR **
-    ```
-    spoofax-sunshine/org.spoofax.sunshine/target/org.metaborg.sunshine-<VERSION>.jar
-    ```
+```
+spoofax-sunshine/org.spoofax.sunshine/target/org.metaborg.sunshine-<VERSION>.jar
+```
 
 * **Benchmarker JAR**
-    ```
-    spoofax-benchmark/org.metaborg.spoofax.benchmark.cmd/target/org.metaborg.spoofax.benchmark.cmd-<VERSION>.jar
-    ```
+```
+spoofax-benchmark/org.metaborg.spoofax.benchmark.cmd/target/org.metaborg.spoofax.benchmark.cmd-<VERSION>.jar
+```
 
 
 * **Test runner JAR**
-    ```
-    spt/org.metaborg.spoofax.testrunner.cmd/target/org.metaborg.spoofax.testrunner.cmd-<VERSION>.jar
-    ```
+```
+spt/org.metaborg.spoofax.testrunner.cmd/target/org.metaborg.spoofax.testrunner.cmd-<VERSION>.jar
+```
 
 * **Libraries JAR**
-    ```
-    spoofax-deploy/org.metaborg.maven.build.spoofax.libs/target/org.metaborg.maven.build.spoofax.libs-<VERSION>.jar
-    ```
+```
+spoofax-deploy/org.metaborg.maven.build.spoofax.libs/target/org.metaborg.maven.build.spoofax.libs-<VERSION>.jar
+```
     
 ## Detailed description
 

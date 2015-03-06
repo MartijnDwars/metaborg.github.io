@@ -20,7 +20,7 @@ And disable:
 
 ## Install m2eclipse plugin
 
-The m2eclipse plugin runs Maven inside Eclipse. It is required when working on Java components of Spoofax, because Maven manages the dependencies between projects and on third party libraries. If you will never work on Java components of Spoofax, you can skip installing this plugin. Install the m2eclipse plugin into Eclipse from the following update site: <http://download.eclipse.org/technology/m2e/milestones/1.6>
+The m2eclipse plugin runs Maven inside Eclipse. It is required when working on Java components of Spoofax, because Maven manages the dependencies between projects and on third party libraries. If you will never work on Java components of Spoofax, you can skip installing this plugin. Install the m2eclipse plugin into Eclipse from the following update site: `http://download.eclipse.org/technology/m2e/milestones/1.6`.
 
 After installing the plugin into Eclipse and restarting, go into the Eclipse preferences and click on the `Maven` item. Disable the following checkboxes:
 
@@ -31,14 +31,15 @@ Enable the following checkboxes:
 * Download Artifact Sources
 * Download Artifact JavaDoc
 
+After that you need to install the Tycho Configurator from the update site `http://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-tycho/0.7.0/N/LATEST/`. Be careful with the version, as 0.8 and up is known to break the current Spoofax builds. Install and restart eclipse.
+
 Now click on the `Discovery` item and click on `Open Catalog`, a new window will appear where connectors can be installed. Check the following connectors and press Finish:
 
 * buildhelper
-* Tycho Configurator
 * m2e-jdt-compiler
-* m2e-egit
 
-Four Eclipse plugins will be installed which hook Maven plugins into Eclipse. Finish the installation and restart Eclipse. Maven will now run inside Eclipse on projects with the Maven nature. It will automatically resolve dependencies to projects in the workspace and download third party dependencies.
+Two Eclipse plugins will be installed which finish hooking Maven plugins into Eclipse, together with the Tycho Configurator. Finish the installation and restart Eclipse.
+Maven will now run inside Eclipse on projects with the Maven nature. It will automatically resolve dependencies to projects in the workspace and download third party dependencies.
 
 ## Setting up for Spoofax development
 
@@ -83,7 +84,7 @@ git submodule update --init --remote
 
 Alternatively, you can check out all repositories yourself for more control. 
 
-Since it is not possible to build languages inside Eclipse (because Spoofax is not installed), the languages have to be built using Maven. The Spoofax generator, debugging, and strategoxt also require special build steps which cannot be executed in Eclipse. Follow the build description at <https://github.com/metaborg/spoofax-releng/blob/master/README.md> to build everything with Maven. 
+Since it is not possible to build languages inside Eclipse (because Spoofax is not installed), the languages have to be built using Maven. The Spoofax generator, debugging, and strategoxt also require special build steps which cannot be executed in Eclipse. Follow [the description for building spoofax](building-spoofax.md) to build everything with Maven. 
 
 Import the following projects into Eclipse:
 
@@ -129,6 +130,7 @@ Import the following projects into Eclipse:
 	* org.strategoxt.imp.runtime
 	* org.strategoxt.imp.runtime.sidebyside.latest
 	* org.strategoxt.imp.runtime.sidebyside.main
+	* make-permissive-jar-installer (inside ```org.strategoxt.imp.generator/morepoms```)
 * spoofax-sunshine
 	* org.metaborg.sunshine
 * meta languages
@@ -152,6 +154,8 @@ Import the following projects into Eclipse:
 		* org.strategoxt.imp.editors.rtg
 	* ts
 		* org.metaborg.meta.lang.ts
+	* dynsem
+		* org.metaborg.meta.interpreter.framework
 * jsglr
 	* org.spoofax.interpreter.library.jsglr
 	* org.spoofax.jsglr
@@ -163,14 +167,12 @@ Import the following projects into Eclipse:
 	* org.strategoxt.imp.debug.stratego.transformer
 	* org.strategoxt.imp.debug.ui
 * modelware
-	* ca.ecliptical.gmf.ant_1.1.0.20090717033226
 	* org.spoofax.modelware.emf
 	* org.spoofax.modelware.gmf
 * strategoxt
 	* org.strategoxt.jarprovider
 	* org.strategoxt.strj 
 * deployment
-	* hydra
 	* org.metaborg.maven.build.java
 	* org.metaborg.maven.build.spoofax.eclipse
 	* org.metaborg.maven.build.spoofax.libs
@@ -196,7 +198,9 @@ Eclipse plugins for EMF and GMF must be installed to be able to run the modelwar
 * EMF - Eclipse Modeling Framework SDK
 * EMF Compare Core SDK
 
-Now you can work on Java components such as the terms or Stratego interpreter projects. If a language was changed, for example by pulling in changes from git, just run the Maven builds again. The advantage of this approach is that Spoofax is completely built from your Eclipse workspace, without any dependencies on an installed Spoofax version.
+Now you can work on Java components such as the terms or Stratego interpreter projects. If a language was changed, for example by pulling in changes from git, just run the Maven builds again. __You must disable `Build Automatically` in the `Project` menu in Eclipse before running a Maven build, otherwise the Eclipse and Maven builds will interfere and cause errors. After the Maven build is finished, enable `Build Automatically` again.__
+
+The advantage of this approach is that Spoofax is completely built from your Eclipse workspace, without any dependencies on an installed Spoofax version.
 
 ## Testing changes
 
