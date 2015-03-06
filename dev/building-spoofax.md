@@ -20,7 +20,7 @@ This will build Spoofax and its components, creating the following build product
 spoofax-deploy/org.strategoxt.imp.updatesite/target/site
 ```
 
-* **Sunshine JAR **
+* **Sunshine JAR**
 ```
 spoofax-sunshine/org.spoofax.sunshine/target/org.metaborg.sunshine-<VERSION>.jar
 ```
@@ -29,7 +29,6 @@ spoofax-sunshine/org.spoofax.sunshine/target/org.metaborg.sunshine-<VERSION>.jar
 ```
 spoofax-benchmark/org.metaborg.spoofax.benchmark.cmd/target/org.metaborg.spoofax.benchmark.cmd-<VERSION>.jar
 ```
-
 
 * **Test runner JAR**
 ```
