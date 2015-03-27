@@ -18,7 +18,7 @@ The new Spoofax plugin cannot be installed alongside the existing plugin, you ne
 http://download.spoofax.org/update/release/newplugin-alpha1/
 ```
 
-There is also a nightly update site for the new plugin, where new build will be pushed whenever changes to the code are made:
+There is also a nightly update site for the new plugin, where new builds will be pushed whenever changes to the code are made:
 
 ```
 http://download.spoofax.org/update/newplugin-nightly/
