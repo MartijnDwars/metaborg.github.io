@@ -12,7 +12,7 @@ This document describes installation, porting language projects, differences in 
 
 ## Installing
 
-The new Spoofax plugin cannot be installed alongside the existing plugin, you need to install it into a new Eclipse instance. **This alpha release is only compatible with the *Eclipse IDE for Eclipse Committers***, [Download Eclipse IDE for Eclipse Committers 4.4.2](http://www.eclipse.org/downloads/packages/eclipse-ide-eclipse-committers-442/lunasr2) and install the new Spoofax plugin from this update site:
+The new Spoofax plugin cannot be installed alongside the existing plugin, you need to install it into a new Eclipse instance. **This alpha release is only compatible with the Eclipse IDE for Eclipse Committers**, [Download Eclipse IDE for Eclipse Committers 4.4.2](http://www.eclipse.org/downloads/packages/eclipse-ide-eclipse-committers-442/lunasr2) and install the new Spoofax plugin from this update site:
 
 ```
 http://download.spoofax.org/update/release/newplugin-alpha1/
