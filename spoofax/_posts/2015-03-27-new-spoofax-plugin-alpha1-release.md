@@ -56,7 +56,7 @@ Editors will parse and analyze files regardless of there being a Spoofax nature,
 
 #### Language project builds
 
-Language projects, e.g. your DSL project, can be automatically ported (described in a previous section), but I will explain the differences for reference purposes. 
+Language projects, e.g. your DSL project, can be automatically ported (described in a previous section), but I will explain the differences for reference purposes.
 
 Language projects require a 'Spoofax meta nature'. Choose `Spoofax (meta) -> Add Spoofax meta nature` to add it. This will also add a Spoofax nature if it is absent. Language projects are always built on-demand by invoking `Project -> Build Project` or `Cmd+Alt+B`, which will run the Ant build and reload the language afterwards. The `.externalToolBuilders` directory which contains some Eclipse files to invoke Ant builds are not necessary any more.
 
@@ -125,8 +125,9 @@ Use the main menu `Spoofax (meta) -> Report issue` to report issues, it provides
 
 To be able to quickly fix bugs, please provide the following information when reporting bugs:
 
-* **Eclipse version and package**
+* **Eclipse package and version**
 * **Spoofax version**
+* **Operating system name, architecture, and version**
 * **High-level description of the bug**
 * **How to reproduce the bug**
 * **What the expected behaviour is**
@@ -134,8 +135,9 @@ To be able to quickly fix bugs, please provide the following information when re
 
 For example:
 
-Eclipse version: org.eclipse.epp.package.standard.feature.feature.group 4.4.2.20150219-0708
-Spoofax version: org.metaborg.spoofax.eclipse 1.5.0.20150327-133337
+Eclipse: org.eclipse.epp.package.standard.feature.feature.group 4.4.2.20150219-0708
+Spoofax: org.metaborg.spoofax.eclipse 1.5.0.20150327-133337
+System: Mac OS X x86_64 10.9.5
 
 Syntax highlighting for Stratego strategies and rules are wrong, they are colored black. To reproduce, use the following Stratego file:
 
