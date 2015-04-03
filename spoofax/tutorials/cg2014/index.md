@@ -5,15 +5,15 @@ modified:
 excerpt:
 tags: []
 image:
-  feature: 
+  feature:
   credit:  
-  creditlink: 
+  creditlink:
 toc: true
 share: true
 context: spoofax
 ---
 
-<section id="table-of-contents" class="toc"> 
+<section id="table-of-contents" class="toc">
   <header> <h3>Overview</h3> </header>
   <div id="drawer" markdown="1">
   *  Auto generated table of contents
@@ -26,5 +26,5 @@ context: spoofax
 {% include_relative language.md %}
 {% include_relative syntax.md %}
 {% include_relative transformation.md %}
+{% include_relative analysis.md %}
 {% include_relative extension.md %}
-

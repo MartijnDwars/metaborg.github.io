@@ -2,4 +2,4 @@ The Spoofax language workbench is a platform for the development of textual soft
 
 During this hands-on session, participants will learn the principles and techniques for the design and implementation of software languages in Spoofax. They will develop a small DSL, using Spoofax’s high-level DSLs for language engineering. Spoofax’s testing language enables test-driven language engineering. The syntax definition formalism SDF supports modular definition of (composite) languages. The name binding language NaBL enables declarative definitions of name binding and scope rules of software languages. The type specification language TS supports declarative definitions of type systems of software languages. The Stratego transformation language unifies model transformation and code generation.
 
-The session starts with [setting up Spoofax](setup.md).
+The session starts with setting up Spoofax.
