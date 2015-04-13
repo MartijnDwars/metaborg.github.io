@@ -4,7 +4,7 @@ If you are developing a project that is included in Spoofax it is recommended to
 
 ## Install Eclipse
 
-First, [download and install Eclipse](http://www.eclipse.org/downloads/packages/eclipse-standard-44/lunar). Make sure that you are running Java 7 or higher. There are many preferences in Eclipse that should be on by default, but are not for some reason. Go to the Eclipse preferences and enable these options:
+First, [download and install Eclipse](https://www.eclipse.org/downloads/packages/eclipse-ide-eclipse-committers-442/lunasr2). Make sure that you are running Java 7 or higher. There are many preferences in Eclipse that should be on by default, but are not for some reason. Go to the Eclipse preferences and enable these options:
 
 * General
 	* Keep next/previous editor, view and perspectives dialog open
