@@ -18,11 +18,16 @@ And disable:
 * Run/Debug &rarr; Launching
 	* Build (if required) before launching
 
-## Install m2eclipse plugin
+## Install maven2eclipse plugin
 
-The m2eclipse plugin runs Maven inside Eclipse. It is required when working on Java components of Spoofax, because Maven manages the dependencies between projects and on third party libraries. If you will never work on Java components of Spoofax, you can skip installing this plugin. Install the m2eclipse plugin into Eclipse from the following update site: `http://download.eclipse.org/technology/m2e/milestones/1.6`.
+The maven2eclipse (m2e) plugin runs Maven inside Eclipse. It is required when working on Java components of Spoofax, because Maven manages the dependencies between projects and on third party libraries. If you will never work on Java components of Spoofax, you can skip installing this plugin. Install the following plugins into Eclipse:
 
-After installing the plugin into Eclipse and restarting, go into the Eclipse preferences and click on the `Maven` item. Disable the following checkboxes:
+* m2e: `http://download.eclipse.org/technology/m2e/milestones/1.6`. **Do not install the 'm2e - slf4j over logback logging (Optional)' plugin, as this is incompatible with Spoofax.**
+* m2e-buildhelper: `http://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-buildhelper/0.15.0/N/0.15.0.201405280027/`
+* m2e-jdt-compiler: `http://download.jboss.org/jbosstools/updates/m2e-extensions/m2e-jdt-compiler/`
+* m2e-tycho: `http://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-tycho/0.9.0/N/LATEST/`
+
+After installing the plugins into Eclipse and restarting, go into the Eclipse preferences and click on the `Maven` item. Disable the following checkboxes:
 
 * Do not automatically update dependencies from remote repositories
 
@@ -31,14 +36,6 @@ Enable the following checkboxes:
 * Download Artifact Sources
 * Download Artifact JavaDoc
 
-After that you need to install the Tycho Configurator from the update site `http://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-tycho/0.7.0/N/LATEST/`. Be careful with the version, as 0.8 and up is known to break the current Spoofax builds. Install and restart eclipse.
-
-Now click on the `Discovery` item and click on `Open Catalog`, a new window will appear where connectors can be installed. Check the following connectors and press Finish:
-
-* buildhelper
-* m2e-jdt-compiler
-
-Two Eclipse plugins will be installed which finish hooking Maven plugins into Eclipse, together with the Tycho Configurator. Finish the installation and restart Eclipse.
 Maven will now run inside Eclipse on projects with the Maven nature. It will automatically resolve dependencies to projects in the workspace and download third party dependencies.
 
 ## Setting up for Spoofax development
