@@ -78,7 +78,7 @@ The recommended approach is to add repositories to your local Maven settings fil
 
 If you've already created a settings file before and want to add the repositories, just add the `profile` element (and the `profiles` element if it does not exist yet) to the settings file.
 
-## Project POM file
+## Advanced: project POM file
 
 Repositories can also be added directly to a project's POM file, which only set the repositories for that particular project. This is not recommended, because it makes repositories harder to change by users, and duplicates the configuration. But it can be convenient, because it does not require an external settings file.
 

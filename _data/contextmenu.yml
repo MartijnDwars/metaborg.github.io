@@ -12,19 +12,19 @@
 - title: "Tour"
   url: /spoofax/tour/
   context: spoofax
-  
+
 - title: "Tutorials"
   url: /spoofax/tutorials/
   context: spoofax
-  
+
 - title: "Support"
   url: /spoofax/support/
   context: spoofax
-  
+
 - title: "FAQ"
   url: /spoofax/faq/
   context: spoofax
-  
+
 - title: "Examples"
   url: /spoofax/examples/
   context: spoofax
@@ -32,47 +32,54 @@
 - title: "Editor Services"
   url: /spoofax/editor-services/
   context: spoofax
-  
+
 - title: "Sunshine"
   url: /spoofax/sunshine/
   context: spoofax
 
 # SDF3
-   
+
 - title: "Tutorials"
   url: /sdf3/tutorials/
   context: sdf3
-  
+
 - title: "JSGLR"
   url: /sdf3/jsglr/
   context: sdf3
-  
+
 - title: "Applications"
   url: /sdf3/applications/
   context: sdf3
-  
+
 # SPT
-   
+
 - title: "Calculang"
   url: /spt/calculang/
   context: spt
-  
-  
+
+
 # Dev
-   
-- title: "Dependencies"
-  url: /dev/dependencies/
+
+- title: "Maven"
+  url: /dev/maven/
   context: dev
-  
-- title: "Meta"
-  url: /dev/meta/
+
+- title: "Build"
+  url: /dev/build/
   context: dev
-  
+
+- title: "Develop"
+  url: /dev/develop/
+  context: dev
+
+- title: "Website"
+  url: /dev/website/
+  context: dev
+
 - title: "Foundation"
   url: /dev/foundation/
   context: dev
-  
+
 - title: "Contributors"
   url: /dev/contributors/
   context: dev
-  

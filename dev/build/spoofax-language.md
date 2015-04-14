@@ -1,6 +1,11 @@
 # Building Spoofax languages on the command-line
 
-In Eclipse, with the Spoofax plugin installed, languages can simply be built by building the project. On the command-line, Maven is used to build the language, refer to [Setting up Maven](setting-up-maven.md) for instructions on how to install Maven.
+In Eclipse, with the Spoofax plugin installed, languages can simply be built by building the project. On the command-line, Maven is used to build the language. This section describes how to build a Spoofax language on the command-line using Maven.
+
+## Requirements
+
+1. **Maven 3.2 or higher** is required to build Spoofax languages, refer to the [Setting up Maven](/dev/maven/) section for instructions on how to install Maven.
+2. **MetaBorg Maven artifacts** are required since languages depend on several MetaBorg artifacts. Follow [Using MetaBorg Maven artifacts](/dev/maven/) to make these artifacts available to Maven.
 
 ## Building the language
 
@@ -44,8 +49,4 @@ The build outputs of a language build are:
 * Stratego Java primitives binary: `include/language-java.jar`
 * Packed ESV: `include/language.packed.esv`
 
-These build outputs can be used by [Sunshine](https://github.com/metaborg/spoofax-sunshine), the command-line implementation of Spoofax.
-
-## Building an Eclipse updates site
-
-TODO
+These build outputs can be used by [Sunshine](/spoofax/sunshine/), the command-line implementation of Spoofax.

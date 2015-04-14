@@ -1,26 +1,31 @@
 ---
-title: Developing MetaBorg
+title: Developing and building MetaBorg components
 layout: page
-modified: 
-excerpt: "Information for developers of MetaBorg components"
+modified:
+excerpt: "Information on building and developing MetaBorg components"
 image:
-  feature: 
-  credit: 
-  creditlink: 
+  feature:
+  credit:
+  creditlink:
 context: dev
 ---
 
-<section id="table-of-contents" class="toc"> 
-  <header> <h3>Overview</h3> </header>
-  <div id="drawer" markdown="1">
-  *  Auto generated table of contents
-  {:toc}
-  </div>
-</section><!-- /#table-of-contents -->
-   
-{% include_relative devenv-spoofax.md %}     
-{% include_relative building-spoofax.md %}    
-{% include_relative artifacts.md %}            
-{% include_relative mirror-maven-central.md %}
-{% include_relative building-languages.md %}     
-{% include_relative setting-up-maven.md %}
+# Developing and building MetaBorg components
+
+This section contains documentation on building and developing MetaBorg components.
+
+## Maven
+
+We use Maven as our build system. The [Maven](/dev/maven/) page describes how to set up Maven on your computer, how to use our Maven artifacts, and how to speed up downloading of Maven artifacts.
+
+## Building
+
+The [Build](/dev/build/) page explains how Spoofax, Spoofax languages, and StrategoXT can be built from the command-line.
+
+## Developing
+
+If you'd like to develop changes for Spoofax or any of its components, the [Develop](/dev/develop/) page has details on how to set up a development environment.
+
+## Website
+
+Information on changing the website can be found on the [Website](/dev/website/) page.

@@ -2,11 +2,11 @@
 title: MetaBorg Contributors
 layout: page
 date: 2014-07-31EST
-excerpt: 
+excerpt:
 image:
-  feature: 
-  credit: 
-  creditlink: 
+  feature:
+  credit:
+  creditlink:
 context: dev
 ---
 
@@ -38,7 +38,3 @@ Eclipse update site with the latest result from SVN trunk. You don't want this. 
 
 Spoofax/IMP is licensed under the [GNU Lesser General Public License
 (LGPL)](http://www.tldrlegal.com/l/lgpl2).
-
-
-
-

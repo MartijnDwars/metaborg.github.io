@@ -1,14 +1,14 @@
 ---
-title: MetaBorg Meta
+title: MetaBorg web site
 layout: page
-modified: 
+modified:
 excerpt: "Website maintenance"
 image:
-  feature: 
-  credit: 
-  creditlink: 
+  feature:
+  credit:
+  creditlink:
 context: dev
-sideimage: 
+sideimage:
 ---
 
 This web site is generated with <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme and hosted with [github pages](https://pages.github.com/).
