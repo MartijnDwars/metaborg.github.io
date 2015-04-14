@@ -9,8 +9,8 @@ OSX, Linux, and Windows are supported.
 ## Requirements
 
 1. **Git 1.8.2 or higher** is required to check out the source code from our GitHub repositories. Instructions on how to install Git for your platform can be found here: <http://git-scm.com/downloads>. If you run OSX and have [Homebrew](http://brew.sh/) installed, you can install Git by executing `brew install git`. Confirm your Git installation by executing `git version`.
-2. **Maven 3.2 or higher** is required to build Spoofax and StrategoXT, refer to the [Setting up Maven](/dev/maven/) section for instructions on how to install Maven.
-3. **MetaBorg Maven artifacts** are required since the build depends on artifacts from previous builds for bootstrapping purposes. Follow [Using MetaBorg Maven artifacts](/dev/maven/) to make these artifacts available to Maven.
+2. **Maven 3.2 or higher** is required to build Spoofax and StrategoXT, refer to the [Setting up Maven](/dev/maven/#setting-up-maven) section for instructions on how to install Maven.
+3. **MetaBorg Maven artifacts** are required since the build depends on artifacts from previous builds for bootstrapping purposes. Follow [Using MetaBorg Maven artifacts](/dev/maven/#using-metaborg-maven-artifacts) to make these artifacts available to Maven.
 4. **Python 3.4 or higher** is used to orchestrate the build. Instructions on how to install Python for your platform can be found here: <https://www.python.org/downloads/>. If you run OSX and have [Homebrew](http://brew.sh/) installed, you can install Python by executing `brew install python3`. Confirm your Python installation by executing `python3 --version`.
 
 ## Cloning the source code

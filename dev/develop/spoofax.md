@@ -1,10 +1,10 @@
-# Setting up Eclipse for Spoofax development
+# Creating an Eclipse installation for Spoofax development
 
 If you are developing a project that is included in Spoofax it is recommended to set up Eclipse for Spoofax development. This section describes how to create an Eclipse installation for developing Spoofax components.
 
 ## Requirements
 
-1. A working **Spoofax and StrategoXT build** is required before being able to develop. Follow the [Building Spoofax and StrategoXT](/dev/build/) section for instructions on how to build Spoofax and StrategoXT.
+1. A working **Spoofax and StrategoXT build** is required before being able to develop. Follow the [Building Spoofax and StrategoXT](/dev/build/#building-spoofax-and-strategoxt) section for instructions on how to build Spoofax and StrategoXT.
 
 ## Generating an Eclipse instance
 

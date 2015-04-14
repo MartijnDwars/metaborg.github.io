@@ -1,5 +1,5 @@
 ---
-title: Building
+title: Building MetaBorg components
 layout: page
 modified:
 excerpt: "Information on building MetaBorg components"

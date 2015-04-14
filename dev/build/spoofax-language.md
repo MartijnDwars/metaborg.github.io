@@ -4,8 +4,8 @@ In Eclipse, with the Spoofax plugin installed, languages can simply be built by 
 
 ## Requirements
 
-1. **Maven 3.2 or higher** is required to build Spoofax languages, refer to the [Setting up Maven](/dev/maven/) section for instructions on how to install Maven.
-2. **MetaBorg Maven artifacts** are required since languages depend on several MetaBorg artifacts. Follow [Using MetaBorg Maven artifacts](/dev/maven/) to make these artifacts available to Maven.
+1. **Maven 3.2 or higher** is required to build Spoofax languages, refer to the [Setting up Maven](/dev/maven/#setting-up-maven) section for instructions on how to install Maven.
+2. **MetaBorg Maven artifacts** are required since languages depend on several MetaBorg artifacts. Follow [Using MetaBorg Maven artifacts](/dev/maven/#using-metaborg-maven-artifacts) to make these artifacts available to Maven.
 
 ## Building the language
 
