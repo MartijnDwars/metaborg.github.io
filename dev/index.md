@@ -10,8 +10,6 @@ image:
 context: dev
 ---
 
-# Developing and building MetaBorg components
-
 This section contains documentation on building and developing MetaBorg components.
 
 ## Maven
