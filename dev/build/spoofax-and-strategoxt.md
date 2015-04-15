@@ -66,7 +66,7 @@ The `git pull` command will update any changes in the main repository, and the `
 Switching to a different branch, for example the `spoofax-release` branch, is done with the following commands:
 
 ```
-git checkout branch
+git checkout spoofax-release
 git pull --rebase
 ./releng checkout
 ./releng update
