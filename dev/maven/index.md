@@ -1,5 +1,5 @@
 ---
-title: Maven
+title:
 layout: page
 modified:
 excerpt: "Information on setting up Maven and using MetaBorg Maven artifacts"

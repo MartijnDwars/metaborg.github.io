@@ -34,7 +34,9 @@
     {% include _author-bio.html %}
   </div>
   <article class="page">
+  {% if post.title %}
     <h1>{{ page.title }}</h1>
+  {% endif %}
     <div class="article-wrap">
       {{ content }}
     </div><!-- /.article-wrap -->
@@ -50,7 +52,7 @@
   </footer>
 </div><!-- /.footer-wrap -->
 
-{% include _scripts.html %}          
+{% include _scripts.html %}
 
 </body>
 </html>
