@@ -6,8 +6,8 @@ MetaBorg's Maven artifacts are hosted on our artifact server: <http://artifacts.
 
 The recommended approach is to add repositories to your local Maven settings file, located at `~/.m2/settings.xml`. If you have not created this file yet, or want to completely replace it, simply create it with the following content:
 
-__Our artifact server is currently down, downloading artifacts will fail.__ Release artifacts are temporarily stored at `http://download.spoofax.org/update/artifacts/releases/`. The XML snippets below have been temporarily changed to point to the temporary release artifacts location.
-{: .notice}
+__Our artifact server is currently down, downloading artifacts will fail.__ Release artifacts are temporarily stored at http://download.spoofax.org/update/artifacts/releases/. The XML snippets below have been temporarily changed to point to the temporary release artifacts location.
+{: .notice .notice-danger}
 
 {% highlight xml %}
 <?xml version="1.0" ?>

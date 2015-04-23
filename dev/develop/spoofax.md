@@ -10,15 +10,15 @@ If you are developing a project that is included in Spoofax it is recommended to
 
 The `releng` script in the spoofax-releng repository can generate an Eclipse installation for you. Change directory into the spoofax-releng repository and run:
 
-```
+{% highlight bash %}
 ./releng gen-dev-spoofax -d ~/eclipse/spoofax-dev
-```
+{% endhighlight %}
 
 This will download and install Eclipse into `~/eclipse/spoofax-dev` with the right plugins and eclipse.ini for Spoofax development. The latest nightly version of the Spoofax plugin will be installed into that Eclipse. If you would like to install your locally built Spoofax plugin instead, pass the `-l` flag:
 
-```
+{% highlight bash %}
 ./releng gen-dev-spoofax -l -d ~/eclipse/spoofax-dev
-```
+{% endhighlight %}
 
 Generating an Eclipse installation can take several minutes. After it's done generating, open the Eclipse installation and confirm that it works by creating a Spoofax entity project.
 
@@ -47,6 +47,7 @@ Now check out any projects you want to work on, import them into Eclipse, and st
 
 To test changes, a new Eclipse instance needs to be started.
 Clone the `https://github.com/metaborg/spoofax.git` repository and import the `org.strategoxt.imp.runtime` project into Eclipse, which provides launch configurations for starting new Eclipse instances.
+
 Press the little down arrow next to the bug icon (next to the play icon) and choose `Spoofax (no assertions)` to start a new Eclipse instance that contains your changes. To run with assertions enabled, use the `Spoofax (with assertions)` item, this will also provide more debugging output in the console.
 
 ## Advanced: developing from scratch
@@ -160,5 +161,6 @@ To develop from scratch, uninstall Spoofax from Eclipse, and import the followin
 		* lpg.runtime.java
 
 If you change a language project, run the Spoofax build on the command-line, because those languages cannot be built inside Eclipse without the Spoofax plugin.
+
 You **must turn off 'Project &rarr; Build Automatically'** in Eclipse, otherwise the Maven and Eclipse compilers will interfere and possibly fail the build. After the Maven build is finished, enable 'Build Automatically' again.
-{: .notice}
+{: .notice .notice-warning}

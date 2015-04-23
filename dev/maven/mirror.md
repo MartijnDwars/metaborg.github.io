@@ -5,7 +5,7 @@ Artifacts of most open source projects are hosted on the [Central Repository](ht
 If you are on the TUDelft network, you can use our local mirror of the Central Repository to speed things up. Using the mirroring requires a change in your local settings.xml file located at `~/.m2/settings.xml`. If this file does not exist, create it with the following content:
 
 __Our artifact server is currently down, mirroring will fail.__
-{: .notice}
+{: .notice .notice-danger}
 
 {% highlight xml %}
 <?xml version="1.0" ?>
