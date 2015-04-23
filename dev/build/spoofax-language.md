@@ -13,7 +13,7 @@ Language projects should contain a `pom.xml` file, which tells Maven how to buil
 
 If your language uses the SDF3, NaBL, or TS meta-languages, you must run the compilers for these languages, because the compilers are not available in a Maven build yet. First build your language inside Spoofax, this will run the compilers for these languages. If your language is under source control, check the generated files in. You must also add the following workaround to the language's POM file if you use SDF3:
 
-```xml
+{% highlight xml %}
 <!-- Hack to prevent the src-gen folder from being cleaned. Since the build cannot run meta-languages such as SDF3, the
   src-gen folder is committed to the git repository. The clean goal will clean the src-gen folder, temporarily renaming
   it will prevent that. This hack overrides the spoofax-clean antrun execution from the parent POM. -->
@@ -40,7 +40,7 @@ If your language uses the SDF3, NaBL, or TS meta-languages, you must run the com
     </execution>
   </executions>
 </plugin>
-```
+{% endhighlight %}
 
 The build outputs of a language build are:
 
