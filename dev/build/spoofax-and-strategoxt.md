@@ -48,7 +48,8 @@ The `all` part of the command indicates that we want to build all components. If
 
 Use `./releng build` to get a list of components available for building, and `./releng build --help` for help on all the command-line flags and switches.
 
-Note: if you have opened a project in the repository in Eclipse, you **must turn off 'Project &rarr; Build Automatically'** in Eclipse, otherwise the Maven and Eclipse compilers will interfere and possibly fail the build. After the Maven build is finished, enable 'Build Automatically' again.
+If you have opened a project in the repository in Eclipse, you **must turn off 'Project &rarr; Build Automatically'** in Eclipse, otherwise the Maven and Eclipse compilers will interfere and possibly fail the build. After the Maven build is finished, enable 'Build Automatically' again.
+{: .notice}
 
 ## Updating the source code
 
@@ -81,6 +82,7 @@ The `releng checkout` command will check out the correct branches in all submodu
 If updating or checking out a branch of submodule fails (because of unstaged or conflicting changes), you can try to resolve it yourself, or you can reset and clean everything.
 
 **Resetting and cleaning DELETES UNCOMMITTED AND UNPUSHED CHANGES, which can cause PERMANENT DATA LOSS. Make sure all your changes are committed and pushed!**
+{: .notice}
 
 Reset and clean all submodules using:
 

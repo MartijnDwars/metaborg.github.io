@@ -161,3 +161,4 @@ To develop from scratch, uninstall Spoofax from Eclipse, and import the followin
 
 If you change a language project, run the Spoofax build on the command-line, because those languages cannot be built inside Eclipse without the Spoofax plugin.
 You **must turn off 'Project &rarr; Build Automatically'** in Eclipse, otherwise the Maven and Eclipse compilers will interfere and possibly fail the build. After the Maven build is finished, enable 'Build Automatically' again.
+{: .notice}
