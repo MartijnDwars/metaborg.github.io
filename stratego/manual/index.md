@@ -21,4 +21,5 @@ context: stratego
   </div>
 </section><!-- /#table-of-contents -->
 
+{% include_relative terms.md %}
 {% include_relative rules-and-strategies.md %}
