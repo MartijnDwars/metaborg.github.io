@@ -47,7 +47,7 @@ The following session shows the effect of first applying `B` and then `A`:
     stratego> A
     S(Z)
 
-Using the sequential composition of the two rules, this effect can be achieved `in one step':
+Using the sequential composition of the two rules, this effect can be achieved 'in one step':
 
     stratego> !P(S(Z()),Z())
     P(S(Z),Z)
@@ -65,7 +65,7 @@ Choosing between rules to apply is achieved using one of several _choice_ combin
 
 ### Deterministic Choice (Left Choice)
 
-The left choice or deterministic choice `s1 <\+ s2` tries to apply `s1` and `s2` in that order. That is, it first tries to apply `s1`, and if that succeeds the choice succeeds. However, if the application of `s1` fails, `s2` is applied to _the original term_.
+The left choice or deterministic choice `s1 <+ s2` tries to apply `s1` and `s2` in that order. That is, it first tries to apply `s1`, and if that succeeds the choice succeeds. However, if the application of `s1` fails, `s2` is applied to _the original term_.
 
 **Properties.** Left choice is associative. Identity is a left zero for left choice; since `id` always succeeds, the alternative strategy will never be tried. Failure is a left and right unit for left choice; since `fail` always fails, the choice will always backtrack to the alternative strategy, and use of `fail` as alternative strategy is pointless.
 
@@ -81,7 +81,7 @@ However, identity is not a right zero for left choice. That is, not for all stra
 
     s <+ id =  s    (is not a law)
 
-The expression `s <\+ id` always succeeds, even (especially) in the case that `s` fails, in which case the right-hand side of the equation fails of course.
+The expression `s <+ id` always succeeds, even (especially) in the case that `s` fails, in which case the right-hand side of the equation fails of course.
 
 **Local Backtracking.** The left choice combinator is a _local backtracking_ combinator. That is, the choice is committed once the left-hand side strategy has succeeded, even if the continuation strategy fails. This is expressed by the fact that the property
 
@@ -104,14 +104,14 @@ does _not_ hold for all `s1`, `s2`, and `s3`. The difference is illustrated by t
     stratego> (B; B) <+ (id; B)
     P(Z,S(Z))
 
-In the application of `(B <\+ id); B`, the first application of `B` succeeds after which the choice is committed. The subsequent application of `B` then fails. This equivalent to first applying `(B <\+ id)` and then applying `B` to the result. The application of `(B; B) <\+ (id; B)`, however, is successful; the application of `B; B` fails, after which the choice backtracks to `id; B`, which succeeds.
+In the application of `(B <+ id); B`, the first application of `B` succeeds after which the choice is committed. The subsequent application of `B` then fails. This equivalent to first applying `(B <+ id)` and then applying `B` to the result. The application of `(B; B) <+ (id; B)`, however, is successful; the application of `B; B` fails, after which the choice backtracks to `id; B`, which succeeds.
 
 **Choosing between Transformations.** The typical use of left choice is to create a composite strategy trying one from several possible transformations. If the strategies that are composed are mutually exclusive, that is, don't succeed for the same terms, their sum is a transformation that (deterministically) covers a larger set of terms. For example, consider the following two rewrite rules:
 
     stratego> PlusAssoc : Plus(Plus(e1, e2), e3) -> Plus(e1, Plus(e2, e3))
     stratego> PlusZero  : Plus(Int("0"),e) -> e
 
-These rules are mutually exclusive, since there is no term that matches the left-hand sides of both rules. Combining the rules with left choice into `PlusAssoc <\+ PlusZero` creates a strategy that transforms terms matching both rules as illustrated by the following applications:
+These rules are mutually exclusive, since there is no term that matches the left-hand sides of both rules. Combining the rules with left choice into `PlusAssoc <+ PlusZero` creates a strategy that transforms terms matching both rules as illustrated by the following applications:
 
     stratego> !Plus(Int("0"),Int("3"))
     Plus(Int("0"),Int("3"))
@@ -148,7 +148,7 @@ Rules `Mem2` and `Mem3` have overlapping left-hand sides. Rule `Mem2` only appli
 
 In such situations, depending on the order of the rules, differents results are produced. (The rules form a non-confluent rewriting system.) By ordering the rules as `Mem2 <\+ Mem3`, rule `Mem2` is tried before `Mem3`, and we have a deterministic transformation strategy.
 
-**Try.** A useful application of `<+` in combination with `id` is the reflexive closure of a strategy `s`:
+**Try**: A useful application of `<+` in combination with `id` is the reflexive closure of a strategy `s`:
 
     try(s) = s <+ id
 
@@ -160,7 +160,7 @@ Sometimes it is not desirable to backtrack to the alternative specified in a cho
 
     s1 <+ s2 = s1 < id + s2
 
-The following laws make clear that the `branches' of the choice are selected by the success or failure of the guard:
+The following laws make clear that the 'branches' of the choice are selected by the success or failure of the guard:
 
     id < s2 + s3  = s2
 
@@ -199,11 +199,11 @@ Another example of the use of guarded choice is the `restore-always` combinator:
 
     restore-always(s, r) = s < r + (r; fail)
 
-It applies a `restore' strategy `r` after applying a strategy `s`, even if `s` fails, and preserves the success/failure behaviour of `s`. Since `fail` discards the transformation effect of `r`, this is mostly useful for ensuring that some side-effecting operation is done (or undone) after applying `s`.
+It applies a 'restore' strategy `r` after applying a strategy `s`, even if `s` fails, and preserves the success/failure behaviour of `s`. Since `fail` discards the transformation effect of `r`, this is mostly useful for ensuring that some side-effecting operation is done (or undone) after applying `s`.
 
 For other applications of guarded choice, Stratego provides syntactic sugar.
 
-The guarded choice combinator is similar to the traditional if-then-else construct of programming languages. The difference is that the `then' branch applies to the result of the application of the condition. Stratego's `if s1 then s2 else s3 end` construct is more like the traditional construct since both branches apply to the original term. The condition strategy is only used to test if it succeeds or fails, but it's transformation effect is undone. However, the condition strategy `s1` is still applied to the current term. The `if s1 then s2 end` strategy is similar; if the condition fails, the strategy succeeds.
+The guarded choice combinator is similar to the traditional if-then-else construct of programming languages. The difference is that the 'then' branch applies to the result of the application of the condition. Stratego's `if s1 then s2 else s3 end` construct is more like the traditional construct since both branches apply to the original term. The condition strategy is only used to test if it succeeds or fails, but it's transformation effect is undone. However, the condition strategy `s1` is still applied to the current term. The `if s1 then s2 end` strategy is similar; if the condition fails, the strategy succeeds.
 
 **Properties.** The `if-then-else-end` strategy is just syntactic sugar for a combination of guarded choice and the `where` combinator:
 

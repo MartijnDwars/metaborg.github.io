@@ -132,35 +132,17 @@ Stratego introduced the paradigm of _programmable rewriting strategies with gene
 
 The following are the design criteria for strategies in Stratego:
 
-Separation of rules and strategy
-:
+* **Separation of rules and strategy**: Basic transformation rules can be defined separately from the strategy that applies them, such that they can be understood independently.
 
-Basic transformation rules can be defined separately from the strategy that applies them, such that they can be understood independently.
+* **Rule selection**: A transformation can select the necessary set of rules from a collection (library) of rules.
 
-Rule selection
-:
+* **Control**: A transformation can exercise complete control over the application of rules. This control may be fine-grained or course-grained depending on the application.
 
-A transformation can select the necessary set of rules from a collection (library) of rules.
+* **No traversal overhead**: Transformations can be defined without overhead for the definition of traversals.
 
-Control
-:
+* **Reuse of rules**: Rules can be reused in different transformations.
 
-A transformation can exercise complete control over the application of rules. This control may be fine-grained or course-grained depending on the application.
-
-No traversal overhead
-:
-
-Transformations can be defined without overhead for the definition of traversals.
-
-Reuse of rules
-:
-
-Rules can be reused in different transformations.
-
-Reuse of traversal schemas
-:
-
-Traversal schemas can be defined generically and reused in different transformations.
+* **Reuse of traversal schemas**: Traversal schemas can be defined generically and reused in different transformations.
 
 
 ## 5.3. Idioms of Strategic Rewriting
@@ -205,7 +187,7 @@ The argument strategy of `innermost` is a _selection_ of rules. By giving _diffe
 
 The rules are named, and for each strategy different selections from the ruleset are made.
 
-The module even defines two main strategies, which allows us to use one module for deriving multiple programs. Using the `\--main` option of [strc][2] we declare which strategy to invoke as main strategy in a particular program. Using the `-o` option we can give a different name to each derived program.
+The module even defines two main strategies, which allows us to use one module for deriving multiple programs. Using the `--main` option of [strc][2] we declare which strategy to invoke as main strategy in a particular program. Using the `-o` option we can give a different name to each derived program.
 
     $ strc -i prop-laws.str -la stratego-lib --main main-dnf -o prop-dnf4
 
@@ -309,7 +291,7 @@ In staged computation, transformations are not applied to a subject term all at 
     strategies
 
       simplify =
-        innermost(A1 <+ ... <+ Ak)
+          innermost(A1 <+ ... <+ Ak)
         ; innermost(B1 <+ ... <+ Bl)
         ; ...
         ; innermost(C1 <+ ... <+ Cm)
