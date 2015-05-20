@@ -1,4 +1,4 @@
-# Traversal Strategies
+# 9. Traversal Strategies
 
 In [Chapter13][1] we saw a number of idioms of strategic rewriting, which all involved _tree traversal_. In the previous chapters we saw how strategies can be used to control transformations and how rules can be broken down into the primitive actions match, build and scope. The missing ingredient are combinators for defining traversals.
 
@@ -152,7 +152,7 @@ Now we have defined a _transformation independent_ traversal strategy that is _s
 
 Next we consider cheaper ways for defining the traversal rules, and then ways to get completely rid of them.
 
-## Congruence Operators
+## 9.1. Congruence Operators
 
 The definition of the traversal rules above frequently occurs in the definition of transformation strategies. Congruence operators provide a convenient abbreviation of precisely this operation. A congruence operator applies a strategy to each direct subterm of a specific constructor. For each n-ary constructor c declared in a signature, there is a corresponding _congruence operator_ `c(s1 , ..., sn)`, which applies to terms of the form `c(t1 , ..., tn)` by applying the argument strategies to the corresponding argument terms. A congruence fails if the application of one the argument strategies fails or if constructor of the operator and that of the term do not match.
 
@@ -257,7 +257,8 @@ The strategies `conj(s)` and `disj(s)` check that the subject term is a conjunct
 
 Using congruence operators we constructed a generic, i.e. transformation independent, bottom-up traversal for proposition terms. The same can be done for other data types. However, since the sets of constructors of abstract syntax trees of typical programming languages can be quite large, this may still amount to quite a bit of work that is not reusable _across_ data types; even though a strategy such as `bottom-up traversal', is basically data-type independent. Thus, Stratego provides generic traversal by means of several _generic one-step descent operators_. The operator `all`, applies a strategy to all direct subterms. The operator `one`, applies a strategy to one direct subterm, and the operator `some`, applies a strategy to as many direct subterms as possible, and at least one.
 
-### Visiting All Subterms
+
+### 9.1.1. Visiting All Subterms
 
 The `all(s)` strategy transforms a constructor application by applying the parameter strategy `s` to each direct subterm. An application of `all(s)` fails if the application to one of the subterms fails. The following example shows how `all` (1) applies to any term, and (2) applies its argument strategy uniformly to all direct subterms. That is, it is not possible to do something special for a particular subterm (that's what congruences are for).
 
@@ -314,7 +315,8 @@ The `innermost` strategy performs a bottom-up traversal of a term. After transfo
 
 Different transformations can be achieved by using a selection of rules and a strategy, which is generic, yet defined in Stratego itself using strategy combinators.
 
-### Visiting One Subterm
+
+### 9.1.2. Visiting One Subterm
 
 The `one(s)` strategy transforms a constructor application by applying the parameter strategy `s` to exactly one direct subterm. An application of `one(s)` fails if the application to all of the subterms fails. The following Stratego Shell session illustrates the behaviour of the combinator:
 
@@ -355,7 +357,8 @@ Here are some fixe-point traversals, i.e., traversals that apply their argument 
 
 The difference is the subterm selection strategy. Exercise: create rewrite rules and terms that demonstrate the differences between these strategies.
 
-### Visiting Some Subterms
+
+### 9.1.3. Visiting Some Subterms
 
 The `some(s)` strategy transforms a constructor application by applying the parameter strategy `s` to as many direct subterms as possible and at least one. An application of `some(s)` fails if the application to all of the subterms fails.
 
@@ -368,7 +371,8 @@ A fixed-point traversal with `some`:
 
     reduce-par(s) = repeat(rec x(some(x) + s))
 
-## Idioms and Library Strategies for Traversal
+
+## 9.2. Idioms and Library Strategies for Traversal
 
 Above we have seen the basic mechanisms for defining traversals in Stratego: custom traversal rules, data-type specific congruence operators, and generic traversal operators. Term traversals can be categorized into classes according to how much of the term they traverse and to which parts of the term they modify. We will consider a number of idioms and standard strategies from the Stratego Library that are useful in the definition of traversals.
 
@@ -491,7 +495,7 @@ This is most useful in a bottom-up traversal; the original term is always availa
 
 Exercise: give an example application of this strategy
 
-### Cascading Transformations
+### 9.2.1. Cascading Transformations
 
 Cascading transformations are transformations upon transformations. While the full traversals discussed above walk over the tree once, cascading transformations apply multiple `waves' of transformations to the nodes in the tree. The prototypical example is the `innermost` strategy, which exhaustively applies a transformation, typically a set of rules, to a tree.
 
@@ -524,7 +528,7 @@ Of course it is possible to mix different types of transformations in such a sta
 
 At each stage a different strategy and different set of rules can be used. (Of course one may use the same strategy several times, and some of the rule sets may overlap.)
 
-### Mixing Generic and Specific Traversals
+### 9.2.2. Mixing Generic and Specific Traversals
 
 While completely generic strategies such as `bottomup` and `innermost` are often useful, there are also situations where a mixture of generic and data-type specific traversal is necessary. Fortunately, Stratego allows you to mix generic traversal operators, congruences, your own traversal and regular rules, any way you see fit.
 
@@ -669,11 +673,11 @@ While normal strategies (parameters) are functions from terms to terms, the `sto
 
 However, the added value of these strategies is not very high. The payoff in the use of generic strategies is provided by the basic generic traversal operators, which provide generic behaviour for all constructors. The `stop` callback can make it harder to understand the control-flow structure of a strategy; use with care and don't overdo it.
 
-### Separate rules and strategies
+### 9.2.3. Separate rules and strategies
 
 While it is possible to construct your own strategies by mixing traversal elements and rules, in general, it is a good idea to try to get a clean separation between pure rewrite rules and a (simple) strategy that applies them.
 
-### Partial Traversals
+### 9.2.4. Partial Traversals
 
 The full traversals introduced above mostly visit all nodes in the tree. Now we consider traversals that visit only some of the nodes of a tree.
 
@@ -739,7 +743,7 @@ While these strategies define the notion of applying along a spine, they are rar
 
 TODO: examples
 
-### Recursive Patterns (*)
+### 9.2.5. Recursive Patterns (*)
 
 TODO: format checking
 
@@ -747,7 +751,7 @@ TODO: matching of complex patterns
 
 TODO: contextual rules (local traversal)
 
-### Dynamic programming (*)
+### 9.2.6. Dynamic programming (*)
 
 TODO (probably move to dynamic rules chapter)
 
@@ -761,3 +765,4 @@ TODO (probably move to dynamic rules chapter)
 [8]: http://releases.strategoxt.org/images/callouts/5.png
 [9]: http://releases.strategoxt.org/images/callouts/6.png
 [10]: ref-pp-aterm.html "pp-aterm"
+

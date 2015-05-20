@@ -1,8 +1,8 @@
-# Strategy Combinators
+# 7. Strategy Combinators
 
 We have seen the use of strategies to combine rules into complex transformations. Rather than providing a fixed set of high-level strategy operators such as `bottomup`, `topdown`, and `innermost`, Stratego provides a small set of basic combinators, that can be used to create a wide variety of strategies. In [Chapter15][1] until [Chapter18][2] we will introduce these combinators. In this chapter we start with a set of combinators for sequential composition and choice of strategies.
 
-## Identity and Failure
+## 7.1. Identity and Failure
 
 The most basic operations in Stratego are `id` and `fail`. The identity strategy `id` always succeeds and behaves as the identity function on terms. The failure strategy `fail` always fails. The operations have no side effects.
 
@@ -13,7 +13,7 @@ The most basic operations in Stratego are `id` and `fail`. The identity strategy
     stratego> fail
     command failed
 
-## Sequential composition
+## 7.2. Sequential composition
 
 The sequential composition `s1 ; s2` of the strategies `s1` and `s2` first applies the strategy `s1` to the subject term and then `s2` to the result of that first application. The strategy fails if either `s1` or `s2` fails.
 
@@ -260,7 +260,7 @@ This translation uses a couple of Stratego constructs that we haven't discussed 
 
 **Examples.** TODO
 
-### Non-deterministic Choice
+## 7.3. Non-deterministic Choice
 
 The deterministic left choice operator prescribes that the left alternative should be tried before the right alternative, and that the latter is only used if the first fails. There are applications where it is not necessary to define the order of the alternatives. In those cases non-deterministic choice can be used.
 
@@ -372,3 +372,4 @@ The following equations describe some relations between these strategies:
 [1]: stratego-strategy-combinators.html "Chapter"
 [2]: stratego-type-unifying-strategies.html "Chapter"
 [3]: stratego-creating-and-analyzing-terms.html "Chapter"
+
