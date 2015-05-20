@@ -11,8 +11,8 @@ On this page we define the basic notions of rules and strategies, and we will se
 
 A _rule_ defines a transformation on terms. A _named rewrite rule_ is a declaration of the form:
 
-	L : p1 -> p2
-	
+    L : p1 -> p2
+
 where `L` is the rule name, `p1` the left-hand side term pattern, and `p2` the right-hand side term pattern.  A rule can be applied _through its name_ to a term. It will transform the term if the term matches with `p1`, and will replace the term with `p2` instantiated with the variables bound during the match to `p1`.  The application _fails_ if the term does not match `p1`.  Thus, a _transformation_ is a _partial function from terms to terms_.
 
 Let's look at an example. The `SwapArgs` rule swaps the sub-terms of the `Plus` constructor.  Note that it is possible to introduce rules on the fly in the [Stratego Shell](http://hydra.nixos.org/build/10497731/download/1/manual/chunk-chapter/ref-stratego-shell.html).
@@ -23,44 +23,44 @@ Now we create a new term, and apply the `SwapArgs` rule to it by calling its nam
 
     stratego> !Plus(Var("a"),Int("3"))
     Plus(Var("a"),Int("3"))
-    stratego> SwapArgs 
+    stratego> SwapArgs
     Plus(Int("3"),Var("a"))
 
 The application of `SwapArgs` fails when applied to a term to which the left-hand side does not match.  For example, since the pattern `Plus(e1,e2)` does not match with a term constructed with `Times` the following application fails:
 
     stratego> !Times(Int("4"),Var("x"))
     Times(Int("4"),Var("x"))
-    stratego> SwapArgs 
+    stratego> SwapArgs
     command failed
 
 A rule is applied at the _root_ of a term, not at one of its subterms.  Thus, the following application fails even though the term _contains_ a `Plus` subterm:
 
     stratego> !Times(Plus(Var("a"),Int("3")),Var("x"))
     Times(Plus(Var("a"),Int("3")),Var("x"))
-    stratego> SwapArgs 
+    stratego> SwapArgs
     command failed
 
 Likewise, the following application only transforms the outermost occurrence of `Plus`, not the inner occurrence:
 
     stratego> !Plus(Var("a"),Plus(Var("x"),Int("42")))
     Plus(Var("a"),Plus(Var("x"),Int("42")))
-    stratego> SwapArgs 
+    stratego> SwapArgs
     Plus(Plus(Var("x"),Int("42")),Var("a"))
 
 Finally, there may be multiple rules with the same name.  This has the effect that all rules with that name will be tried in turn until one succeeds, or all fail.  The rules are tried in some undefined order.  This means that it only makes sense to define rules with the same name if they are mutually exclusive, that is, do not have overlapping left-hand sides.  For example, we can extend the definition of `SwapArgs` with a rule for the `Times` constructor, as follows:
 
-    stratego> SwapArgs : Times(e1, e2) -> Times(e2, e1)   
+    stratego> SwapArgs : Times(e1, e2) -> Times(e2, e1)
 
 Now the rule can be applied to terms with a `Plus` *and* a `Times` constructor, as illustrated by the following applications:
 
     stratego> !Times(Int("4"),Var("x"))
     Times(Int("4"),Var("x"))
-    stratego> SwapArgs 
+    stratego> SwapArgs
     Times(Var("x"),Int("4"))
 
     stratego> !Plus(Var("a"),Int("3"))
     Plus(Var("a"),Int("3"))
-    stratego> SwapArgs 
+    stratego> SwapArgs
     Plus(Int("3"),Var("a"))
 
 Later we will see that a rule is nothing more than a syntactical convention for a strategy definition.
@@ -145,13 +145,13 @@ A simple strategy definition names a strategy expression.  For instance, the fol
     imports libstrategolib prop-dnf-rules
     strategies
 
-      dnf-rules = 
+      dnf-rules =
         DefI <+ DefE <+ DAOL <+ DAOR <+ DN <+ DMA <+ DMO
 
-      dnf = 
+      dnf =
         innermost(dnf-rules)
 
-      dnf-debug = 
+      dnf-debug =
         innermost(debug(!"in:  "); dnf-rules; debug(!"out: "))
 
       main =
@@ -178,16 +178,16 @@ introduces a user-defined operator `f` with `n` _strategy parameters_ and `m` _t
 
 In most cases the term parameters are simple variable names to which the argument will be bound when the strategy is called. However, it is also possible to use a _term pattern_ in place of a term parameter, to which the argument will be matched. The strategy will fail when one or more term arguments could not be matched to their corresponding term pattern. These term patterns have the same freedoms as those used at left-hand side of a rule. For example, the following strategies act like a switch-case:
 
-	strategies
-	  to-english(|1) = !"one"
-	  to-english(|2) = !"two"
-	  to-english(|_) = !"many"
+    strategies
+      to-english(|1) = !"one"
+      to-english(|2) = !"two"
+      to-english(|_) = !"many"
 
 Or a more complex example:
 
-	strategies
-	  get-type(|<is-list>)      = !"A list"
-	  get-type(|<not(is-list)>) = !"Not a list"
+    strategies
+      get-type(|<is-list>)      = !"A list"
+      get-type(|<not(is-list)>) = !"Not a list"
 
 As we will see, strategies such as `innermost`, `topdown`, and `bottomup` are _not built into the language_, but are defined using strategy definitions in the language itself using more basic combinators, as illustrated by the following definitions (without going into the exact meaning of these definitions):
 
@@ -203,10 +203,10 @@ Such parametrized strategy operators are invoked by providing arguments for the 
     // ...
     strategies
 
-      desugar = 
+      desugar =
         topdown(try(DefI <+ DefE))
 
-      impl-nf = 
+      impl-nf =
         topdown(repeat(DefN <+ DefA2 <+ DefO1 <+ DefE))
 
 Multiple definitions with the same name but with a _different_ numbers of parameters are treated as _different_ strategy operators.

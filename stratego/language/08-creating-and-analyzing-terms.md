@@ -13,7 +13,7 @@ The build operation `!p` replaces the subject term with the instantiation of the
     stratego> !Plus(Var("a"), Int("10"))
     Plus(Var("a"), Int("10"))
 
-It is possible to build terms with variables. We call this building a term pattern. A pattern is a term with _meta-variables_. The current term is replaced by an instantiation of pattern _`p`_.
+It is possible to build terms with variables. We call this building a term pattern. A pattern is a term with _meta-variables_. The current term is replaced by an instantiation of pattern `p`.
 
     stratego> :binding e
     e is bound to Var("b")
@@ -29,7 +29,7 @@ Pattern matching allows the analysis of terms. The simplest case is matching aga
     stratego> ?Plus(Int("3"),Var("b"))
     command failed
 
-Matching against a term _pattern_ with variables binds those variables to (parts of) the current term. The match strategy `?_`x`_` compares the current term (_`t`_) to variable _`x`_. It binds variable _`x`_ to term _`t`_ in the environment. A variable can only be bound once, or to the same term.
+Matching against a term _pattern_ with variables binds those variables to (parts of) the current term. The match strategy `?x` compares the current term (`t`) to variable `x`. It binds variable `x` to term `t` in the environment. A variable can only be bound once, or to the same term.
 
     Plus(Var("a"),Int("3"))
     stratego> ?e
@@ -39,7 +39,7 @@ Matching against a term _pattern_ with variables binds those variables to (parts
     stratego> ?e
     command failed
 
-The general case is matching against an arbitrary term pattern. The match strategy `?_`p`_` compares the current term to a pattern _`p`_. It will add bindings for the variables in pattern _`p`_ to the environment. The wildcard `_` in a match will match any term.
+The general case is matching against an arbitrary term pattern. The match strategy `?p` compares the current term to a pattern `p`. It will add bindings for the variables in pattern `p` to the environment. The wildcard `_` in a match will match any term.
 
     Plus(Var("a"),Int("3"))
     stratego> ?Plus(e,_)
@@ -203,7 +203,7 @@ The addition is computed by applying the primitive strategy `add` to the pair of
 
     EvalPlus = ?Add(Int(i),Int(j)); where(!(i,j); addS; ?k); !Int(k)
 
-Sometimes it is useful to define a rule anonymously within a strategy expression. The syntax for anonymous rules with scopes is a bit much since it requires enumerating all variables. A `lambda' rule of the form
+Sometimes it is useful to define a rule anonymously within a strategy expression. The syntax for anonymous rules with scopes is a bit much since it requires enumerating all variables. A _lambda_ rule of the form
 
      p1 -> p2 where s
 
@@ -245,7 +245,7 @@ Term wrapping and projection are concise idioms for constructing terms that wrap
 
 One often write rules of the form ` x -> Foo(Bar(x))`, i.e. wrapping a term pattern around the current term. Using rule syntax this is quite verbose. The syntactic abstraction of _term wraps_, allows the concise specification of such little transformations as `!Foo(Bar())`.
 
-In general, a term wrap is a build strategy `!p[]` containing one or more strategy applications `` that are _not applied to a term_. When executing the the build operation, each occurrence of such a strategy application `` is replaced with the term resulting from applying `s` to the current subject term, i.e., the one that is being replaced by the build. The following sessions illustrate some uses of term wraps:
+In general, a term wrap is a build strategy `!p[]` containing one or more strategy applications that are _not applied to a term_. When executing the the build operation, each occurrence of such a strategy application is replaced with the term resulting from applying `s` to the current subject term, i.e., the one that is being replaced by the build. The following sessions illustrate some uses of term wraps:
 
     3
     stratego> !(,)
@@ -272,7 +272,7 @@ As an example, the term wrap `!Foo(Bar())` is desugared to the strategy
 
     {x: where(id => x); !Foo(Bar(x))}
 
-which after simplification is equivalent to `{x: ?x; !Foo(Bar(x))`}, i.e., exactly the original lambda rule ` x -> Foo(Bar(x))`.
+which after simplification is equivalent to `{x: ?x; !Foo(Bar(x))}`, i.e., exactly the original lambda rule `x -> Foo(Bar(x))`.
 
 Term projections are the match dual of term wraps. Term projections can be used to _project_ a subterm from a term pattern. For example, the expression `?And(,x)` matches terms of the form `And(t1,t2)` and reduces them to the first subterm `t1`. Another example is the strategy
 
@@ -297,4 +297,4 @@ A match expression `?p[]` is desugared as
 That is, after the pattern `p[x]` matches, it is reduced to the subterm bound to `x` to which `s` is applied. The result is also the result of the projection. When multiple projects are used within a match the outcome is undefined, i.e., the order in which the projects will be performed can not be counted on.
 
 [1]: stratego-strategy-combinators.html "Chapter"
-  
+
