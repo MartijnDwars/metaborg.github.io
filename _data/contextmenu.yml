@@ -57,6 +57,11 @@
   url: /spt/calculang/
   context: spt
 
+# Stratego
+
+- title: "The language"
+  url: /stratego/language/
+  context: stratego
 
 # Dev
 

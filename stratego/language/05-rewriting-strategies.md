@@ -1,8 +1,6 @@
-Rewriting Strategies
-====================
+# 5. Rewriting Strategies
 
-Limitations of Term Rewriting
------------------------------
+## 5.1. Limitations of Term Rewriting
 
 In [Chapter12][1] we saw how term rewriting can be used to implement transformations on programs represented by means of terms. Term rewriting involves exhaustively applying rules to subterms until no more rules apply. This requires a _strategy_ for selecting the order in which subterms are rewritten. The `innermost` strategy introduced in [Chapter12][1] applies rules automatically throughout a term from inner to outer terms, starting with the leaves. The nice thing about term rewriting is that there is no need to define traversals over the syntax tree; the rules express basic transformation steps and the strategy takes care of applying it everywhere. However, the complete normalization approach of rewriting turns out not to be adequate for program transformation, because rewrite systems for programming languages will often be non-terminating and/or non-confluent. In general, it is not desirable to apply all rules at the same time or to apply all rules under all circumstances.
 
@@ -30,8 +28,7 @@ This rewrite system is non-terminating because after applying one of the and-ove
 
 There are a number of solutions to this problem. We'll first discuss a couple of solutions within pure rewriting, and then show how programmable rewriting strategies can overcome the problems of these solutions.
 
-Attempt 1: Remodularization
----------------------------
+### 5.1.1. Attempt 1: Remodularization
 
 The non-termination of `prop-cnf` is due to the fact that the and-over-or and or-over-and distribution rules interfere with each other. This can be prevented by refactoring the module structure such that the two sets of rules are not present in the same rewrite system. For example, we could split module `prop-dnf-rules` into `prop-simplify` and `prop-dnf2` as follows:
 
@@ -68,8 +65,7 @@ Now we can reuse the rules from `prop-simplify` without the and-over-or distribu
 
 Although this solves the non-termination problem, it is not an ideal solution. In the first place it is not possible to apply the two transformations in the same program. In the second place, extrapolating the approach to fine-grained selection of rules might require definition of a single rule per module.
 
-Attempt 2: Functionalization
-----------------------------
+### 5.1.2. Attempt 2: Functionalization
 
 Another common solution to this kind of problem is to introduce additional constructors that achieve normalization under a restricted set of rules. That is, the original set of rules `p1 -> p2` is transformed into rules of the form `f(p_1) -> p_2'`, where `f` is some new constructor symbol and the right-hand side of the rule also contains such new constructors. In this style of programming, constructors such as `f` are called _functions_ and are distinguished from constructors. Normal forms over such rewrite systems are assumed to be free of these `function' symbols; otherwise the function would have an incomplete definition.
 
@@ -118,8 +114,7 @@ For conjunctive normal form we can create a similar definition, which can now co
 
 In the solution above, the original rules have been completely intertwined with the `Dnf` transformation. The rules for negation cannot be reused in the definition of normalization to conjunctive normal form. For each new transformation a new traversal function and new transformation functions have to be defined. Many additional rules had to be added to traverse the term to find the places to apply the rules. In the modular solution we had 5 basic rules and 2 additional rules for DNF and 2 rules for CNF, 9 in total. In the functionalized version we needed 13 rules _for each transformation_, that is 26 rules in total.
 
-Programmable Rewriting Strategies
----------------------------------
+## 5.2. Programmable Rewriting Strategies
 
 In general, there are two problems with the functional approach to encoding the control over the application of rewrite rules, when comparing it to the original term rewriting approach: traversal overhead and loss of separation of rules and strategies.
 
@@ -168,12 +163,11 @@ Reuse of traversal schemas
 Traversal schemas can be defined generically and reused in different transformations.
 
 
-Idioms of Strategic Rewriting
------------------------------
+## 5.3. Idioms of Strategic Rewriting
 
 In the next chapters we will examine the language constructs that Stratego provides for programming with strategies, starting with the low-level actions of building and matching terms. To get a feeling for the purpose of these constructs, we first look at a couple of typical idioms of strategic rewriting.
 
-### Cascading Transformations
+### 5.3.1. Cascading Transformations
 
 The basic idiom of program transformation achieved with term rewriting is that of _cascading transformations_. Instead of applying a single complex transformation algorithm to a program, a number of small, independent transformations are applied in combination throughout a program or program unit to achieve the desired effect. Although each individual transformation step achieves little, the cumulative effect can be significant, since each transformation feeds on the results of the ones that came before it.
 
@@ -215,7 +209,7 @@ The module even defines two main strategies, which allows us to use one module f
 
     $ strc -i prop-laws.str -la stratego-lib --main main-dnf -o prop-dnf4
 
-### One-pass Traversals
+### 5.3.2. One-pass Traversals
 
 Cascading transformations can be defined with other strategies as well, and these strategies need not be exhaustive, but can be simpler _one-pass traversals_. For example, constant folding of Boolean expressions only requires a simple one-pass bottom-up traversal. This can be achieved using the `bottomup` strategy according the the following scheme:
 
@@ -306,7 +300,7 @@ This strategy reduces terms such as
 
 in one step (to `False` in this case), while the `bottomup` strategy defined above would first evaluate the big expression.
 
-### Staged Transformations
+### 5.3.3.  Staged Transformations
 
 Cascading transformations apply a number of rules one after another to an entire tree. But in some cases this is not appropriate. For instance, two transformations may be inverses of one another, so that repeatedly applying one and then the other would lead to non-termination. To remedy this difficulty, Stratego supports the idiom of _staged transformation_.
 
@@ -320,7 +314,7 @@ In staged computation, transformations are not applied to a subject term all at 
         ; ...
         ; innermost(C1 <+ ... <+ Cm)
 
-### Local Transformations
+### 5.3.4. Local Transformations
 
 In conventional program optimization, transformations are applied throughout a program. In optimizing imperative programs, for example, complex transformations are applied to entire programs. In GHC-style compilation-by-transformation, small transformation steps are applied throughout programs. Another style of transformation is a mixture of these ideas. Instead of applying a complex transformation algorithm to a program we use staged, cascading transformations to accumulate small transformation steps for large effect. However, instead of applying transformations throughout the subject program, we often wish to apply them locally, i.e., only to selected parts of the subject program. This allows us to use transformations rules that would not be beneficial if applied everywhere.
 

@@ -1,4 +1,4 @@
-# Concrete Object Syntax
+# 11. Concrete Object Syntax
 
 Stratego programs can be used to analyze, generate, and transform object programs. In this process object programs are structured data represented by terms. Terms support the easy composition and decomposition of abstract syntax trees. For applications such as compilers, programming with abstract syntax is adequate; only small fragments, i.e., a few constructors per pattern, are manipulated at a time. Often, object programs are reduced to a core language that only contains the essential constructs. The abstract syntax can then be used as an intermediate language, such that multiple languages can be expressed in it, and meta-programs can be reused for several source languages.
 
@@ -18,7 +18,7 @@ Besides the problems of understandability and complexity, there are other reason
 
 Hence, it is desirable to have a meta-language that lets us write object-program fragments in the concrete syntax of the object language. This requires the extension of the meta-language with the syntax of the object language of interest, such that expressions in that language are interpreted as terms. In this chapter it is shown how the Stratego language based on abstract syntax terms is extended to support the use of concrete object syntax for terms.
 
-## Instrumenting Programs
+## 11.1. Instrumenting Programs
 
 To appreciate the need for concrete syntax in program transformation, it is illuminating to constrast the use of concrete syntax with the traditional use of abstract syntax in a larger example. Program _instrumentation_ is the extension of a program in a systematic way in order to obtain measurements during run-time. Instrumentation is used, for example, in debugging to get information about the run-time behaviour of a program, and in profiling to collect statistics about about run-time and call frequency of program elements. Here we consider a simple instrumentation scheme that instruments Tiger functions with calls to trace functions.
 
@@ -81,7 +81,7 @@ It is clear that the concrete syntax version is much more concise and easier to 
 
 Note that these rewrite rules cannot be applied as such using simple innermost rewriting. After instrumenting a function declaration, it is still a function declaration and can thus be instrumented again. Therefore, we use a single pass topdown strategy for applying the rules.
 
-## Observations about Concrete Syntax Specifications
+## 11.2. Observations about Concrete Syntax Specifications
 
 The example gives rise to several observations. The concrete syntax version can be read without knowledge of the abstract syntax. On the other hand, the abstract syntax version makes the tree structure of the expressions explicit. The abstract syntax version is much more verbose and is harder to read and write. Especially the definition of large code fragments such as in rule `IntroducePrinters` is unattractive in abstract syntax.
 
@@ -106,7 +106,7 @@ With such antiquotation operators it becomes possible to directly embed meta-lev
 
 In the previous section we have seen how the extension of Stratego with concrete syntax for terms improves the readability of meta-programs. In this section we describe the techniques used to achieve this extension.
 
-### Extending the Meta Language
+### 11.2.1. Extending the Meta Language
 
 To embed the syntax of an object language in the meta language the syntax definitions of the two languages should be combined and the object language sorts should be injected into the appropriate meta language sorts. In the Stratego setting this is achieved as follows. The syntax of a Stratego module `m` is declared in the `m.meta` file, which declares the name of an SDF module. For instance, for modules using Tiger concrete syntax, i.e., using the extension of Stratego with Tiger, the `.meta` would contain
 

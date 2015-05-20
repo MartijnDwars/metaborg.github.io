@@ -1,10 +1,9 @@
-Running Stratego Programs
-=========================
+# 3. Running Stratego Programs
 
 Now let's see how we can actually transform terms using Stratego programs. In the rest of this chapter we will first look at the structure of Stratego programs, and how to compile and run them. In the next chapters we will then see how to define transformations.
 
-Compiling Stratego Programs
----------------------------
+
+## 3.1. Compiling Stratego Programs
 
 The simplest program you can write in Stratego is the following `identity.str` program:
 
@@ -59,8 +58,7 @@ Ok, we were digressing a bit. Let's turn back to finding out what the `identity`
 The program writes to `stdout` the list of command-line arguments as a list of strings in the ATerm format. So what we have learned is that a Stratego program applies its main strategy to the list of command-line arguments, and writes the resulting term to `stdout`. Since the strategy in the `identity` program is the identity transformation it just writes the original command-line arguments (as a term).
 
 
-Basic Input and Output
-----------------------
+## 3.2. Basic Input and Output
 
 That was instructive, but not very useful. We are not interested in transforming lists of strings, but rather programs represented as terms. So we want to read a term from a file, transform it, and write it to another file. Let's open the bag of tricks. The `identity-io` program improves the previous program:
 
@@ -117,8 +115,7 @@ Now it might seem that the `identity-io` program just copies its input file to t
 So we have written a program to check if a file represents an ATerm.
 
 
-Combining Transformations
--------------------------
+## 3.3. Combining Transformations
 
 A Stratego program based on `io-wrap` defines a transformation from terms to terms. Such transformations can be combined into more complex transformations, by creating a chain of tool invocations. For example, if we have a Stratego program `trafo-a` applying some undefined `transformation-a` to the input term of the program
 
@@ -146,8 +143,7 @@ or using an intermediate file:
     $ tool-b -i intermediate -o output
 
 
-Running Programs Interactively with the Stratego Shell
-------------------------------------------------------
+## 3.4. Running Programs Interactively with the Stratego Shell
 
 We have just learned how to write, compile, and execute Stratego programs. This is the normal mode for development of transformation systems with Stratego. Indeed, we usually do not invoke the compiler from the command-line `by hand', but have an automated build system based on (auto)make to build all programs in a project at once. For learning to use the language this can be rather laborious, however. Therefore, we have also developed the [Stratego Shell](http://releases.strategoxt.org/strategoxt-manual/unstable/manual/chunk-book/ref-stratego-shell.html), an interactive interpreter for the Stratego language. The shell allows you to type in transformation strategies on the command-line and directly seeing their effect on the current term. While this does not scale to developing large programs, it can be instructive to experiment while learning the language. In the following chapters we will use the stratego-shell to illustrate various features of the language.
 
@@ -229,8 +225,7 @@ The Stratego Shell has a number of non-strategy commands to operate the shell co
       :help             show this help information
     stratego>
 
-Summary
--------
+## 3.5. Summary
 
 Let's summarize what we have learned so far about Stratego programming.
 

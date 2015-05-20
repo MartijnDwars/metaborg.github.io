@@ -1,10 +1,9 @@
-Term Rewriting
-==============
+# 4. Term Rewriting
 
 In [PartII][1] we saw how terms provide a structured representation for programs derived from a formal definition of the syntax of a programming language. Transforming programs then requires transformation of terms. In this chapter we show how to implement term transformations using _term rewriting_ in Stratego. In term rewriting a term is transformed by repeated application of _rewrite rules_.
 
-Transformation with Rewrite Rules
----------------------------------
+
+## 4.1. Transformation with Rewrite Rules
 
 To see how this works we take as example the language of propositional formulae, also known as Boolean expressions:
 
@@ -111,7 +110,7 @@ The first command imports the `prop-eval` module, which recursively loads the ev
 
 The next commands apply the `eval` strategy to various terms.
 
-## 12.2.Adding Rules to a Rewrite System
+## 4.2. Adding Rules to a Rewrite System
 
 Next we extend the rewrite rules above to rewrite a Boolean expression to disjunctive normal form. A Boolean expression is in disjunctive normal form if it conforms to the following signature:
 
@@ -177,3 +176,4 @@ so that we can use it to transform terms:
 [3]: running-stratego-programs.html "Chapter"
 [4]: running-stratego-programs.html#stratego-shell "11.4."
 [5]: stratego-creating-and-analyzing-terms.html "Chapter"
+

@@ -1,4 +1,4 @@
-# Type Unifying Strategies
+# 10. Type Unifying Strategies
 
 In [Chapter17][1] we have seen combinators for composing _type preserving_ strategies. That is, structural transformations in which basic transformation rules don't change the type of a term. Such strategies are typically applied in transformations, which change the structure of a term, but not its type. Examples are simplification and optimization. In this chapter we consider the class of _type unifying_ strategies, in which terms of different types are mapped onto one type. The application area for this type of strategy is analysis of expresssions with examples such as free variables collection and call-graph extraction.
 
@@ -13,7 +13,7 @@ These problems have in common that they reduce a structure to a single value or 
 
 We start with examining these problems in the context of lists, and then generalize the solutions we find there to arbitrary terms using generic term deconstruction, which allows concise implementation of generic type unifying strategies, similarly to the generic traversal strategies of [Chapter17][1].
 
-## Type Unifying List Transformations
+## 10.1. Type Unifying List Transformations
 
 We start with considering type-unifying operations on lists.
 
@@ -71,7 +71,7 @@ The final problem, collecting the free variables in a term, does not really have
 
 This collects the variables in the first list and subtracts the variables in the second list.
 
-## Extending Fold to Expressions
+## 10.2. Extending Fold to Expressions
 
 We have seen how to do typical analysis transformations on lists. How can we generalize this to arbitrary terms? The general idea of a folding operator is that it replaces the constructors of a data-type by applying a function to combine the reduced arguments of constructor applications. For example, the following definition is a sketch for a fold over abstract syntax trees:
 
@@ -109,7 +109,7 @@ One solution would be to use the generic traversal strategy `bottomup` to deal w
 
 Although the recursive application to subterms is now defined generically , one still has to specify rules for the default behaviour.
 
-## Generic Term Deconstruction
+## 10.3. Generic Term Deconstruction
 
 Instead of having folding rules that are specific to a data type, such as
 
@@ -251,7 +251,7 @@ The `special` parameter is a strategy parameterized with a recursive call to the
 
     free-vars = collect-exc(ExpVars, FreeVars)
 
-## Generic Term Construction
+## 10.4. Generic Term Construction
 
 It can also be useful to _construct_ terms generically. For example, in parse tree implosion, application nodes should be reduced to constructor applications. Hence build operators can also use the `#` operator. In a strategy `!p1#(p2)`, the current subject term is replaced by a constructor application, where the constructor name is provided by `p1` and the list of subterms by `p2`. So, if `p1` evaluates to `"C"` and `p2` evaluates to [`t1,...,tn]`, the expression `!p1#(p2)` build the term `C(t1,...,tn)`.
 

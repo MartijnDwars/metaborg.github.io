@@ -1,6 +1,6 @@
-# Dynamic Rules
+# 12. Dynamic Rules
 
-### Work in Progress
+> TODO Work in Progress
 
 This chapter is work in progress. Not all parts have been finished yet. The latest revision of this manual may contain more material. Refer to the [online version][1].
 

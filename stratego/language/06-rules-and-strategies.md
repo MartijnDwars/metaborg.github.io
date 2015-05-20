@@ -1,5 +1,4 @@
-Rules and Strategies
-====================
+# 6. Rules and Strategies
 
 Pure term rewriting is not adequate for program transformation because of the lack of control over the application of rules.  Attempts to encode such control within the pure rewriting paradigm lead to functionalized control by means of extra rules and constructors, at the expense of traversal overhead and at the loss of the separation of rules and strategies.  By selecting the appropriate rules and strategy for a transformation, Stratego programmers can control the application of rules, while maintaining the separation of rules and strategies and keeping traversal overhead to a minimum.
 
@@ -8,8 +7,7 @@ We saw that many transformation problems can be solved by alternative strategies
 On this page we define the basic notions of rules and strategies, and we will see how new strategies and strategy combinators can be defined.
 
 
-What is a rule?
----------------
+## 6.1. What is a rule?
 
 A _rule_ defines a transformation on terms. A _named rewrite rule_ is a declaration of the form:
 
@@ -67,8 +65,8 @@ Now the rule can be applied to terms with a `Plus` *and* a `Times` constructor, 
 
 Later we will see that a rule is nothing more than a syntactical convention for a strategy definition.
 
-What is a Strategy?
--------------------
+
+## 6.2. What is a Strategy?
 
 A rule defines a transformation, that is, a partial function from terms to terms.  A _strategy expressions_ is a combination of one or more transformations into a new transformation.  So, a strategy expressions also defines a transformation, i.e., a partial function from terms to terms.  Strategy _operators_ are functions from transformations to transformations.
 
@@ -134,12 +132,12 @@ While strategies are functions, they are not necessarily _pure_ functions.  Stra
 
 This session nicely shows how innermost traverses the term it transforms.  The `in:` lines show terms to which it attempts to apply a rule, the `out:` lines indicate when this was successful and what the result of applying the rule was.  Thus, `innermost` performs a post-order traversal applying rules after transforming the sub-terms of a term.  (Note that when applying `debug` to a string constant, the quotes are not printed.)
 
-Strategy Definitions
---------------------
+
+## 6.3. Strategy Definitions
 
 Stratego programs are about defining transformations in the form of rules and strategy expressions that combine them.  Just defining strategy _expressions_ does not scale, however.  Strategy _definitions_ are the abstraction mechanism of Stratego and allow naming and parametrization of strategy expressions for reuse.
 
-### Simple Strategy Definition and Call
+### 6.3.1. Simple Strategy Definition and Call
 
 A simple strategy definition names a strategy expression.  For instance, the following module defines a combination of rules (`dnf-rules`), and some strategies based on it:
 
@@ -168,7 +166,7 @@ In general, a definition of the form
 introduces a new transformation `f`, which can be invoked by calling `f` in a strategy expression, with the effect of executing strategy expression `s`.  The expression should have no free variables.  That is, all strategies called in `s` should be defined strategies. Simple strategy definitions just introduce names for strategy expressions.  Still, such strategies have an argument, namely the implicit current term.
 
 
-### Parametrized Definitions
+### 6.3.2. Parametrized Definitions
 
 Strategy definitions with strategy and/or term parameters can be used to define transformation _schemas_ that can instantiated for various situations.
 
@@ -214,7 +212,7 @@ Such parametrized strategy operators are invoked by providing arguments for the 
 Multiple definitions with the same name but with a _different_ numbers of parameters are treated as _different_ strategy operators.
 
 
-### Local Definitions
+### 6.3.3. Local Definitions
 
 Strategy definitions at top-level are visible everywhere.  Sometimes it is useful to define a _local_ strategy operator.  This can be done using a let expression of the form `let d* in s end`, where `d*` is a list of definitions.  For example, in the following strategy expression, the definition of `dnf-rules` is only visible in the instantiation of `innermost`:
 
@@ -224,7 +222,7 @@ Strategy definitions at top-level are visible everywhere.  Sometimes it is usefu
 
 The current version of Stratego does not support hidden strategy definitions at the module level.  Such a feature is under consideration for a future version.
 
-### Extending Definitions
+### 6.3.4. Extending Definitions
 
 As we saw in [?](#), a Stratego program can introduce several rules with the same name. It is even possible to extend rules across modules.  This is also possible for strategy definitions.  If two strategy definitions have the same name and the same number of parameters, they effectively define a single strategy that tries to apply the bodies of the definitions in some undefined order.  Thus, a definition of the form
 
@@ -243,8 +241,7 @@ or to
       f = s2 <+ s1
 
 
-Calling Primitives
-------------------
+## 6.4. Calling Primitives
 
 Stratego provides combinators for composing transformations and basic operators for analyzing, creating and traversing terms.  However, it does not provide built-in support for other types of computation such as input/output and process control.  In order to make such functionality available to Stratego programmers, the language provides access to user-definable _primitive_ strategies through the `prim` construct.  For example, the following call to `prim` invokes the `SSL_printnl` native function:
 
@@ -257,13 +254,12 @@ In general, a call `prim("f", s* | t*)` represents a call to a _primitive functi
 This mechanism allows the incorporation of mundane tasks such as arithmetic, I/O, and other tasks not directly related to transformation, but necessary for the integration of transformations with the other parts of a transformation system.
 
 
-### Implementing Primitives
+### 6.4.1. Implementing Primitives
 
 The Stratego Library provides all the primitives for I/O, arithmetic, string processing, and process control that are usually needed in Stratego programs.  However, it is possible to add new primitives to a program as well.  That requires linking with the compiled program a library that implements the function. See the documentation of [?](#) for instructions.
 
 
-External Definitions
---------------------
+## 6.5. External Definitions
 
 The [Stratego Compiler](#ref-strc) is a _whole program compiler_. That is, the compiler includes all definitions from imported modules (transitively) into the program defined by the main module (the one being compiled).  This is the reason that the compiler takes its time to compile a program.  To reduce the compilation effort and the size of the resulting programs it is possible to create separately compiled _libraries_ of Stratego definitions.  The strategies that such a library provides are declared as _external_ definitions. A declaration of the form
 
@@ -284,7 +280,8 @@ The Stratego Library is provided as a separately compiled library. The `libstrat
 
 When compiling a program using the library we used the `-la stratego-lib` option to provide the implementation of those definitions.
 
-### External Definitions cannot be Extended
+
+### 6.5.1. External Definitions cannot be Extended
 
 Unlike definitions imported in the normal way, external definitions cannot be extended.  If we try to compile a module extending an external definition, such as
 
@@ -301,7 +298,7 @@ compilation fails:
     [ strc | error ] Compilation failed (3.66 secs)
 
 
-### Creating Libraries
+### 6.5.2. Creating Libraries
 
 It is possible to create your own Stratego libraries as well. Currently that exposes you to a bit of compilation gibberish; in the future this may be incorporated in the Stratego compiler.  Lets create a library for the rules and strategy definitions in the `prop-laws` module.  We do this using the `--library` option to indicate that a library is being built, and the `-c` option to indicate that we are only interested in the generated C code.
 
@@ -325,7 +322,7 @@ The result is of this compilation is a module `libproplib` that contains the ext
 The result is a shared library `libproplib.la` that can be used in other Stratego programs. (TODO: the production of the shared library should really be incorporated into strc.)
 
 
-### Using Libraries
+### 6.5.3. Using Libraries
 
 Programmers that want to use your library can now import the module with external definitions, instead of the original module.
 
@@ -346,8 +343,8 @@ This program can be compiled in the usual way, adding the new library to the lib
 
 To correctly deploy programs based on shared libraries requires some additional effort.  [?](#) explains how to create deployable packages for your Stratego programs.
 
-Dynamic Calls
--------------
+
+## 6.6. Dynamic Calls
 
 Strategies can be called dynamically by name, i.e., where the name of the strategy is specified as a string. Such calls can be made using the `call` construct, which has the form:
 
@@ -361,8 +358,8 @@ In the current version of Stratego it is necessary to 'register' a strategy to b
 
     DYNAMICAL-CALLS = foo(id)
 
-Summary
--------
+
+## 6.7. Summary
 
 We have learned that rules and strategies define _transformations_, that is, functions from terms to terms that can fail, i.e., partial functions. Rule and strategy definitions introduce names for transformations. Parametrized strategy definitions introduce new strategy _operators_, functions that construct transformations from transformations, and support term patterns as parameters.
 
