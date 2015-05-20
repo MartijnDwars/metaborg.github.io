@@ -21,5 +21,15 @@ context: stratego
   </div>
 </section><!-- /#table-of-contents -->
 
-{% include_relative terms.md %}
-{% include_relative rules-and-strategies.md %}
+{% include_relative 00-introduction.md %}
+{% include_relative 01-terms.md %}
+{% include_relative 02-running-stratego-programs.md %}
+{% include_relative 03-term-rewriting.md %}
+{% include_relative 04-rewriting-strategies.md %}
+{% include_relative 05-rules-and-strategies.md %}
+{% include_relative 06-strategy-combinators.md %}
+{% include_relative 07-creating-and-analyzing-terms.md %}
+{% include_relative 08-traversal-strategies.md %}
+{% include_relative 09-type-unifying-strategies.md %}
+{% include_relative 10-concrete-object-syntax.md %}
+{% include_relative 11-dynamic-rules.md %}
