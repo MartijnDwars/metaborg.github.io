@@ -1,9 +1,5 @@
 # 12. Dynamic Rules
 
-> TODO Work in Progress
-
-This chapter is work in progress. Not all parts have been finished yet. The latest revision of this manual may contain more material. Refer to the [online version][1].
-
 In the previous chapters we have shown how programmable rewriting strategies can provide control over the application of transformation rules, thus addresing the problems of confluence and termination of rewrite systems. Another problem of pure rewriting is the context-free nature of rewrite rules. A rule has access only to the term it is transforming. However, transformation problems are often context-sensitive. For example, when inlining a function at a call site, the call is replaced by the body of the function in which the actual parameters have been substituted for the formal parameters. This requires that the formal parameters and the body of the function are known at the call site, but these are only available higher-up in the syntax tree. There are many similar problems in program transformation, including bound variable renaming, typechecking, data flow transformations such as constant propagation, common-subexpression elimination, and dead code elimination. Although the basic transformations in all these applications can be expressed by means of rewrite rules, these require contextual information.
 
 In Stratego context-sensitive rewriting can be achieved without the added complexity of local traversals and without complex data structures, by the extension of rewriting strategies with scoped dynamic rewrite rules. Dynamic rules are otherwise normal rewrite rules that are defined at run-time and that inherit information from their definition context. As an example, consider the following strategy definition as part of an inlining transformation:
@@ -20,14 +16,10 @@ An overview with semantics and examples of dynamic rewrite rules in Stratego is 
 
 * M. Bravenboer, A. van Dam, K. Olmos, and E. Visser. Program Transformation with Scoped Dynamic Rewrite Rules. Fundamenta Informaticae, 69:1--56, 2005.
 
-An extended version is available as [technical report UU-CS-2005-005][2].
+An extended version is available as [technical report UU-CS-2005-005](http://www.cs.uu.nl/research/techreps/UU-CS-2005-005.html).
 
 * K. Olmos and E. Visser. Composing Source-to-Source Data-Flow Transformations with Rewriting Strategies and Dependent Dynamic Rewrite Rules. In R. Bodik, editor, 14th International Conference on Compiler Construction (CC'05), volume 3443 of Lecture Notes in Computer Science, pages 204--220. Springer-Verlag, April 2005.
 
-An extended version is available as [technical report UU-CS-2005-006][3]
+An extended version is available as [technical report UU-CS-2005-006](http://www.cs.uu.nl/research/techreps/UU-CS-2005-006.html)
 
 Since these publications provide a fairly complete and up-to-date picture of dynamic rules, incorporation into this manual is not as urgent as other parts of the language.
-
-[1]: http://releases.strategoxt.org/strategoxt-manual/strategoxt-manual-unstable/
-[2]: http://www.cs.uu.nl/research/techreps/UU-CS-2005-005.html
-[3]: http://www.cs.uu.nl/research/techreps/UU-CS-2005-006.html
