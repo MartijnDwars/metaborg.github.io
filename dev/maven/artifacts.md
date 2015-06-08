@@ -6,9 +6,6 @@ MetaBorg's Maven artifacts are hosted on our artifact server: <http://artifacts.
 
 The recommended approach is to add repositories to your local Maven settings file, located at `~/.m2/settings.xml`. If you have not created this file yet, or want to completely replace it, simply create it with the following content:
 
-__Our artifact server is currently down, downloading artifacts will fail.__ Release artifacts are temporarily stored at http://download.spoofax.org/update/artifacts/releases/. The XML snippets below have been temporarily changed to point to the temporary release artifacts location.
-{: .notice .notice-danger}
-
 {% highlight xml %}
 <?xml version="1.0" ?>
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -20,7 +17,7 @@ __Our artifact server is currently down, downloading artifacts will fail.__ Rele
         <activeByDefault>true</activeByDefault>
       </activation>
       <repositories>
-        <!--repository>
+        <repository>
           <id>metaborg-nexus-snapshots</id>
           <url>http://artifacts.metaborg.org/content/repositories/snapshots/</url>
           <releases>
@@ -29,11 +26,10 @@ __Our artifact server is currently down, downloading artifacts will fail.__ Rele
           <snapshots>
             <enabled>true</enabled>
           </snapshots>
-        </repository-->
+        </repository>
         <repository>
           <id>metaborg-nexus-releases</id>
-          <!--url>http://artifacts.metaborg.org/content/repositories/releases/</url-->
-          <url>http://download.spoofax.org/update/artifacts/releases/</url>
+          <url>http://artifacts.metaborg.org/content/repositories/releases/</url>
           <releases>
             <enabled>true</enabled>
           </releases>
@@ -54,7 +50,7 @@ __Our artifact server is currently down, downloading artifacts will fail.__ Rele
         </repository>
       </repositories>
       <pluginRepositories>
-        <!--pluginRepository>
+        <pluginRepository>
           <id>metaborg-nexus-snapshots</id>
           <url>http://artifacts.metaborg.org/content/repositories/snapshots/</url>
           <releases>
@@ -63,11 +59,10 @@ __Our artifact server is currently down, downloading artifacts will fail.__ Rele
           <snapshots>
             <enabled>true</enabled>
           </snapshots>
-        </pluginRepository-->
+        </pluginRepository>
         <pluginRepository>
           <id>metaborg-nexus-releases</id>
-          <!--url>http://artifacts.metaborg.org/content/repositories/releases/</url-->
-          <url>http://download.spoofax.org/update/artifacts/releases/</url>
+          <url>http://artifacts.metaborg.org/content/repositories/releases/</url>
           <releases>
             <enabled>true</enabled>
           </releases>
