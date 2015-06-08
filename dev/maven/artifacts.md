@@ -86,7 +86,7 @@ To do this, just add the the following content to the POM file:
 
 {% highlight xml %}
 <repositories>
-  <!--repository>
+  <repository>
     <id>metaborg-nexus-snapshots</id>
     <url>http://artifacts.metaborg.org/content/repositories/snapshots/</url>
     <releases>
@@ -95,11 +95,10 @@ To do this, just add the the following content to the POM file:
     <snapshots>
       <enabled>true</enabled>
     </snapshots>
-  </repository-->
+  </repository>
   <repository>
     <id>metaborg-nexus-releases</id>
-    <!--url>http://artifacts.metaborg.org/content/repositories/releases/</url-->
-    <url>http://download.spoofax.org/update/artifacts/releases/</url>
+    <url>http://artifacts.metaborg.org/content/repositories/releases/</url>
     <releases>
       <enabled>true</enabled>
     </releases>
@@ -121,7 +120,7 @@ To do this, just add the the following content to the POM file:
 </repositories>
 
 <pluginRepositories>
-  <!--pluginRepository>
+  <pluginRepository>
     <id>metaborg-nexus-snapshots</id>
     <url>http://artifacts.metaborg.org/content/repositories/snapshots/</url>
     <releases>
@@ -130,11 +129,10 @@ To do this, just add the the following content to the POM file:
     <snapshots>
       <enabled>true</enabled>
     </snapshots>
-  </pluginRepository-->
+  </pluginRepository>
   <pluginRepository>
     <id>metaborg-nexus-releases</id>
-    <!--url>http://artifacts.metaborg.org/content/repositories/releases/</url-->
-    <url>http://download.spoofax.org/update/artifacts/releases/</url>
+    <url>http://artifacts.metaborg.org/content/repositories/releases/</url>
     <releases>
       <enabled>true</enabled>
     </releases>
