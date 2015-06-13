@@ -11,6 +11,25 @@ context: download
 sideimage: 
 ---
 
+<section id="table-of-contents" class="toc"> 
+  <header> <h3>Overview</h3> </header>
+  <div id="drawer" markdown="1">
+  *  Auto generated table of contents
+  {:toc}
+  </div>
+</section><!-- /#table-of-contents -->
+
+# Complete Eclipse Distribution (Experimental)
+
+We are now distributing Spoofax as a pre-packaged Eclipse distribution for Linux, Windows, 
+and MacOS including the Spoofax plugin and JRE. 
+Note that the integrated distribution is currently only available for the last 
+successful build of Spoofax and not for the official releases.
+
+* [lastSuccessfulBuild](http://buildfarm.metaborg.org/job/spoofax-master/lastSuccessfulBuild/artifact/dist/)
+
+# Eclipse Plugin
+
 To install Spoofax, all you need is [JRE 7 or higher](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 
 and a copy of Eclipse. Eclipse versions 4.3 to 4.4 are supported, but we recommend [Eclipse Luna (4.4)](http://www.eclipse.org/downloads/) variant [Eclipse IDE for Java Developers](http://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/lunasr1).
 Make sure that Eclipse detects the correct JRE (_Window_ &rarr; _Preferences_ &rarr; _Java_ &rarr; _Installed JREs_) and that the JDK compliance level is set to 1.7 or higher (_Window_ &rarr; _Preferences_ &rarr; _Java_ &rarr; _Compiler_).
