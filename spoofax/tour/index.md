@@ -12,6 +12,8 @@ image:
 context: spoofax
 ---
 
+Note: this tour is out-of-date.
+
 <section id="table-of-contents" class="toc"> 
   <header> <h3>Overview</h3> </header>
   <div id="drawer" markdown="1">
