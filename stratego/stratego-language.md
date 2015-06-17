@@ -4,7 +4,7 @@ Stratego is a language and toolset for [program transformation](http://strategox
 
 We are working to migrate and update the old Stratego wiki from the old site <http://strategoxt.org>. Perhaps one of these quick links will help you now:
 
-* [Stratego API](http://hydra.nixos.org/job/strategoxt-docs/libstratego-lib-docs-trunk/tarball/latest/download/1/docs)
+* [Stratego API](http://releases.strategoxt.org/docs/api/)
 * Instructions for [calling into Java code from Stratego](/stratego/external-strategies/)
 * The [Stratego issue tracker](http://yellowgrass.org/project/StrategoXT). Please note that Spoofax issues are reported separately.
 
