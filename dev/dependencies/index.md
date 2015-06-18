@@ -32,7 +32,7 @@ GMF Tooling                    | <http://eclipse.org/gmf-tooling/>              
 Guava                          | <https://code.google.com/p/guava-libraries/>                                                                        | [Apache 2.0](http://www.tldrlegal.com/l/apache2)
 Functional Java                | <http://functionaljava.org/>                                                                                        | [BSD 3-way](http://www.tldrlegal.com/l/bsd3)
 JLine                          | <http://jline.sourceforge.net/>                                                                                     | [BSD 3-way](http://www.tldrlegal.com/l/bsd3)
-JJTraveler                     | <https://github.com/ansell/jjtraveler>                                                                              | [__GPL 2.0 !!__](http://www.tldrlegal.com/l/gpl2)
+JJTraveler                     | <https://github.com/ansell/jjtraveler>                                                                              | [BSD 3-way](http://www.tldrlegal.com/l/bsd3)
 ATerm shared-objects           | <https://github.com/ansell/aterms/tree/master/shared-objects>                                                       | [Permissive](https://github.com/ansell/aterms/blob/master/shared-objects/COPYING)
 JCommander                     | <http://jcommander.org/>                                                                                            | [Apache 2.0](http://www.tldrlegal.com/l/apache2)
 Apache Commons I/O             | <http://commons.apache.org/>                                                                                        | [Apache 2.0](http://www.tldrlegal.com/l/apache2)
