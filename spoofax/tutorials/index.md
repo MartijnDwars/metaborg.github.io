@@ -19,9 +19,10 @@ context: spoofax
 
 ### External tutorials
 
+* [Declare Your Language](http://metaborgcube.github.io/declare-your-language/)
 * [Spoofax in 12 Days](https://github.com/TUDelft-IN4303/assignments/tree/master/)
 * [SDF Tutorial](http://hydra.nixos.org/build/2583471/download/1/manual/chunk-chapter/tutorial-sdf.html)
-* [Stratego/XT Manual](http://hydra.nixos.org/build/2583471/download/1/manual/chunk-part/index.html)
+* [Stratego/XT Manual](http://hydra.nixos.org/job/strategoxt-docs/strategoxt-manual/html/latest/download/1/manual/chunk-chapter/index.html)
 
 
 
