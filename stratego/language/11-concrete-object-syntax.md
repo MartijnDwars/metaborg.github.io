@@ -190,7 +190,7 @@ with embedded Tiger expressions, results in the abstract syntax tree
 
 containing Tiger abstract syntax constructors (e.g., `Let`, `Var`, `Assign`) and meta-variables (`meta-var`). The transition from meta language to object language is marked by the `ToTerm` constructor, while the transition from meta-language to object-language is marked by the constructor `FromTerm`.
 
-Such mixed abstract syntax trees can be normalized by `exploding' all embedded abstract syntax to meta-language abstract syntax. Thus, the above tree should be exploded to the following pure Stratego abstract syntax:
+Such mixed abstract syntax trees can be normalized by _exploding_ all embedded abstract syntax to meta-language abstract syntax. Thus, the above tree should be exploded to the following pure Stratego abstract syntax:
 
     Rule(Op("Assign",[Op("Var",[Var("x")]),
                       Op("Let",[Var("d*"),Var("e*")])]),
@@ -199,7 +199,7 @@ Such mixed abstract syntax trees can be normalized by `exploding' all embedded a
                                            Op("Seq",[Var("e*")])]),
                               Op("Nil",[])])]))
 
-Observe that in this explosion all embedded constructor applications have been translated to the form `Op(C,[t1,...,tn])`. For example, the Tiger `variable' constructor `Var(_)` becomes `Op("Var",[_])`, while the Stratego meta-variable `Var("e*")` remains untouched, and `meta-var`s become Stratego `Var`s. Also note how the list in the second argument of the second `Let` is exploded to a `Cons`/`Nil` list.
+Observe that in this explosion all embedded constructor applications have been translated to the form `Op(C,[t1,...,tn])`. For example, the Tiger _variable_ constructor `Var(_)` becomes `Op("Var",[_])`, while the Stratego meta-variable `Var("e*")` remains untouched, and `meta-var`s become Stratego `Var`s. Also note how the list in the second argument of the second `Let` is exploded to a `Cons`/`Nil` list.
 
 The resulting term corresponds to the abstract syntax for the rule
 
@@ -213,7 +213,7 @@ The explosion of embedded abstract syntax does not depend on the object language
 
        "exp" "|[" Exp "]|" -> StrategoTerm {cons("ToTerm")}
 
-**Other Quotation Conventions.** The convention of using `|[...]|` and `~` as quotation and anti-quotation delimiters is inspired by the notation used in texts about semantics. It really depends on the application, the languages involved, and the `audience' what kind of delimiters are most appropriate.
+**Other Quotation Conventions.** The convention of using `|[...]|` and `~` as quotation and anti-quotation delimiters is inspired by the notation used in texts about semantics. It really depends on the application, the languages involved, and the _audience_ what kind of delimiters are most appropriate.
 
 The following notation was inspired by active web pages is developed. For instance, the following quotation `%>...<%` and antiquotation `<%...%>` delimiters are defined for use of XML in Stratego programs:
 

@@ -4,7 +4,7 @@ In [Chapter13][1] we saw a number of idioms of strategic rewriting, which all in
 
 There are many ways to traverse a tree. For example, a bottom-up traversal, visits the subterms of a node before it visits the node itself, while a top-down traversal visits nodes before it visits children. One-pass traversals traverse the tree one time, while fixed-point traversals, such as `innermost`, repeatedly traverse a term until a normal form is reached.
 
-It is not desirable to provide built-in implementations for all traversals needed in transformations, since such a collection would necessarily be imcomplete. Rather we would like to define traversals in terms of the primitive ingredients of traversal. For example, a top-down, one-pass traversal strategy will first visit a node, and then descend to the children of a node in order to _recursively_ traverse all subterms. Similarly, the bottom-up, fixed-point traversal strategy _innermost_, will first descend to the children of a node in order to _recursively_ traverse all subterms, then visit the node itself, and possibly recursively reapply the strategy.
+It is not desirable to provide built-in implementations for all traversals needed in transformations, since such a collection would necessarily be incomplete. Rather we would like to define traversals in terms of the primitive ingredients of traversal. For example, a top-down, one-pass traversal strategy will first visit a node, and then descend to the children of a node in order to _recursively_ traverse all subterms. Similarly, the bottom-up, fixed-point traversal strategy _innermost_, will first descend to the children of a node in order to _recursively_ traverse all subterms, then visit the node itself, and possibly recursively reapply the strategy.
 
 Traversal in Stratego is based on the observation that a full term traversal is a recursive closure of a one-step descent, that is, an operation that applies a strategy to one or more direct subterms of the subject term. By separating this one-step descent operator from recursion, and making it a first-class operation, many different traversals can be defined.
 
@@ -255,7 +255,7 @@ As an example, consider checking the output of the `dnf` and `cnf` transformatio
 
 The strategies `conj(s)` and `disj(s)` check that the subject term is a conjunct or a disjunct, respectively, with terms satisfying `s` at the leaves. The strategies `conj-nf` and `disj-nf` check that the subject term is in conjunctive or disjunctive normal form, respectively.
 
-Using congruence operators we constructed a generic, i.e. transformation independent, bottom-up traversal for proposition terms. The same can be done for other data types. However, since the sets of constructors of abstract syntax trees of typical programming languages can be quite large, this may still amount to quite a bit of work that is not reusable _across_ data types; even though a strategy such as `bottom-up traversal', is basically data-type independent. Thus, Stratego provides generic traversal by means of several _generic one-step descent operators_. The operator `all`, applies a strategy to all direct subterms. The operator `one`, applies a strategy to one direct subterm, and the operator `some`, applies a strategy to as many direct subterms as possible, and at least one.
+Using congruence operators we constructed a generic, i.e. transformation independent, bottom-up traversal for proposition terms. The same can be done for other data types. However, since the sets of constructors of abstract syntax trees of typical programming languages can be quite large, this may still amount to quite a bit of work that is not reusable _across_ data types; even though a strategy such as _bottom-up traversal_, is basically data-type independent. Thus, Stratego provides generic traversal by means of several _generic one-step descent operators_. The operator `all`, applies a strategy to all direct subterms. The operator `one`, applies a strategy to one direct subterm, and the operator `some`, applies a strategy to as many direct subterms as possible, and at least one.
 
 
 ### 9.1.1. Visiting All Subterms
@@ -497,7 +497,7 @@ Exercise: give an example application of this strategy
 
 ### 9.2.1. Cascading Transformations
 
-Cascading transformations are transformations upon transformations. While the full traversals discussed above walk over the tree once, cascading transformations apply multiple `waves' of transformations to the nodes in the tree. The prototypical example is the `innermost` strategy, which exhaustively applies a transformation, typically a set of rules, to a tree.
+Cascading transformations are transformations upon transformations. While the full traversals discussed above walk over the tree once, cascading transformations apply multiple _waves_ of transformations to the nodes in the tree. The prototypical example is the `innermost` strategy, which exhaustively applies a transformation, typically a set of rules, to a tree.
 
     simplify =
       innermost(R1 <+ ... <+ Rn)
@@ -653,7 +653,7 @@ Since the Stratego Shell does not (yet) pretty-print terms, the result is rather
       ]
     )
 
-Compare the result to the original program and try to figure out what has happened and why that is correct. (Assuming the `usual' semantics for this type of imperative language.)
+Compare the result to the original program and try to figure out what has happened and why that is correct. (Assuming the _usual_ semantics for this type of imperative language.)
 
 **Generic Strategies with Exceptional Cases.** Patterns for mixing specific and generic traversal can be captured in parameterized strategies such as the following. They are parameterized with the usual transformation parameter `s` and with a higher-order strategy operator `stop`, which implements the special cases.
 

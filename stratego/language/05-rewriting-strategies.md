@@ -67,7 +67,7 @@ Although this solves the non-termination problem, it is not an ideal solution. I
 
 ### 5.1.2. Attempt 2: Functionalization
 
-Another common solution to this kind of problem is to introduce additional constructors that achieve normalization under a restricted set of rules. That is, the original set of rules `p1 -> p2` is transformed into rules of the form `f(p_1) -> p_2'`, where `f` is some new constructor symbol and the right-hand side of the rule also contains such new constructors. In this style of programming, constructors such as `f` are called _functions_ and are distinguished from constructors. Normal forms over such rewrite systems are assumed to be free of these `function' symbols; otherwise the function would have an incomplete definition.
+Another common solution to this kind of problem is to introduce additional constructors that achieve normalization under a restricted set of rules. That is, the original set of rules `p1 -> p2` is transformed into rules of the form `f(p_1) -> p_2'`, where `f` is some new constructor symbol and the right-hand side of the rule also contains such new constructors. In this style of programming, constructors such as `f` are called _functions_ and are distinguished from constructors. Normal forms over such rewrite systems are assumed to be free of these _function_ symbols; otherwise the function would have an incomplete definition.
 
 To illustrate the approach we adapt the DNF rules by introducing the function symbols `Dnf` and `DnfR`. (We ignore the evaluation rules in this example.)
 
@@ -99,7 +99,7 @@ To illustrate the approach we adapt the DNF rules by introducing the function sy
 
 The `Dnf` function mimics the innermost normalization strategy by recursively traversing terms. The auxiliary transformation function `DnfR` is used to encode the distribution and negation rules. The `D` rules are _default_ rules that are only applied if none of the `E` rules apply, as specified by the strategy expression `E <\+ D`.
 
-In order to compute the disjunctive normal form of a term, we have to `apply' the `Dnf` function to it, as illustrated in the following application of the `prop-dnf3` program:
+In order to compute the disjunctive normal form of a term, we have to _apply_ the `Dnf` function to it, as illustrated in the following application of the `prop-dnf3` program:
 
     $ cat test1.dnf
     Dnf(And(Impl(Atom("r"),And(Atom("p"),Atom("q"))),ATom("p")))

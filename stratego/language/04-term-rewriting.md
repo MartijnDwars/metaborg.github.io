@@ -65,7 +65,7 @@ Next we want to _normalize_ terms with respect to a collection of rewrite rules.
       main = io-wrap(eval)
       eval = innermost(E)
 
-The module imports the Stratego Library (`libstrategolib`) and the module with the evaluation rules, and then defines the `main` strategy to apply `innermost(E)` to the input term. (See the discussion of `io-wrap` in [Section11.2][2].) The `innermost` strategy from the library exhaustively applies its argument transformation to the term it is applied to, starting with `inner' subterms.
+The module imports the Stratego Library (`libstrategolib`) and the module with the evaluation rules, and then defines the `main` strategy to apply `innermost(E)` to the input term. (See the discussion of `io-wrap` in [Section11.2][2].) The `innermost` strategy from the library exhaustively applies its argument transformation to the term it is applied to, starting with _inner_ subterms.
 
 We can now compile the program as discussed in [Chapter11][3]:
 
