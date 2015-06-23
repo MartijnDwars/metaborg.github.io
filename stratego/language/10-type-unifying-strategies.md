@@ -1,6 +1,6 @@
 # 10. Type Unifying Strategies
 
-In [Chapter17][1] we have seen combinators for composing _type preserving_ strategies. That is, structural transformations in which basic transformation rules don't change the type of a term. Such strategies are typically applied in transformations, which change the structure of a term, but not its type. Examples are simplification and optimization. In this chapter we consider the class of _type unifying_ strategies, in which terms of different types are mapped onto one type. The application area for this type of strategy is analysis of expresssions with examples such as free variables collection and call-graph extraction.
+In [Chapter17][1] we have seen combinators for composing _type preserving_ strategies. That is, structural transformations in which basic transformation rules don't change the type of a term. Such strategies are typically applied in transformations, which change the structure of a term, but not its type. Examples are simplification and optimization. In this chapter we consider the class of _type unifying_ strategies, in which terms of different types are mapped onto one type. The application area for this type of strategy is analysis of expressions with examples such as free variables collection and call-graph extraction.
 
 We consider the following example problems:
 
@@ -87,7 +87,7 @@ We have seen how to do typical analysis transformations on lists. How can we gen
 
 For each constructor of the data-type the fold has an argument strategy and a rule that matches applications of the constructor, which it replaces with an application of the strategy to the tuple of subterms reduced by a recursive invocation of the fold.
 
-Instantation of this strategy requires a rule for each constructor of the data-type. For instance, the following instantiation defines `term-size` using `fold-exp` by providing rules that sum up the sizes of the subterms and add one (`inc`) to account for the node itself.
+Instantiation of this strategy requires a rule for each constructor of the data-type. For instance, the following instantiation defines `term-size` using `fold-exp` by providing rules that sum up the sizes of the subterms and add one (`inc`) to account for the node itself.
 
     term-size  = fold-exp(BinOpSize, AssignSize, IfSize, ...)
 
@@ -107,7 +107,7 @@ One solution would be to use the generic traversal strategy `bottomup` to deal w
     AssignSize  : Assign(e1, e2)        -> (e1, e2)
     IfSize      : If(e1, e2, e3)        -> (e1, (e2, e3))
 
-Although the recursive application to subterms is now defined generically , one still has to specify rules for the default behaviour.
+Although the recursive application to subterms is now defined generically , one still has to specify rules for the default behavior.
 
 ## 10.3. Generic Term Deconstruction
 
@@ -264,7 +264,7 @@ That is, a node in a parse tree consists of an encoding of the original producti
     implode = appl(id, map(implode)); Implode
     Implode : appl(prod(sorts, sort, attrs([cons(c)])), ts) -> c#(ts)
 
-The `Implode` rule rewrites an `appl` term to a constructor application, by extracing the constructor name from the production and then using generic term construction to apply the constructor.
+The `Implode` rule rewrites an `appl` term to a constructor application, by extracting the constructor name from the production and then using generic term construction to apply the constructor.
 
 Note that this is a gross over simplification of the actual implementation of [implode-asfix][2]. See the source code for the full strategy.
 

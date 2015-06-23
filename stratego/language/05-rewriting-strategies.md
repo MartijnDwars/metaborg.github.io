@@ -126,7 +126,7 @@ In the first place, the functional encoding incurs a large _overhead_ due to the
     Java     : 140
     COBOL    : 300 - 1200
 
-In the second place, rewrite rules and the strategy that defines their application are completely _intertwined_. Another advantage of pure term rewriting is the separation of the specification of the rules and the strategy that controls their application. Intertwining these specifications makes it more difficult to _understand_ the specification, since rules cannot be distinghuished from the transformation they are part of. Furthermore, intertwining makes it impossible to _reuse_ the rules in a different transformation.
+In the second place, rewrite rules and the strategy that defines their application are completely _intertwined_. Another advantage of pure term rewriting is the separation of the specification of the rules and the strategy that controls their application. Intertwining these specifications makes it more difficult to _understand_ the specification, since rules cannot be distinguished from the transformation they are part of. Furthermore, intertwining makes it impossible to _reuse_ the rules in a different transformation.
 
 Stratego introduced the paradigm of _programmable rewriting strategies with generic traversals_, a unifying solution in which application of rules can be carefully controlled, while incurring minimal traversal overhead and preserving separation of rules and strategies.
 

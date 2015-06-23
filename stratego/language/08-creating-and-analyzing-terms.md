@@ -4,7 +4,7 @@ In previous chapters we have presented rewrite rules as basic transformation ste
 
 is applied. First it matches the subject term against the pattern `And(Or(x, y), z)` in the left-hand side. This means that a substitution for the variables `x`, `y`, and `z` is sought, that makes the pattern equal to the subject term. If the match fails, the rule fails. If the match succeeds, the pattern `Or(And(x, z), And(y, z))` on the right-hand side is instantiated with the bindings found during the match of the left-hand side. The instantiated term then replaces the original subject term. Furthermore, the rule limits the scope of the variables occurring in the rule. That is, the variables `x`, `y`, `z` are local to this rule. After the rule is applied the bindings to these variables are invisible again.
 
-Thus, rather than considering rules as the atomic actions of transformation programs, Stratego provides their constituents, that is building terms from patterns and matching terms against patterns, as atomic actions, and makes these available to the programmer. In this chapter, you will learn these basic actions and their use in the composition of more complex operations such as various flavours of rewrite rules.
+Thus, rather than considering rules as the atomic actions of transformation programs, Stratego provides their constituents, that is building terms from patterns and matching terms against patterns, as atomic actions, and makes these available to the programmer. In this chapter, you will learn these basic actions and their use in the composition of more complex operations such as various flavors of rewrite rules.
 
 The build operation `!p` replaces the subject term with the instantiation of the pattern `p` using the bindings from the environment to the variables occurring in `p`. For example, the strategy `!Or(And(x, z), And(y, z))` replaces the subject term with the instantiation of `Or(And(x, z), And(y, z))` using bindings to variables `x`, `y` and `z`.
 
@@ -47,7 +47,7 @@ The general case is matching against an arbitrary term pattern. The match strate
     e is bound to Var("a")
     Plus(Var("a"),Int("3"))
 
-Patterns may be non-linear. Multiple occurences of the same variable can occur and each occurence matches the same term.
+Patterns may be non-linear. Multiple occurrences of the same variable can occur and each occurrence matches the same term.
 
     Plus(Var("a"),Int("3"))
     stratego> ?Plus(e,e)
@@ -149,7 +149,7 @@ When using match and build directly in a strategy definition, rather than in the
 
     SwapArgs = {e1,e2 : (Plus(e1,e2) -> Plus(e2,e1))}
 
-However, since declaring all variables at the top of a definition is destracting and does not add much to the definition, such a scope declaration can be left out. Thus, one can write
+However, since declaring all variables at the top of a definition is distracting and does not add much to the definition, such a scope declaration can be left out. Thus, one can write
 
     SwapArgs = (Plus(e1,e2) -> Plus(e2,e1))
 

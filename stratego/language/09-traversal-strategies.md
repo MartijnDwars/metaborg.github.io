@@ -88,7 +88,7 @@ We can further simplify the definition by observing that the application of `dnf
 
 In this program `dnf` first calls `dnft` to transform the subterms of the subject term, and then calls `dnfred` to apply the transformation rules (and possibly a recursive invocation of `dnf`).
 
-The program above has two problems. First, the traversal behaviour is mostly uniform, so we would like to specify that more concisely. We will address that concern below. Second, the traversal is not reusable, for example, to define a conjunctive normal form transformation. This last concern can be addressed by factoring out the recursive call to `dnf` and making it a parameter of the traversal rules.
+The program above has two problems. First, the traversal behavior is mostly uniform, so we would like to specify that more concisely. We will address that concern below. Second, the traversal is not reusable, for example, to define a conjunctive normal form transformation. This last concern can be addressed by factoring out the recursive call to `dnf` and making it a parameter of the traversal rules.
 
     module prop-dnf7
     imports libstrategolib prop-rules
@@ -128,7 +128,7 @@ But we can do better, and also make the _composition_ of this strategy reusable.
       cnf    = propbu(cnfred)
       cnfred = try(DN <+ (DefI <+ DefE <+ DMA <+ DMO <+ DOAL <+ DOAR); cnf)
 
-That is, the `propbu(s)` strategy defines a complete bottom-up traversal over propostion terms, applying the strategy `s` to a term after transforming its subterms. The strategy is completely independent of the `dnf` and `cnf` transformations, which instantiate the strategy using the `dnfred` and `cnfred` strategies.
+That is, the `propbu(s)` strategy defines a complete bottom-up traversal over proposition terms, applying the strategy `s` to a term after transforming its subterms. The strategy is completely independent of the `dnf` and `cnf` transformations, which instantiate the strategy using the `dnfred` and `cnfred` strategies.
 
 Come to think of it, `dnfred` and `cnfred` are somewhat useless now and can be inlined directly in the instantiation of the `propbu(s)` strategy:
 
@@ -303,7 +303,7 @@ In which we can recognize the definition of _innermost_ reduction, which the Str
 
     innermost(s) = bottomup(try(s; innermost(s)))
 
-The `innermost` strategy performs a bottom-up traversal of a term. After transforming the subterms of a term it tries to apply the transformation `s`. If succesful the result is recursively transformed with an application of `innermost`. This brings us to the final form for the proposition normalizations:
+The `innermost` strategy performs a bottom-up traversal of a term. After transforming the subterms of a term it tries to apply the transformation `s`. If successful the result is recursively transformed with an application of `innermost`. This brings us to the final form for the proposition normalizations:
 
     module prop-dnf12
     imports libstrategolib prop-rules
@@ -318,7 +318,7 @@ Different transformations can be achieved by using a selection of rules and a st
 
 ### 9.1.2. Visiting One Subterm
 
-The `one(s)` strategy transforms a constructor application by applying the parameter strategy `s` to exactly one direct subterm. An application of `one(s)` fails if the application to all of the subterms fails. The following Stratego Shell session illustrates the behaviour of the combinator:
+The `one(s)` strategy transforms a constructor application by applying the parameter strategy `s` to exactly one direct subterm. An application of `one(s)` fails if the application to all of the subterms fails. The following Stratego Shell session illustrates the behavior of the combinator:
 
     stratego> !Plus(Int("14"),Int("3"))
     Plus(Int("14"),Int("3"))
@@ -329,7 +329,7 @@ The `one(s)` strategy transforms a constructor application by applying the param
     stratego> one(?Plus(_,_))
     command failed
 
-A frequently used application of `one` is the `oncetd(s)` traversal, which performs a left to right depth first search/transformation that stops as soon as `s` has been successfuly applied.
+A frequently used application of `one` is the `oncetd(s)` traversal, which performs a left to right depth first search/transformation that stops as soon as `s` has been successfully applied.
 
     oncetd(s) = s <+ one(oncetd(s))
 
@@ -671,7 +671,7 @@ Compare the result to the original program and try to figure out what has happen
 
 While normal strategies (parameters) are functions from terms to terms, the `stop` parameter is a function from strategies to strategies. Such exceptions to the default have to be declared explicitly using a type annotation. Note that the `bottomupS` strategy is slightly different from the pattern of the `propconst` strategy; instead of applying `s` _only_ after the generic traversal case, it is here applied in all cases.
 
-However, the added value of these strategies is not very high. The payoff in the use of generic strategies is provided by the basic generic traversal operators, which provide generic behaviour for all constructors. The `stop` callback can make it harder to understand the control-flow structure of a strategy; use with care and don't overdo it.
+However, the added value of these strategies is not very high. The payoff in the use of generic strategies is provided by the basic generic traversal operators, which provide generic behavior for all constructors. The `stop` callback can make it harder to understand the control-flow structure of a strategy; use with care and don't overdo it.
 
 ### 9.2.3. Separate rules and strategies
 
@@ -717,7 +717,7 @@ Some relatives of `alltd` that add a strategy to apply on the way up.
     alldownup2(s1, s2) = rec x((s1 <+ all(x)); s2)
     alltd-fold(s1, s2) = rec x(s1 <+ all(x); s2)
 
-Finally, the following strategies select the _leaves_ of a tree, where the determination of what is a leaf is upto a parameter strategy.
+Finally, the following strategies select the _leaves_ of a tree, where the determination of what is a leaf is up to a parameter strategy.
 
     leaves(s, is-leaf, skip: a * (a -> a) -> a) =
       rec x((is-leaf; s) <+ skip(x) <+ all(x))

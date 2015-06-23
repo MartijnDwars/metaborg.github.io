@@ -146,7 +146,7 @@ Rules `Mem2` and `Mem3` have overlapping left-hand sides. Rule `Mem2` only appli
     stratego> Mem3
     Mem(1,[2,3])
 
-In such situations, depending on the order of the rules, differents results are produced. (The rules form a non-confluent rewriting system.) By ordering the rules as `Mem2 <\+ Mem3`, rule `Mem2` is tried before `Mem3`, and we have a deterministic transformation strategy.
+In such situations, depending on the order of the rules, different results are produced. (The rules form a non-confluent rewriting system.) By ordering the rules as `Mem2 <\+ Mem3`, rule `Mem2` is tried before `Mem3`, and we have a deterministic transformation strategy.
 
 **Try**: A useful application of `<+` in combination with `id` is the reflexive closure of a strategy `s`:
 
@@ -186,7 +186,7 @@ However, sequential composition distributes over guarded choice from left _and_ 
 
     not(s) = s < fail + id
 
-Since failure discards the effect of a (succesful) transformation, this has the effect of testing whether `s` succeeds. So we have the following laws for `not`:
+Since failure discards the effect of a (successful) transformation, this has the effect of testing whether `s` succeeds. So we have the following laws for `not`:
 
     not(id) = fail
     not(fail) = id
@@ -199,7 +199,7 @@ Another example of the use of guarded choice is the `restore-always` combinator:
 
     restore-always(s, r) = s < r + (r; fail)
 
-It applies a 'restore' strategy `r` after applying a strategy `s`, even if `s` fails, and preserves the success/failure behaviour of `s`. Since `fail` discards the transformation effect of `r`, this is mostly useful for ensuring that some side-effecting operation is done (or undone) after applying `s`.
+It applies a 'restore' strategy `r` after applying a strategy `s`, even if `s` fails, and preserves the success/failure behavior of `s`. Since `fail` discards the transformation effect of `r`, this is mostly useful for ensuring that some side-effecting operation is done (or undone) after applying `s`.
 
 For other applications of guarded choice, Stratego provides syntactic sugar.
 
