@@ -14,7 +14,7 @@ This book is split into the following chapters. This instruction is the first. T
 The rest of the chapters explain the Stratego language in more detail:
 
 * [Rules and strategies](#rules-and-strategies) - Reusable rewrite rules and strategies.
-* [Strategy combinators](#strategy-combinators) - Combination of simple transofmrations into more complex ones.
+* [Strategy combinators](#strategy-combinators) - Combination of simple transformations into more complex ones.
 * [Creating and analyzing terms](#creating-and-analyzing-terms) - Building and matching terms.
 * [Traversal strategies](#traversal-strategies) - Generic and datatype-specific traversal combinators.
 * [Type-unifying strategies](#type-unifying-strategies) - Using type-unifying strategies to define program analyses.
@@ -57,7 +57,7 @@ Exhaustive application of all rules to the entire abstract syntax tree of a prog
 Stratego solves the problem of control over the application of rules while maintaining the separation of rules and strategies. A strategy is a little program that makes a selection from the available rules and defines the order and position in the tree for applying the rules. Thus rules remain pure, are not intertwined with the strategy, and can be reused in multiple transformations.
 
 
-## 1.4. Context-Senstive Transformation
+## 1.4. Context-Sensitive Transformation
 
 The second problem of rewriting is the context-free nature of rewrite rules. A rule has access only to the term it is transforming. However, transformation problems are often context-sensitive. For example, when inlining a function at a call site, the call is replaced by the body of the function in which the actual parameters have been substituted for the formal parameters. This requires that the formal parameters and the body of the function are known at the call site, but these are only available higher-up in the syntax tree. There are many similar problems in program transformation, including bound variable renaming, typechecking, data flow transformations such as constant propagation, common-subexpression elimination, and dead code elimination. Although the basic transformations in all these applications can be expressed by means of rewrite rules, these require contextual information.
 
