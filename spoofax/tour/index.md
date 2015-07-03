@@ -12,7 +12,7 @@ image:
 context: spoofax
 ---
 
-Note: this tour is out-of-date.
+__Note: This tour is out-of-date. Consider it as an impression of the features that Spoofax provides. Not as a tutorial.__
 
 <section id="table-of-contents" class="toc"> 
   <header> <h3>Overview</h3> </header>
