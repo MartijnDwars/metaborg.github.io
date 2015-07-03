@@ -2,17 +2,17 @@
 
 ## Spoofax Installation
 
-We highly recommend to work with a fresh Eclipse and Spoofax installation. You can get a copy of Eclipse with Spoofax pre-installed from the USB sticks we distributed in the room. Alternatively, you can download a copy for your OS and architecture:
+We highly recommend to work with a fresh Eclipse and Spoofax installation. You can download a copy for your OS and architecture:
 
-* [MacOSX 64 bit](http://download.spoofax.org/update/installations/spoofax-macosx-x86_64.zip)
-* [Linux 64 bit](http://download.spoofax.org/update/installations/spoofax-linux-x86_64.zip)
-* [Linux 32 bit](http://download.spoofax.org/update/installations/spoofax-linux-x86.zip )
-* [Windows 64 bit](http://download.spoofax.org/update/installations/spoofax-win32-x86_64.zip)
-* [Windows 32 bit](http://download.spoofax.org/update/installations/spoofax-win32-x86.zip)
+* [MacOSX 64 bit](http://buildfarm.metaborg.org/job/spoofax-master/lastSuccessfulBuild/artifact/dist/spoofax-macosx-x64-jre.zip)
+* [Linux 64 bit](http://buildfarm.metaborg.org/job/spoofax-master/lastSuccessfulBuild/artifact/dist/spoofax-linux-x64-jre.zip)
+* [Linux 32 bit](http://buildfarm.metaborg.org/job/spoofax-master/lastSuccessfulBuild/artifact/dist/spoofax-linux-x86-jre.zip)
+* [Windows 64 bit](http://buildfarm.metaborg.org/job/spoofax-master/lastSuccessfulBuild/artifact/dist/spoofax-windows-x64-jre.zip)
+* [Windows 32 bit](http://buildfarm.metaborg.org/job/spoofax-master/lastSuccessfulBuild/artifact/dist/spoofax-windows-x86-jre.zip)
 
 ## Initial Spoofax Project
 
-You should start with a fresh Eclipse workspace and import the prepared Spoofax projects into the workspace. You can either [download the archive](http://download.spoofax.org/update/tutorial/spoofax-hands-on-ipa2015.zip) or get it from the USB sticks (file name `spoofax-hands-on.zip`) we distributed in the room.
+You should start with a fresh Eclipse workspace and import the prepared Spoofax projects into the workspace. You can either [clone the git repository](https://github.com/metaborg/lwc2013) or [download the archive](http://download.spoofax.org/update/tutorial/spoofax-hands-on-ipa2015.zip).
 
 1. Start Eclipse.
 2. Select a fresh workspace.
