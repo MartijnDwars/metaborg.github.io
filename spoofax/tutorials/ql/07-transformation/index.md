@@ -1,3 +1,31 @@
+---
+layout: page
+title: "Spoofax QL | 7 | Transformation"
+modified:
+excerpt:
+tags: []
+image:
+  feature: 
+  credit:  
+  creditlink: 
+toc: true
+share: true
+context: spoofax
+---
+
+<section id="table-of-contents" class="toc">
+  <header> <h3>Overview</h3> </header>
+  <div id="drawer" markdown="1">
+  *  Auto generated table of contents
+  {:toc}
+  </div>
+</section><!-- /#table-of-contents -->
+
+[[start](/spoofax/tutorials/ql) | 
+[previous](/spoofax/tutorials/ql/06-disambiguation) | 
+[next](/spoofax/tutorials/ql/08-analysis)]
+
+
 # Transformations
 
 In case you did not finish your syntax definition, we provide you a working solution in project `org.spoofax.lang.lwc.ql.syntax`. You can open and build this project and continue the hands-on session from there. If you do, close your previous project.

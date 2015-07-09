@@ -15,7 +15,7 @@ context: spoofax
 
 
 
-* [Questionnaire Language](/spoofax/tutorials/cg2014)
+* [Questionnaire Language](/spoofax/tutorials/ql)
 
 ### External tutorials
 

@@ -1,4 +1,29 @@
-# The Language
+---
+layout: page
+title: "Spoofax QL | 2 | The QL Language"
+modified:
+excerpt:
+tags: []
+image:
+  feature: 
+  credit:  
+  creditlink: 
+toc: true
+share: true
+context: spoofax
+---
+
+<section id="table-of-contents" class="toc">
+  <header> <h3>Overview</h3> </header>
+  <div id="drawer" markdown="1">
+  *  Auto generated table of contents
+  {:toc}
+  </div>
+</section><!-- /#table-of-contents -->
+
+[[start](/spoofax/tutorials/ql) | 
+[previous](/spoofax/tutorials/ql/01-setup) | 
+[next](/spoofax/tutorials/ql/03-language-interaction)]
 
 In this tutorial you will develop a language definition for *QL*, a simple DSL for describing form-based questionnaires. Such questionnaires are characterized by conditional entry fields and (spreadsheet-like) dependency-directed computation.
 The language and this description originates from the Language Workbench Challenge 2013.
@@ -26,3 +51,12 @@ A questionnaire consists of a number of questions arranged in sequential and con
 For expressions we restrict ourselves to booleans (e.g., `&&`, `||` and `!`), comparisons (`<`, `>`, `>=`, `<=`, `!=` and `==`) and basic arithmetic (`+`, `-`, `*` and `/`). The required types are `boolean`, `string`, `integer`, `date` and `decimal` and `money`.
 
 Next, you define the syntax of QL in Spoofax.
+
+## Objectives
+
+Make the *QL* editor syntax-aware and support the following editor features:
+
+* syntax highlighting
+* syntax errors
+* completion templates
+* code folding
