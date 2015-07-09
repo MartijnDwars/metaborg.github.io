@@ -25,9 +25,6 @@ context: spoofax
 [previous](/spoofax/tutorials/ql/06-disambiguation) | 
 [next](/spoofax/tutorials/ql/08-analysis)]
 
-
-# Transformations
-
 In case you did not finish your syntax definition, we provide you a working solution in project `org.spoofax.lang.lwc.ql.syntax`. You can open and build this project and continue the hands-on session from there. If you do, close your previous project.
 
 ## Objectives
