@@ -72,6 +72,10 @@
   url: /dev/develop/
   context: dev
 
+- title: "New Spoofax plugin"
+  url: /dev/newplugin/
+  context: dev
+
 - title: "Website"
   url: /dev/website/
   context: dev
