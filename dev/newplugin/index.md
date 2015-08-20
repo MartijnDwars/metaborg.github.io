@@ -12,6 +12,9 @@ context: dev
 
 # Building
 
+Maven 3.3 is incompatible with the Spoofax Maven plugin, you should use Maven 3.2.5. On OSX with homebrew you can downgrade by uninstalling Maven 3.3 with 'brew uninstall maven' and installing Maven 3.2 with 'brew install homebrew/versions/maven32'.
+{: .notice .notice-warning}
+
 The build instructions are mostly unchanged. The only difference is that you should check out the `new-spoofax-plugin` branch of `spoofax-releng`. Please follow [Building Spoofax and StrategoXT](/dev/build/#building-spoofax-and-strategoxt) for build instructions.
 
 # Development
