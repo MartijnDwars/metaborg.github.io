@@ -70,6 +70,7 @@ Switching to a different branch, for example the `spoofax-release` branch, is do
 {% highlight bash %}
 git checkout spoofax-release
 git pull --rebase
+git submodule update --init --remote --recursive
 ./releng checkout
 ./releng update
 {% endhighlight %}
