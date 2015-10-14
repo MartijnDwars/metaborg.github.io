@@ -31,7 +31,7 @@ successful build of Spoofax and not for the official releases.
 # Eclipse Plugin
 
 To install Spoofax, all you need is [JRE 7 or higher](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 
-and a copy of Eclipse. Eclipse versions 4.3 to 4.5 are supported, but we recommend [Eclipse Mars (4.5)](http://www.eclipse.org/downloads/) variant [Eclipse IDE for Java Developers](http://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/marsr).
+and a copy of Eclipse. Eclipse versions 4.3 to 4.4 are supported, but we recommend [Eclipse Luna (4.4)](http://www.eclipse.org/downloads/) variant [Eclipse IDE for Java Developers](http://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/lunasr1).
 Make sure that Eclipse detects the correct JRE (_Window_ &rarr; _Preferences_ &rarr; _Java_ &rarr; _Installed JREs_) and that the JDK compliance level is set to 1.7 or higher (_Window_ &rarr; _Preferences_ &rarr; _Java_ &rarr; _Compiler_).
 
 Spoofax runs on Windows, Linux, and Mac OS X.
