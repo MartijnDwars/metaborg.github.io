@@ -12,10 +12,94 @@ context: dev
 
 # Building
 
-Maven 3.3 is incompatible with the Spoofax Maven plugin, you should use Maven 3.2.5. On OSX with homebrew you can downgrade by uninstalling Maven 3.3 with 'brew uninstall maven' and installing Maven 3.2 with 'brew install homebrew/versions/maven32'.
-{: .notice .notice-warning}
+The [build instructions](/dev/build/#building-spoofax-and-strategoxt) can for the most part also be used for building the new Spoofax plugin.
+There are some differences:
+1. You need to check out the `new-spoofax-plugin` branch of `spoofax-releng`.
+2. Maven 3.2.5 is required to build Spoofax, Maven 3.3, and some versions of Maven 3.2 have bugs that fail the build. On OSX with homebrew you can downgrade by uninstalling Maven 3.3 with 'brew uninstall maven' and installing Maven 3.2 with 'brew install homebrew/versions/maven32'.
+3. Use the following Maven profiles instead of the ones listed in the [using MetaBorg Maven artifacts](/dev/maven/#using-metaborg-maven-artifacts) instructions:
+```xml
+<profile>
+  <id>add-metaborg-release-repos</id>
+  <activation>
+    <activeByDefault>true</activeByDefault>
+  </activation>
+  <repositories>
+    <repository>
+      <id>metaborg-release-repo</id>
+      <url>http://artifacts.metaborg.org/content/repositories/releases/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>metaborg-release-repo</id>
+      <url>http://artifacts.metaborg.org/content/repositories/releases/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+</profile>
 
-The build instructions are mostly unchanged. The only difference is that you should check out the `new-spoofax-plugin` branch of `spoofax-releng`. Please follow [Building Spoofax and StrategoXT](/dev/build/#building-spoofax-and-strategoxt) for build instructions.
+<profile>
+  <id>add-metaborg-snapshot-repos</id>
+  <activation>
+    <activeByDefault>true</activeByDefault>
+  </activation>
+  <repositories>
+    <repository>
+      <id>metaborg-snapshot-repo</id>
+      <url>http://artifacts.metaborg.org/content/repositories/core-snapshots/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>metaborg-snapshot-repo</id>
+      <url>http://artifacts.metaborg.org/content/repositories/core-snapshots/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+</profile>
+
+<profile>
+  <id>add-spoofax-eclipse-repos</id>
+  <activation>
+    <activeByDefault>true</activeByDefault>
+  </activation>
+  <repositories>
+    <repository>
+      <id>spoofax-eclipse-repo</id>
+      <url>http://download.spoofax.org/update/newplugin-nightly/</url>
+      <layout>p2</layout>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+</profile>
+```
 
 # Development
 
