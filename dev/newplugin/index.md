@@ -17,7 +17,8 @@ There are some differences:
 
 1. You need to use the `new-spoofax-plugin` branch of `spoofax-releng`. Clone with `git clone https://github.com/metaborg/spoofax-releng.git -b new-spoofax-plugin`, or [switch to the new-spoofax-plugin branch](/dev/build/#switching-to-a-different-branch) if you have an existing checkout.
 2. Maven 3.2.5 is required to build Spoofax, Maven 3.3, and some versions of Maven 3.2 have bugs that fail the build. On OSX with homebrew you can downgrade by uninstalling Maven 3.3 with `brew uninstall maven` and installing Maven 3.2 with `brew install homebrew/versions/maven32`.
-3. Use the following Maven profiles instead of the ones listed in the [using MetaBorg Maven artifacts](/dev/maven/#using-metaborg-maven-artifacts) instructions:
+3. The `./releng` command was renamed to `./b`.
+4. Use the following Maven profiles instead of the ones listed in the [using MetaBorg Maven artifacts](/dev/maven/#using-metaborg-maven-artifacts) instructions:
 {% highlight xml %}
 <profile>
   <id>add-metaborg-release-repos</id>
