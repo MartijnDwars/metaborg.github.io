@@ -4,7 +4,7 @@ title:            MetaBorg
 locale:           en_US
 #url:              http://localhost:4000
 #url: 							http://metaborg.github.io
-url: http://metaborg.org
+#url: http://metaborg.org
 
 sideimage: 				/images/StrategoLogoTextless.png
 
@@ -33,17 +33,17 @@ owner:
   name: MetaBorg Software Foundation
   avatar: bio-photo.jpg
   bio: "Language engineer"
-  email: 
-  disqus-shortname: 
+  email:
+  disqus-shortname:
   twitter: #username
   facebook: #username
   google:
     plus: #username
-    analytics: 
-    verify: 
-    ad-client: 
-    ad-slot: 
-  bing-verify: 
+    analytics:
+    verify:
+    ad-client:
+    ad-slot:
+  bing-verify:
   github: #username
   stackoverflow: #http://stackoverflow.com/users/123456/username
   linkedin: #username
