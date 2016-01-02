@@ -1,4 +1,17 @@
-# Semantic Analyses
+---
+layout: page
+title: "Spoofax QL | 8 | Semantic Analysis"
+modified:
+excerpt:
+tags: []
+image:
+  feature: 
+  credit:  
+  creditlink: 
+toc: true
+share: true
+context: spoofax
+---
 
 ## Objectives
 
