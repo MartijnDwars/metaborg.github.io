@@ -1,16 +1,16 @@
 ---
 title: Spoofax Dependencies and Licenses
 layout: page
-modified: 
+modified:
 excerpt: ""
 image:
-  feature: 
-  credit: 
-  creditlink: 
+  feature:
+  credit:
+  creditlink:
 context: dev
 ---
 
-<section id="table-of-contents" class="toc"> 
+<section id="table-of-contents" class="toc">
   <header> <h3>Overview</h3> </header>
   <div id="drawer" markdown="1">
   *  Auto generated table of contents
@@ -53,4 +53,3 @@ Name                           | Website                                        
 Maven                          | <http://maven.apache.org/>                                                                                          | [Apache 2.0](http://www.tldrlegal.com/l/apache2)
 Ant                            | <http://ant.apache.org/>                                                                                            | [Apache 2.0](http://www.tldrlegal.com/l/apache2)
 Ant contrib                    | <http://ant-contrib.sourceforge.net/>                                                                               | [Apache 2.0](http://www.tldrlegal.com/l/apache2)
-

@@ -4,7 +4,7 @@ This section describes how to set up Maven, which is a requirement for building 
 
 ## Requirements
 
-Maven requires a Java compiler, so a JDK needs to be installed on your computer, since the JRE does not ship with a Java compiler. The latest JDK can be downloaded and installed from: <http://www.oracle.com/technetwork/java/javase/downloads/index.html>.
+Maven requires a Java compiler, so a JDK needs to be installed on your computer, since the JRE does not ship with a Java compiler. The latest JDK can be downloaded and installed from: <http://www.oracle.com/technetwork/java/javase/downloads/index.html>. We require at least JDK7.
 
 On OSX, it can be a bit tricky to use the installed JDK, because Apple by default installs JRE 6. To check which version of Java you are running, execute the `java -version` command. If this tells you that the Java version is 1.7, everything is fine. If not, the Java version can be set with a command. After you have installed JDK 7, execute:
 
@@ -18,7 +18,7 @@ Confirm your JDK installation and version by executing `java -version` and `java
 
 ## Installing
 
-Maven can be downloaded and installed from <http://maven.apache.org/download.cgi>. We require at least Maven 3.2, and recommend Maven 3.2.5.
+Maven can be downloaded and installed from <http://maven.apache.org/download.cgi>. We require Maven 3.2.5 or 3.3.9 (exact versions), and recommend Maven 3.3.9.
 
 Maven can be easily installed on OSX with Homebrew by executing `brew install maven`. Confirm the installation and version by running `mvn --version`.
 

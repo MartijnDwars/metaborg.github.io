@@ -12,23 +12,13 @@ The recommended approach is to add repositories to your local Maven settings fil
   xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">  
   <profiles>
     <profile>
-      <id>add-metaborg-repositories</id>
+      <id>add-metaborg-release-repos</id>
       <activation>
         <activeByDefault>true</activeByDefault>
       </activation>
       <repositories>
         <repository>
-          <id>metaborg-nexus-snapshots</id>
-          <url>http://artifacts.metaborg.org/content/repositories/snapshots/</url>
-          <releases>
-            <enabled>false</enabled>
-          </releases>
-          <snapshots>
-            <enabled>true</enabled>
-          </snapshots>
-        </repository>
-        <repository>
-          <id>metaborg-nexus-releases</id>
+          <id>metaborg-release-repo</id>
           <url>http://artifacts.metaborg.org/content/repositories/releases/</url>
           <releases>
             <enabled>true</enabled>
@@ -37,8 +27,60 @@ The recommended approach is to add repositories to your local Maven settings fil
             <enabled>false</enabled>
           </snapshots>
         </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>metaborg-release-repo</id>
+          <url>http://artifacts.metaborg.org/content/repositories/releases/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+
+    <profile>
+      <id>add-metaborg-snapshot-repos</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <repositories>
         <repository>
-          <id>spoofax-nightly</id>
+          <id>metaborg-snapshot-repo</id>
+          <url>http://artifacts.metaborg.org/content/repositories/snapshots/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>metaborg-snapshot-repo</id>
+          <url>http://artifacts.metaborg.org/content/repositories/ snapshots/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+
+    <profile>
+      <id>add-spoofax-eclipse-repos</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <repositories>
+        <repository>
+          <id>spoofax-eclipse-repo</id>
           <url>http://download.spoofax.org/update/nightly/</url>
           <layout>p2</layout>
           <releases>
@@ -49,28 +91,6 @@ The recommended approach is to add repositories to your local Maven settings fil
           </snapshots>
         </repository>
       </repositories>
-      <pluginRepositories>
-        <pluginRepository>
-          <id>metaborg-nexus-snapshots</id>
-          <url>http://artifacts.metaborg.org/content/repositories/snapshots/</url>
-          <releases>
-            <enabled>false</enabled>
-          </releases>
-          <snapshots>
-            <enabled>true</enabled>
-          </snapshots>
-        </pluginRepository>
-        <pluginRepository>
-          <id>metaborg-nexus-releases</id>
-          <url>http://artifacts.metaborg.org/content/repositories/releases/</url>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
-        </pluginRepository>
-      </pluginRepositories>
     </profile>
   </profiles>
 </settings>
@@ -86,59 +106,59 @@ To do this, just add the the following content to the POM file:
 
 {% highlight xml %}
 <repositories>
-  <repository>
-    <id>metaborg-nexus-snapshots</id>
-    <url>http://artifacts.metaborg.org/content/repositories/snapshots/</url>
-    <releases>
-      <enabled>false</enabled>
-    </releases>
-    <snapshots>
-      <enabled>true</enabled>
-    </snapshots>
-  </repository>
-  <repository>
-    <id>metaborg-nexus-releases</id>
-    <url>http://artifacts.metaborg.org/content/repositories/releases/</url>
-    <releases>
-      <enabled>true</enabled>
-    </releases>
-    <snapshots>
-      <enabled>false</enabled>
-    </snapshots>
-  </repository>
-  <repository>
-    <id>spoofax-nightly</id>
-    <url>http://download.spoofax.org/update/nightly/</url>
-    <layout>p2</layout>
-    <releases>
-      <enabled>false</enabled>
-    </releases>
-    <snapshots>
-      <enabled>false</enabled>
-    </snapshots>
-  </repository>
+	<repository>
+		<id>metaborg-release-repo</id>
+		<url>http://artifacts.metaborg.org/content/repositories/releases/</url>
+		<releases>
+			<enabled>true</enabled>
+		</releases>
+		<snapshots>
+			<enabled>false</enabled>
+		</snapshots>
+	</repository>
+	<repository>
+		<id>metaborg-snapshot-repo</id>
+		<url>http://artifacts.metaborg.org/content/repositories/snapshots/</url>
+		<releases>
+			<enabled>false</enabled>
+		</releases>
+		<snapshots>
+			<enabled>true</enabled>
+		</snapshots>
+	</repository>
+	<repository>
+		<id>spoofax-eclipse-repo</id>
+		<url>http://download.spoofax.org/update/nightly/</url>
+		<layout>p2</layout>
+		<releases>
+			<enabled>false</enabled>
+		</releases>
+		<snapshots>
+			<enabled>false</enabled>
+		</snapshots>
+	</repository>
 </repositories>
 
 <pluginRepositories>
-  <pluginRepository>
-    <id>metaborg-nexus-snapshots</id>
-    <url>http://artifacts.metaborg.org/content/repositories/snapshots/</url>
-    <releases>
-      <enabled>false</enabled>
-    </releases>
-    <snapshots>
-      <enabled>true</enabled>
-    </snapshots>
-  </pluginRepository>
-  <pluginRepository>
-    <id>metaborg-nexus-releases</id>
-    <url>http://artifacts.metaborg.org/content/repositories/releases/</url>
-    <releases>
-      <enabled>true</enabled>
-    </releases>
-    <snapshots>
-      <enabled>false</enabled>
-    </snapshots>
-  </pluginRepository>
+	<pluginRepository>
+		<id>metaborg-release-repo</id>
+		<url>http://artifacts.metaborg.org/content/repositories/releases/</url>
+		<releases>
+			<enabled>true</enabled>
+		</releases>
+		<snapshots>
+			<enabled>false</enabled>
+		</snapshots>
+	</pluginRepository>
+	<pluginRepository>
+		<id>metaborg-snapshot-repo</id>
+		<url>http://artifacts.metaborg.org/content/repositories/snapshots/</url>
+		<releases>
+			<enabled>false</enabled>
+		</releases>
+		<snapshots>
+			<enabled>true</enabled>
+		</snapshots>
+	</pluginRepository>
 </pluginRepositories>
 {% endhighlight %}
