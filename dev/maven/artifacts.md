@@ -62,7 +62,7 @@ The recommended approach is to add repositories to your local Maven settings fil
       <pluginRepositories>
         <pluginRepository>
           <id>metaborg-snapshot-repo</id>
-          <url>http://artifacts.metaborg.org/content/repositories/ snapshots/</url>
+          <url>http://artifacts.metaborg.org/content/repositories/snapshots/</url>
           <releases>
             <enabled>false</enabled>
           </releases>
