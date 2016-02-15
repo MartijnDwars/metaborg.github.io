@@ -18,7 +18,7 @@ Confirm your JDK installation and version by executing `java -version` and `java
 
 ## Installing
 
-Maven can be downloaded and installed from <http://maven.apache.org/download.cgi>. We require Maven 3.2.5 or 3.3.9 (exact versions), and recommend Maven 3.3.9.
+Maven can be downloaded and installed from <http://maven.apache.org/download.cgi>. We require Maven 3.3.9 or higher.
 
 Maven can be easily installed on OSX with Homebrew by executing `brew install maven`. Confirm the installation and version by running `mvn --version`.
 
