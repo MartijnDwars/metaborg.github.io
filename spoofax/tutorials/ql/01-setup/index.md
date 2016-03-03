@@ -36,7 +36,7 @@ We highly recommend to work with a fresh Eclipse and Spoofax installation. You c
 
 ## Initial Spoofax Project
 
-You should start with a fresh Eclipse workspace and import the prepared Spoofax projects into the workspace. You can either [clone the git repository](https://github.com/metaborgcube/metaborg-ql) (select the dsldi-2015 branch) or [download the archive](http://download.spoofax.org/update/tutorial/spoofax-hands-on-ipa2015.zip).
+You should start with a fresh Eclipse workspace and import the prepared Spoofax projects into the workspace. You can either [clone the git repository](https://github.com/metaborgcube/metaborg-ql) (select the dsldi-2015 branch) or [download the archive](https://github.com/MetaBorgCube/metaborg-ql/archive/dsldi-2015.zip).
 
 1. Start Eclipse.
 2. Select a fresh workspace.
