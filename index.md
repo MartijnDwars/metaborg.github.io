@@ -20,7 +20,6 @@ MetaBorg is a [collection](#collection) of meta-programming tools including the 
 Software repositories
 
 * <https://github.com/metaborg>
-* <https://svn.strategoxt.org/repoman/info/StrategoXT>
 
 <!-- [MetaBorg Software Foundation](/metaborg/foundation/) -->
 

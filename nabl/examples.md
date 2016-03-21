@@ -10,14 +10,13 @@ We discuss the integration of the algorithm into the Spoofax language workbench 
 
 The following are example projects using NaBL for name binding:
 
-* C# NaBL project: <https://svn.strategoxt.org/repos/StrategoXT/spoofax-contrib/separate-compilation-examples/csharp-partial-classes-naming/>
-* Other examples: <https://svn.strategoxt.org/repos/StrategoXT/spoofax-contrib/separate-compilation-examples/>
+* C# NaBL project: <https://github.com/MetaBorgCube/spoofax-csharp>
 
 ### Source Code
 
 Our source code can be found on our SVN repository:
 
-* Name Binding Language: <https://svn.strategoxt.org/repos/StrategoXT/spoofax-imp/trunk/org.strategoxt.imp.names/>
+* Name Binding Language: <https://github.com/Metaborg/nabl>
 * Index Stratego API: <https://svn.strategoxt.org/repos/StrategoXT/spoofax/trunk/spoofax/org.spoofax.interpreter.library.language/src/main/stratego/lib/>
 * Index Java Backend: https://svn.strategoxt.org/repos/StrategoXT/spoofax/trunk/spoofax/org.spoofax.interpreter.library.language/src/main/java/org/spoofax/interpreter/library/language/
 
